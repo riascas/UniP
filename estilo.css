@@ -1,0 +1,21 @@
+/*Media query para Clase botones mobile, sino lo defino los botones se rompen*/
+
+@media (max-width: 575px) {
+   .box-btn .boton-formulario {
+    width: 100%;
+    margin-bottom: 8px;
+
+   }  
+}
+h2{
+    margin-top:100px;
+}
+
+h3 {
+
+    text-align: center;
+}
+
+.checkbox{
+    text-align: right;
+}
