@@ -20,3 +20,9 @@ h3 {
 .checkbox{
     text-align: right;
 }
+
+button {
+    cursor: pointer !important;
+    margin-top: 20px !important;
+    height: 40px !important;
+}
