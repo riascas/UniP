@@ -7,15 +7,15 @@
 
    }  
 }
-h2{
-    margin-top:100px;
+body{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
 }
 
-h3 {
 
-    text-align: center;
-}
-
-.checkbox{
-    text-align: right;
-}
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
