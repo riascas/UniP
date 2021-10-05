@@ -19,3 +19,7 @@ body{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+.tb-reclutadores tr td{
+    color : white;
+}
