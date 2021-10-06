@@ -27,10 +27,7 @@
                 <a class="nav-link" href="#">Administracion</a>
               </li>
               <li class="nav-item dropdown">
-                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                      </a> -->
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li>
@@ -39,135 +36,115 @@
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-              <!-- <li class="nav-item">
-                      <a class="nav-link disabled">Disabled</a>
-                    </li> -->
             </ul>
-            <!-- <form class="d-flex">
-                      Colocar boton de inicio y cerrar sesion en esta parte
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
-          </div>
+           </div>
         </div>
-      </nav>
+    </nav>
       <div class="container">
-        <div>
-                 <h1>Registrarme a UniP</h1>
-        <!--<h3>Información personal</h3>-->
-        </div>
+      <div>
+          <h2 class="h2 text-white text-left">Registrarme a UniP</h2>
+      </div>
         <div class="text-center">
-                 <h2>Datos personales</h2>
+        <h4 class="h2 text-white text-center">Datos personales</h4>
         </div>  
-       
-        <div>
-
         <form action="/action_page.php">   
 
-            <div class="form-group row">
-                
-                <div class="form-group col-md-4">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Ingrese nombre" id="nombre">                    
-                </div>
+        <div class="form-group row">
+            
+            <div class="form-group col-md-4">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" placeholder="Ingrese nombre" id="nombre">                    
+            </div>
 
-                <div class="form-group col-md-4">
-                    <label for="Apellido">Apellido</label>
-                    <input type="text" class="form-control" placeholder="Ingrese apellido" id="apellido"> 
-                </div>
+            <div class="form-group col-md-4">
+                <label for="Apellido">Apellido</label>
+                <input type="text" class="form-control" placeholder="Ingrese apellido" id="apellido"> 
+            </div>
 
-                <div class="form-group col-md-4">
-                    <label for="nombre">Fecha de nacimiento</label>
-                    <input type="date" max="8" class="form-control"  id="FechaNac"> 
-                </div>
+            <div class="form-group col-md-4">
+                <label for="nombre">Fecha de nacimiento</label>
+                <input type="date" max="8" class="form-control"  id="FechaNac"> 
+            </div>
                 
             </div>
 
-                <h2>Datos de la organización</h2>
+                <h5>Datos de la organización</h5>
 
-                <div class="form-floating">
-                    
-                            <div class="input-group mb-4">
-                                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
-                                <input type="email" class="form-control" placeholder="Ingrese su email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            
-                            </div>
-                            <div class="row">
-                                <div class="form-floating mb-4 col-sm-6">
-                                        <label for="floatingPassword">Ingrese una contraseña</label>
-                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
-                                </div>
-
-                                <div class="form-floating mb-4 col-sm-6">
-                                    <label for="floatingPassword">Repita su contraseña</label>
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
-                                </div>
-                            </div> 
-                                
-                            
-                            <label for="basic-url" class="form-label">URL de la empresa</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">https://ejemplo.com/usuario/</span>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                            </div>
-                                                   
-                            <div class="form-floating mb-4">
-                                <label for="floatingPassword">Ingrese CUIT</label>
-                                <input type="number" class="form-control" id="floatingPassword" placeholder="xx-xxxxxxxx-x">               
-                            </div>
-
-                            
-                            <div class="form-group row"> 
-                                <label for="" class="col-sm-2 form-control-label">Country</label> 
-                                <div class="col-sm-10"> 
-                                       <select class="form-control selectpicker" id="select-country" data-live-search="true"> 
-                                           <option data-tokens="china">China</option>
-                                           <option data-tokens="malayasia">Malayasia</option>
-                                           <option data-tokens="singapore">Singapore</option> 
-                                       </select> 
-                                   </div>
-                               </div> 
-                            
-                            
-                            <div class="input-group">
-                                <label class="input-group-text">Resumen de la empresa</label>
-                                <textarea class="form-control" aria-label="With textarea"></textarea>
-                            </div>
-        
-                </div>    
+        <div class="form-floating">
+    
+            <div class="input-group mb-4">
+                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                <input type="email" class="form-control" placeholder="Ingrese su email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            
             </div>
-        </div>  
+            <div class="row">
+                <div class="form-floating mb-4 col-sm-6">
+                        <label for="floatingPassword">Ingrese una contraseña</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
+                </div>
+
+                <div class="form-floating mb-4 col-sm-6">
+                    <label for="floatingPassword">Repita su contraseña</label>
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
+                </div>
+        </div> 
+                
+            
+            <label for="basic-url" class="form-label">URL de la empresa</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">https://ejemplo.com/usuario/</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+                                    
+            <div class="form-floating mb-4">
+                <label for="floatingPassword">Ingrese CUIT</label>
+                <input type="number" class="form-control" id="floatingPassword" placeholder="xx-xxxxxxxx-x">               
+            </div>
+
+            
+            <div class="form-group row"> 
+                <label for="" class="col-sm-2 form-control-label">Tipo de ente</label> 
+                <div class="col-sm-10"> 
+                        <select class="form-control selectpicker" id="select-country" data-live-search="true"> 
+                            <option data-tokens="Recursos-humanos">Recursos humanos</option>
+                            <option data-tokens="Consultora">Consultora IT</option>
+                            <option data-tokens="Particular">Particular</option> 
+                        </select> 
+                </div>
+            </div> 
+            
+            
+            <div class="input-group">
+                <label class="input-group-text">Resumen de la empresa</label>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+        </div>    
+     </div>
+ 
                                                     <!--Botones-->
 
-            <div class="row box-btn">
-
-                <div class="col-sm-6 col-12"></div>
+        <div class="row box-btn">
+            <div class="col-sm-6 col-12">
+                </div>
                     <div class="col-sm-6 col-12">
-                        
                         <div class="row">
-                            <div class="col-sm-8 col-12 checkbox">    
-                                                         
-                                    <input class="form-check-input" type="checkbox">Recordarme</label> 
-
+                            <div class="col-sm-8 checkbox">    
+                                <input class="form-check-input" type="checkbox">Recordarme</label> 
                             </div>    
 
-                            <div class="col-sm-2 col-12">
-
-                                        <button type="reset" class="btn btn-primary boton-formulario btn-dark">Cancelar</button>         
+                            <div class="col-sm-2">
+                                <button type="reset" class="btn btn-primary boton-formulario btn-dark">Cancelar</button>         
                             </div>
 
-                            <div class="col-sm-2 col-12">
-
-                                        <button type="submit" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
+                            <div class="col-sm-2">
+                                 <button type="submit" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
                             </div>    
-                    
                         </div>
-            
-
                     </div>   
+                <div>
+            </div>
 
-                </div>
-
-        </form>
+        </div>
                                
 </body>
 </html>
