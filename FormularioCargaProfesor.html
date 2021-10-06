@@ -12,12 +12,49 @@
 
 </head>
 <body>
-
-        <div class="jumbotron text-center">
-                 <h1>Administrar profesores</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Unip</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pantalla-principal-administrador.html">Administración</a>
+          </li>
+          <li class="nav-item dropdown">
+            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a> -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li> -->
+        </ul>
+       
+          <button class="btn text-left">Volver</button>
+        
+      </div>
+    </div>
+  </nav>
+        <div>
+                 <h1 class="h1 text-white text-left">Administrar profesores</h1>
         <!--<h3>Información personal</h3>-->
         </div>
-        <div class="text-center">
+        <div class="h1 text-white text-center">
                  <h2>Datos personales</h2>
         </div>  
        
@@ -88,17 +125,17 @@
                         <!--Formulario de asignacion de materias-->
 
                                 <div class="container">
-                                    <h3>Materias a cargo</h3>  
+                                    <h3 class="h3 text-white text-left">Materias a cargo</h3>  
                         
 
                                         <div class="row">
                                             <div class="form-group col-md-4">
-                                                <label for="nombre">Carrera</label>
+                                                <label for="nombre">Materia</label>
                                                 <input type="text" class="form-control" placeholder="Ingrese nombre" id="nombre">                    
                                             </div>
 
                                             <div class="form-group col-md-4">
-                                                <label for="Apellido">Materias</label>
+                                                <label for="Apellido">Dia y Horario</label>
                                                 <input type="select" class="form-control" placeholder="Ingrese apellido" id="apellido"> 
                                             </div>
 
@@ -149,12 +186,12 @@
 
                                                         <div class="col-sm-2 col-12">
 
-                                                                    <button type="reset" class="btn btn-primary boton-formulario">Cancelar</button>         
+                                                                    <button type="reset" class="btn btn-primary boton-formulario btn-dark">Cancelar</button>         
                                                         </div>
 
                                                         <div class="col-sm-2 col-12">
 
-                                                                    <button type="submit" class="btn btn-primary boton-formulario">Guardar</button>
+                                                                    <button type="submit" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
                                                         </div>    
                                                 
                                                     </div>
@@ -169,7 +206,7 @@
 
 
             </form>
-
+         
         </div>  
 
         <!--Asignacion de usuario y contraseña-->
