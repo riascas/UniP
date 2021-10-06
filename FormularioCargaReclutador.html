@@ -10,10 +10,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
-<body class="container">
-
-
-        <div class="jumbotron text-center">
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Unip</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Mi Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Administracion</a>
+              </li>
+              <li class="nav-item dropdown">
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                      </a> -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <!-- <li class="nav-item">
+                      <a class="nav-link disabled">Disabled</a>
+                    </li> -->
+            </ul>
+            <!-- <form class="d-flex">
+                      Colocar boton de inicio y cerrar sesion en esta parte
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div>
                  <h1>Registrarme a UniP</h1>
         <!--<h3>Información personal</h3>-->
         </div>
@@ -91,31 +129,43 @@
                             
                             
                             <div class="input-group">
-                                <span class="input-group-text">Resumen de la empresa</span>
+                                <label class="input-group-text">Resumen de la empresa</label>
                                 <textarea class="form-control" aria-label="With textarea"></textarea>
                             </div>
         
                 </div>    
-            </div>  
+            </div>
+        </div>  
                                                     <!--Botones-->
+
             <div class="row box-btn">
-                <div class="col-12 col-sm-9">
-                    
-                </div>
-                <div class="col-12 col-sm-3">
+
+                <div class="col-sm-6 col-12"></div>
+                    <div class="col-sm-6 col-12">
+                        
                         <div class="row">
-                                
-                            <div class="col-12 col-sm-6">  <!--mobile todas las columnas / sm ocupar el ancho de la page-->
-                                <button type="reset"  class="btn btn-dark btn-lg class="btn btn-primary boton-formulario">Cancelar</button>         
+                            <div class="col-sm-8 col-12 checkbox">    
+                                                         
+                                    <input class="form-check-input" type="checkbox">Recordarme</label> 
+
+                            </div>    
+
+                            <div class="col-sm-2 col-12">
+
+                                        <button type="reset" class="btn btn-primary boton-formulario btn-dark">Cancelar</button>         
                             </div>
 
-                            <div class="col-12 col-sm-6">
-                                <button type="submit"  class="btn btn-dark btn-lg class="btn btn-primary boton-formulario">Guardar</button>
-                            </div>               
+                            <div class="col-sm-2 col-12">
+
+                                        <button type="submit" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
+                            </div>    
+                    
                         </div>
+            
+
+                    </div>   
+
                 </div>
-            </div>   
-          
 
         </form>
                                
