@@ -14,14 +14,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Unip</a>
+          <a class="navbar-brand" href="./V.principal-alumno.html">Unip</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Mi Perfil</a>
+                <a class="nav-link active" aria-current="page" href="./perfil-alumno.html">Mi Perfil</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Mis postulaciones</a>
@@ -54,33 +54,25 @@
             <div class="col-md-4">
                 <h1 class="h3 text-white text-left pt-2">Datos Personales<i class="far fa-address-card ms-2 text-dark"></i></h1>
                 <form action="">
-                    <input type="text" class="form-control mt-3" placeholder="Nombre">
-                    <input type="text" class="form-control mt-3" placeholder="Apellido">
-                    <input type="text" class="form-control mt-3" placeholder="Nacionalidad">
-                    <input type="text" class="form-control mt-3" placeholder="Estado Civil">
+                    <input type="text" class="form-control mt-4" placeholder="Nombre">
+                    <input type="text" class="form-control mt-4" placeholder="Apellido">
+                    <input type="text" class="form-control mt-4" placeholder="Nacionalidad">
+                    <input type="text" class="form-control mt-4" placeholder="Estado Civil">
                     <input class="form-control mt-3" type="number" placeholder="Edad">
                     <input class="form-control mt-3" type="number" placeholder="D.N.I">
                     <input class="form-control mt-3" type="number" placeholder="C.U.I.L">
-                    <select class="form-select mt-3" aria-label="Default select example">
-                        <option selected>Seleccione Carrera</option>
-                        <option value="1">Desarrollo de software</option>
-                        <option value="2">Despachante de aduana</option>
-                        <option value="2">Oteleria</option>
-                    </select>
-                    <input class="form-control mt-3" type="number" min="2012" max="2099" step="1"
-                        placeholder="Año de ingreso" />
                 </form>
             </div>
             <div class="col-md-4">
                 <form>
                     <div class="form-group">
                         <h1 class="h3 text-white pt-2">Dirección<i class="fas fa-home ms-2 text-dark"></i></h1>
-                        <input type="text" class="form-control mt-3" placeholder="Provincia">
+                        <input type="text" class="form-control mt-4" placeholder="Provincia">
                         <input type="text" class="form-control mt-3" placeholder="Localidad">
                         <input type="text" class="form-control mt-3" placeholder="Calle">
                         <input type="text" class="form-control mt-3" placeholder="Numero">
-                        <h1 class="h3 text-white mt-3 ">Contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i></h1>
-                        <input type="text" class="form-control mt-3" placeholder="CP">
+                        <h1 class="h3 text-white  ">Contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i></h1>
+                        <input type="text" class="form-control mt-2" placeholder="CP">
                         <input type="text" class="form-control mt-3" placeholder="Email">
                         <input type="text" class="form-control mt-3" placeholder="Numero de telefono">
                     </div>
@@ -90,20 +82,25 @@
             <div class="col-md-4">
                 <form>
                     <h1 class="h3 text-white pt-2 ">Imagen <i class="fas fa-camera-retro text-dark"></i></h1>
-                    <input type="file" class="form-control mt-3" name="file" id="file" accept=".jpg,.png,.jpeg">
+                    <input type="file" class="form-control mt-4" name="file" id="file" accept=".jpg,.png,.jpeg">
                     <!--Previsualizacion-->
                     <div id="preview" class="styleImage mt-3 text-center"></div>
                     <!-- //mejores -->
                 </form>
             </div>
         </div>
-        <div class="row mt-4">
-            <div class="form-group col-md-7">
-                <h1 class="h5 text-white text-left">Preferencias laborales (Opcional) <i class="fas fa-briefcase text-dark"></i></h1>
-                <textarea class="form-control " id="exampleFormControlTextarea1" rows="3" placeholder="Ingrese preferencias laborales ejemplo 'programador web'"></textarea>
+        <div class="row mt-3">
+            <div class="form-group col-md-4 ">
+              <p class="h3 text-white">Preferencia laboral</p>
+              <select class="form-select mb-2" aria-label="Default select example">
+                <option selected>Programador</option>
+                <option value="1">Analista</option>
+                <option value="2">Tester</option>
+                <option value="3">Administrador BD</option>
+              </select>
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-4 pt-5"><button type="button" class="btn btn-dark btn-lg  ">Guardar Perfil</button></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 mt-4"><button type="button" class="btn btn-dark btn-lg ">Guardar Perfil</button></div>
         </div>
     </div>
     <script src="JavaScript.js"></script>
