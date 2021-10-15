@@ -12,9 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+  <nav class="navbar navbar-expand-lg barra rounded">
   <div class="container-fluid">
-    <a class="navbar-brand" href="./pantalla-principal-administrador.html">Unip</a>
+    <a class="navbar-brand text-white " href="./pantalla-principal.html">Unip</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Perfil-Administrador.html">Mi Perfil</a>
+          <a class="nav-link active text-white " aria-current="page" href="Perfil-Administrador.html">Mi Perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pantalla-principal-administrador.html">Administracion</a>
+          <a class="nav-link text-white " href="pantalla-principal-administrador.html">Administracion</a>
         </li>
         <li class="nav-item dropdown">
           <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,11 +51,11 @@
     </div>
   </div>
   </nav>
-    <div class="container mt-3">
-        <h1 class="h1 text-white text-center">Departamento de alumnos</h1>
+    <div class="container mt-3 container-reclutadores border rounded">
+        <h1 class="h1  text-center">Departamento de alumnos</h1>
         <div class="row mt-5">
             <div class="col-md-4">
-                <h1 class="h3 text-white text-left pt-2">Datos Personales<i class="far fa-address-card ms-2 text-dark"></i></h1>
+                <h1 class="h3  text-left pt-2">Datos Personales<i class="far fa-address-card ms-2 text-dark"></i></h1>
                 <form action="">
                     <input type="text" class="form-control mt-3" placeholder="Nombre">
                     <input type="text" class="form-control mt-3" placeholder="Apellido">
@@ -77,12 +77,12 @@
             <div class="col-md-4">
                 <form>
                     <div class="form-group">
-                        <h1 class="h3 text-white pt-2">Dirección<i class="fas fa-home ms-2 text-dark"></i></h1>
+                        <h1 class="h3  pt-2">Dirección<i class="fas fa-home ms-2 text-dark"></i></h1>
                         <input type="text" class="form-control mt-3" placeholder="Provincia">
                         <input type="text" class="form-control mt-3" placeholder="Localidad">
                         <input type="text" class="form-control mt-3" placeholder="Calle">
                         <input type="text" class="form-control mt-3" placeholder="Numero">
-                        <h1 class="h3 text-white mt-3 ">Contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i></h1>
+                        <h1 class="h3  mt-3 ">Contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i></h1>
                         <input type="text" class="form-control mt-3" placeholder="CP">
                         <input type="text" class="form-control mt-3" placeholder="Email">
                         <input type="text" class="form-control mt-3" placeholder="Numero de telefono">
@@ -92,7 +92,7 @@
             
             <div class="col-md-4">
                 <form>
-                    <h1 class="h3 text-white pt-2 ">Imagen <i class="fas fa-camera-retro text-dark"></i></h1>
+                    <h1 class="h3  pt-2 ">Imagen <i class="fas fa-camera-retro text-dark"></i></h1>
                     <input type="file" class="form-control mt-3" name="file" id="file" accept=".jpg,.png,.jpeg">
                     <!--Previsualizacion-->
                     <div id="preview" class="styleImage mt-3 text-center"></div>
@@ -101,9 +101,10 @@
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-4 pt-5"><button type="button" class="btn btn-dark btn-lg">Guardar</button></div>
+          <div class="col-md-10"></div>
+            <div class="col-md-1 pt-5"><button type="button" class="btn btn-primary ">Guardar</button></div>
                   
-            <div class="col-md-4 pt-5"><button type="button" class="btn btn-dark btn-lg" href="ABMdepartamentoalumnos">Cancelar</button></div>
+            <div class="col-md-1 pt-5"><button type="button" class="btn btn-primary " href="ABMdepartamentoalumnos">Cancelar</button></div>
         </div>
     </div>
     <script src="JavaScript.js"></script>
