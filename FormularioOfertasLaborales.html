@@ -68,7 +68,7 @@
           <div class="form-group col-md-6">
             <label for="Empresa" id="lblEmpresa" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Empresa</label>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <input type="text" class="form-control" id="nombreEmpresa" min="5" max="30">
+                <input type="text" class="form-control" id="nombreEmpresa" min="5" max="30" required>
                   <div class="invalid-feedback">
                     Ingrese el nombre de la empresa
                 </div>
@@ -77,7 +77,7 @@
           <div class="form-group col-md-6">
             <label for="TipoDeJornada" id="lblTipoDoc" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Tipo de Jornada Laboral</label>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-              <select class="form-control col-md-12 col-lg-12 custom-select" id="tipoJornada">
+              <select class="form-control col-md-12 col-lg-12 custom-select" id="tipoJornada" required>
                 <option value="0" selected>Seleccione</option>
                 <option value="1">Jornada Completa</option>
                 <option value="2">Part Time</option>
@@ -91,7 +91,7 @@
           <div class="form-group col-md-6">
               <label for="ubicacion" id="lblubicacion" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Ubicacion de la oferta</label>
               <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                  <input type="text" class="form-control" id="ubicacion" min="5" max="30">
+                  <input type="text" class="form-control" id="ubicacion" min="5" max="30" required>
                     <div class="invalid-feedback">
                       Ingrese un dato valido
                   </div>
@@ -100,7 +100,7 @@
           <div class="form-group col-md-6">
             <label for="TipoDeContrato" id="lblTipoDoc" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Tipo de Contrato</label>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-              <select class="form-control col-md-12 col-lg-12 custom-select" id="tipoContrato">
+              <select class="form-control col-md-12 col-lg-12 custom-select" id="tipoContrato" required>
                 <option value="0" selected>Seleccione</option>
                 <option value="1">Por Tiempo Indeterminado</option>
                 <option value="2">A Plazo Fijo</option>
@@ -117,7 +117,7 @@
           <div class="form-group col-md-4">
               <label for="acercaDeEmpresa" id="lblAcercaDeEmpresa" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Acerca de la empresa</label>
               <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <textarea name="informacionEmpresa" id="infoEmpresa" cols="46" rows="8" minlength="10" maxlength = "50" required></textarea>
+                <textarea name="informacionEmpresa" id="infoEmpresa" cols="46" rows="8" minlength="10" maxlength = "200" required></textarea>
                 <div class="invalid-feedback">
                   Se requiere informacion de la empresa
                 </div>
@@ -126,7 +126,7 @@
           <div class="form-group col-md-4">
             <label for="detalleEmpleo" id="lblDetalleEmpleo" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Detalle del Puesto</label>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-              <textarea name="detalleDelEmpleo" id="detalleEmpleo" cols="46" rows="8" minlength="10" maxlength = "50" required></textarea>
+              <textarea name="detalleDelEmpleo" id="detalleEmpleo" cols="46" rows="8" minlength="10" maxlength = "200" required></textarea>
               <div class="invalid-feedback">
                 Se requiere ingresar detalle del Empleo
               </div>
@@ -135,7 +135,7 @@
           <div class="form-group col-md-4">
             <label for="detalleFunciones" id="lblDetalleFunciones" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 from-label">Funciones</label>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-              <textarea name="detalleDelEmpleo" id="detalleFunciones" cols="46" rows="8" minlength="10" maxlength = "50" required></textarea>
+              <textarea name="detalleDelEmpleo" id="detalleFunciones" cols="46" rows="8" minlength="10" maxlength = "200" required></textarea>
               <div class="invalid-feedback">
                 Se requiere ingresar Funciones
               </div>
@@ -144,12 +144,13 @@
         </div>
         <div class="row">
         </div>
+        <div class="container" id="botonera">
+          <button type="button" class="btn btn-secondary" id="cancelarModal" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="guardarOfLaboral">Guardar</button>
+          </div>
+        </div>
       </form>
     </div>
-    <div class="container" id="botonera">
-      <button type="button" class="btn btn-secondary" id="cancelarModal" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="guardarAlumno">Guardar</button>
-      </div>
-    </div>
+    
   </body>
 </html>
