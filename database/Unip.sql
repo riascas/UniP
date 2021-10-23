@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 08:40:41
+-- Tiempo de generación: 23-10-2021 a las 23:09:37
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -93,19 +93,6 @@ CREATE TABLE `departamentoalumno` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empresa`
---
-
-DROP TABLE IF EXISTS `empresa`;
-CREATE TABLE `empresa` (
-  `IdEmpresa` int(11) NOT NULL,
-  `RazonSocial` varchar(50) NOT NULL,
-  `Descripcion` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `estado_civil`
 --
 
@@ -113,6 +100,19 @@ DROP TABLE IF EXISTS `estado_civil`;
 CREATE TABLE `estado_civil` (
   `IdEstadoCivil` int(11) NOT NULL,
   `Descripcion` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `localidad`
+--
+
+DROP TABLE IF EXISTS `localidad`;
+CREATE TABLE `localidad` (
+  `IdLocalidad` int(11) NOT NULL,
+  `Descripcion` varchar(50) NOT NULL,
+  `IdPartido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -131,6 +131,19 @@ CREATE TABLE `oferta` (
   `FuncionesPuesto` varchar(200) NOT NULL,
   `IdTipoContrato` int(11) NOT NULL,
   `IdTipoJornada` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `partido`
+--
+
+DROP TABLE IF EXISTS `partido`;
+CREATE TABLE `partido` (
+  `IdPartido` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `IdProvincia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -163,13 +176,30 @@ CREATE TABLE `profesor` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `provincia`
+--
+
+DROP TABLE IF EXISTS `provincia`;
+CREATE TABLE `provincia` (
+  `IdProvincia` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `reclutador`
 --
 
 DROP TABLE IF EXISTS `reclutador`;
 CREATE TABLE `reclutador` (
   `IdReclutador` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL
+  `IdUsuario` int(11) NOT NULL,
+  `Estado` tinyint(1) NOT NULL,
+  `UrlReclutador` varchar(50) NOT NULL,
+  `Cuiit` int(11) NOT NULL,
+  `ResumenEmpresa` varchar(250) NOT NULL,
+  `IdTipoEnte` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -195,6 +225,18 @@ DROP TABLE IF EXISTS `tipocontrato`;
 CREATE TABLE `tipocontrato` (
   `IdTipoContrato` int(11) NOT NULL,
   `DetalleContrato` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipoente`
+--
+
+DROP TABLE IF EXISTS `tipoente`;
+CREATE TABLE `tipoente` (
+  `IdTipoEnte` int(11) NOT NULL,
+  `Descripcion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -286,22 +328,28 @@ ALTER TABLE `departamentoalumno`
   ADD PRIMARY KEY (`IdDepAlumno`);
 
 --
--- Indices de la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`IdEmpresa`);
-
---
 -- Indices de la tabla `estado_civil`
 --
 ALTER TABLE `estado_civil`
   ADD PRIMARY KEY (`IdEstadoCivil`);
 
 --
+-- Indices de la tabla `localidad`
+--
+ALTER TABLE `localidad`
+  ADD PRIMARY KEY (`IdLocalidad`);
+
+--
 -- Indices de la tabla `oferta`
 --
 ALTER TABLE `oferta`
   ADD PRIMARY KEY (`IdOferta`);
+
+--
+-- Indices de la tabla `partido`
+--
+ALTER TABLE `partido`
+  ADD PRIMARY KEY (`IdPartido`);
 
 --
 -- Indices de la tabla `preferencias`
@@ -314,6 +362,12 @@ ALTER TABLE `preferencias`
 --
 ALTER TABLE `profesor`
   ADD PRIMARY KEY (`IdProfesor`);
+
+--
+-- Indices de la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  ADD PRIMARY KEY (`IdProvincia`);
 
 --
 -- Indices de la tabla `reclutador`
@@ -332,6 +386,12 @@ ALTER TABLE `skills`
 --
 ALTER TABLE `tipocontrato`
   ADD PRIMARY KEY (`IdTipoContrato`);
+
+--
+-- Indices de la tabla `tipoente`
+--
+ALTER TABLE `tipoente`
+  ADD PRIMARY KEY (`IdTipoEnte`);
 
 --
 -- Indices de la tabla `tipojornada`
