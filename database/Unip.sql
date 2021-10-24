@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 23:09:37
+-- Tiempo de generación: 24-10-2021 a las 02:46:24
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -130,7 +130,8 @@ CREATE TABLE `oferta` (
   `DetallePuesto` varchar(200) NOT NULL,
   `FuncionesPuesto` varchar(200) NOT NULL,
   `IdTipoContrato` int(11) NOT NULL,
-  `IdTipoJornada` int(11) NOT NULL
+  `IdTipoJornada` int(11) NOT NULL,
+  `IdReclutador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
