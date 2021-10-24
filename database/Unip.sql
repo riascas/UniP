@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2021 a las 02:46:24
+-- Tiempo de generación: 24-10-2021 a las 14:47:39
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -118,6 +118,21 @@ CREATE TABLE `localidad` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `materia`
+--
+
+DROP TABLE IF EXISTS `materia`;
+CREATE TABLE `materia` (
+  `IdMateria` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `CodMateria` int(11) DEFAULT NULL,
+  `AñoCursada` int(11) NOT NULL,
+  `Cuatrimestre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `oferta`
 --
 
@@ -171,7 +186,8 @@ CREATE TABLE `profesor` (
   `IdProfesor` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Cuil` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL
+  `IdUsuario` int(11) NOT NULL,
+  `IdMateria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -339,6 +355,12 @@ ALTER TABLE `estado_civil`
 --
 ALTER TABLE `localidad`
   ADD PRIMARY KEY (`IdLocalidad`);
+
+--
+-- Indices de la tabla `materia`
+--
+ALTER TABLE `materia`
+  ADD PRIMARY KEY (`IdMateria`);
 
 --
 -- Indices de la tabla `oferta`
