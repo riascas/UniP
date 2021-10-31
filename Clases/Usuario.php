@@ -3,20 +3,28 @@ class Usuario{
     private $IdUsuario;
     private $Nombre;
     private $Apellido;
+    private $DNI;
     private $FechaNacimiento;
     private $Email;
     private $ImagenPerfil;
 
-    public function __construct()
+    public function __construct($nombre, $apellido,$dni,$fecNac,$email,$imgPerfil)
     {
+        // $this->IdUsuario = $idUsr;
+        $this->Nombre = $nombre;
+        $this->Apellido = $apellido;
+        $this->DNI = $dni;
+        $this->FechaNacimiento = $fecNac;
+        $this->Email = $email;  
+        $this->ImagenPerfil = $imgPerfil;
     }
 
-    public function setIdusuario($idUsr)
+    public function setIdUsuario($idUsr)
     {
         $this->IdUsuario = $idUsr;
     }
 
-    public function getIdusuario()
+    public function getIdUsuario()
     {
         return $this->IdUsuario;
     }
@@ -39,6 +47,16 @@ class Usuario{
     public function getApellido()
     {
         return $this->Apellido;
+    }
+    
+    public function setDNI($dni)
+    {
+        $this->DNI = $dni;
+    }
+
+    public function getDNI()
+    {
+        return $this->DNI;
     }
 
     public function setFechaNacimiento($fecNac)
