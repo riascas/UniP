@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/js-formulariocargaprofesor.js" language="javascript" type="text/javascript"></script>
 
 </head>
 <body>
@@ -60,59 +61,85 @@
        
         <div class="container container-reclutadores">
 
-            <form action="/action_page.php">   
+            <form action="/action_page.php" id="formulario">   
 
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" placeholder="Ingrese nombre" id="nombre">                    
+                        <input type="text" class="form-control" placeholder="Ingrese nombre" id="nombre" name="nombre"> 
+                        <div class="invalid-feedback" id="error_nombre">
+                            El nombre debe tener menos de 50 caracteres y al menos 3 letras.
+                        </div>                   
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Apellido">Apellido</label>
-                        <input type="text" class="form-control" placeholder="Ingrese apellido" id="apellido"> 
+                        <input type="text" class="form-control" placeholder="Ingrese apellido" id="apellido" name="apellido"> 
+                        <div class="invalid-feedback" id="error_apellido">
+                            El apellido debe tener menos de 50 caracteres y al menos tres letras.
+                        </div>
                     </div>
 
                     <div class="col-md-4">
                         <label for="nombre">DNI</label>
-                        <input type="number" max="8" class="form-control" placeholder="Ingrese su DNI sin puntos" id="DNI"> 
+                        <input type="number" max="8" class="form-control" placeholder="Ingrese su DNI sin puntos" id="dni" name="dni"> 
+                        <div class="invalid-feedback" id="error_dni">
+                            El DNI debe tener entre 8 y 9 numeros.
+                        </div>
                     </div>
                  </div>
 
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="nombre">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="Fecha_nac">                    
+                        <input type="date" class="form-control" id="fecha_nac" name="fecha_nac"> 
+                        <div class="invalid-feedback" id="error_fecha_nac">
+                            Debe ser mayor de 17 años y menor de 65.
+                        </div>                   
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="localidad">Localidad</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Dirección" id="direccion"> 
+                        <input type="text" class="form-control" placeholder="Ingrese Dirección" id="localidad" name="localidad"> 
+                        <div class="invalid-feedback" id="error_localidad">
+                            Debe ingresar una dirección valida.
+                        </div>
                     </div>
 
                     <div class="col-md-4">
                         <label for="nombre_barrio">Barrio</label>
-                        <input type="text" max="8" class="form-control" placeholder="Ingrese barrio" id=""> 
+                        <input type="text" max="8" class="form-control" placeholder="Ingrese barrio" id="barrio" name="barrio"> 
+                        <div class="invalid-feedback" id="error_barrio">
+                            Debe ingresar un barrio valido.
+                        </div>
                     </div>
-           
                 </div>
 
                 <div class="row">
                     
                     <div class="form-group col-md-4">
                         <label for="nombre_calle">Nombre Calle</label>
-                        <input type="text" class="form-control" placeholder="Nombre calle" id="nom_calle"> 
+                        <input type="text" class="form-control" placeholder="Nombre calle" id="nomcalle" name="nomcalle"> 
+                        <div class="invalid-feedback" id="error_nomcalle">
+                            Debe ingresar una calle valida.
+                        </div>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="numero-calle">Número Calle</label>
-                        <input type="number" max= 30 class="form-control" placeholder="Ingrese número de calle" id="num_calle">                    
+                        <input type="number" max= 30 class="form-control" placeholder="Ingrese número de calle" id="numcalle" name="numcalle"> 
+                        <div class="invalid-feedback" id="error_numcalle">
+                            Debe ingresar una altura valida.
+                        </div>                   
                     </div>
               
 
                     <div class="col-md-4">
                         <label for="nombre">Piso/depto</label>
-                        <input type="text" class="form-control" placeholder="Ingrese piso/depto" id="piso/depto"> 
+                        <input type="text" class="form-control" placeholder="Ingrese piso/depto" id="pisodepto" name="pisodepto"> 
+                        <div class="invalid-feedback" id="error_pisodepto">
+                            Debe ingresar piso o depto.
+                        </div> 
                     </div>
            
                 </div>
@@ -121,18 +148,27 @@
                     
                     <div class="form-group col-md-4">
                         <label for="email">Email (usuario)</label>
-                        <input type="email" class="form-control" placeholder="email" id="email"> 
+                        <input type="email" class="form-control" placeholder="email" id="email" name="email">
+                        <div class="invalid-feedback" id="error_email">
+                            Debe ingresar un email valido.
+                        </div>  
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="contrasenia_profesor">Contraseña</label>
-                        <input type="password" max= 8 class="form-control" placeholder="Ingrese una contraseña" id="contrasenia_profesor">                    
+                        <input type="password" max= 8 class="form-control" placeholder="Ingrese una contraseña" id="contrasenia" name="contrasenia"> 
+                        <div class="invalid-feedback" id="error_contrasenia">
+                            Debe ingresar una contraseña valida.
+                        </div>                    
                     </div>
               
 
                     <div class="col-md-4">
                         <label for="contrasenia_profesor_2">Repetir contraseña</label>
-                        <input type="password" class="form-control" placeholder="Ingrese nuevamente una contraseña" id="contrasenia_profesor_2"> 
+                        <input type="password" class="form-control" placeholder="Ingrese nuevamente una contraseña" id="contrasenia1" name="contrasenia1">
+                        <div class="invalid-feedback" id="error_contrasenia1">
+                            Ambas contraseñas deben ser iguales.
+                        </div>  
                     </div>
            
                 </div>
@@ -211,7 +247,7 @@
 
                                                         <div class="col-sm-2 col-12">
 
-                                                                    <button type="submit" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
+                                                                    <button type="submit" id="btnenviar" class="btn btn-primary boton-formulario btn-dark">Guardar</button>
                                                         </div>    
                                                 
                                                     </div>
