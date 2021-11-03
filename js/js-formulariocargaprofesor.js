@@ -37,6 +37,7 @@ for (input of inputs) {
 }
 
 const validarFormulario = (e) => {
+	console.log("entré al validar")
 	switch (e.target.name) {
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
@@ -106,11 +107,13 @@ const validarPassword1 = () => {
 	}
 }
 
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
+// inputs.forEach((input) => {
+// 	input.addEventListener('keyup', validarFormulario);
+// 	input.addEventListener('blur', validarFormulario);
+// });
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+	validarFormulario;
+	console.log("entre al submmit");
+	// e.preventDefault();
 });
