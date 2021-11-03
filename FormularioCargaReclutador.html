@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/formularioCargaReclutador.js" language="javascript" type="text/javascript" ></script>
     </head>
 <body >
     <container>
@@ -47,7 +48,7 @@
         <div class="col-md-4"><h4 class="h2 text-center mb-2 ">Datos personales</h4></div>
         
         </div>  
-        <form action="/action_page.php">   
+        <form >   
 
         <div class="form-group row">
             
@@ -74,18 +75,18 @@
     
             <div class="input-group mb-4">
                 <span class="input-group-text" id="basic-addon2">@gmail.com</span>
-                <input type="email" class="form-control" placeholder="Ingrese su email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="email" class="form-control" placeholder="Ingrese su email" id="email" aria-label="Recipient's username" aria-describedby="basic-addon2">
             
             </div>
             <div class="row">
                 <div class="form-floating mb-4 col-sm-6">
                         <label for="floatingPassword">Ingrese una contraseña</label>
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña">               
                 </div>
 
                 <div class="form-floating mb-4 col-sm-6">
                     <label for="floatingPassword">Repita su contraseña</label>
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">               
+                    <input type="password" class="form-control" id="password1" placeholder="Contraseña">               
                 </div>
         </div> 
                 
@@ -93,19 +94,19 @@
             <label for="basic-url" class="form-label">URL de la empresa</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon3">https://ejemplo.com/usuario/</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="urlempresa" aria-describedby="basic-addon3">
             </div>
                                     
             <div class="form-floating mb-4">
                 <label for="floatingPassword">Ingrese CUIT</label>
-                <input type="number" class="form-control" id="floatingPassword" placeholder="xx-xxxxxxxx-x">               
+                <input type="number" class="form-control" id="cuit" placeholder="xx-xxxxxxxx-x">               
             </div>
 
             
             <div class="form-group row"> 
                 <label for="" class="col-sm-2 form-control-label">Tipo de ente</label> 
                 <div class="col-sm-10"> 
-                        <select class="form-control selectpicker" id="select-country" data-live-search="true"> 
+                        <select class="form-control selectpicker" id="tipo-ente" data-live-search="true"> 
                             <option data-tokens="Recursos-humanos">Recursos humanos</option>
                             <option data-tokens="Consultora">Consultora IT</option>
                             <option data-tokens="Particular">Particular</option> 
@@ -116,7 +117,7 @@
             
             <div class="input-group">
                 <label class="input-group-text">Resumen de la empresa</label>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" id="resumenempresa"aria-label="With textarea"></textarea>
             </div>
         </div>    
      
@@ -131,7 +132,7 @@
                             <div class="col-sm-6">
                             </div>
                             <div class="col-sm-6">
-                                <button type="reset" class="btn btn-primary boton-formulario btn-dark mt-4 mb-2 ">Cancelar</button>
+                                 <button type="reset" class="btn btn-primary boton-formulario btn-dark mt-4 mb-2 ">Cancelar</button>
                                  <button type="submit" class="btn btn-primary boton-formulario btn-dark mt-4 mb-2 ml-5">Guardar</button>
                             </div>    
                         </div>

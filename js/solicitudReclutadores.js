@@ -3,6 +3,7 @@ $(document).ready(function(){
         console.log(this);
         $("#mensaje").html("Seguro que desea aceptar la socilcitud?");
         $('#mensajeModal').modal('toggle');
+        colnsole.log("entré aca");
         confirmar_resultado(this.id);
                     
     });
