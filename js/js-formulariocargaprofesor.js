@@ -1,19 +1,19 @@
-console.log("funciona el js");
-const formulario = document.getElementById("formulario");
-const inputs = document.querySelectorAll("#formulario input");
 
 const expresiones = {
-    nombre=/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
-    apellido=/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
-    dni=/^[0-9]{8,8}$/,
-    localidad=/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
-    barrio=/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
-    nombrecalle=/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
-    numerocalle=/^[0-9]{1,10}$/,
-    pisodepto=/^(piso|depto)$/i,
-    email=/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    contrasenia= /^.{12,25}$/ // 12 a 25 digitos.
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    apellido:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    dni:/^[0-9]{8,8}$/,
+    localidad:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    barrio:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    nombrecalle:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    numerocalle:/^[0-9]{1,10}$/,
+    pisodepto:/^(piso|depto)$/i,
+    email:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    contrasenia:/^.{12,25}$/,// 12 a 25 digitos.
 }
+const formulario = document.getElementById("formulario");
+
+const inputs = document.querySelectorAll("#formulario input");
 const campos = {
 	nombre: false,
 	apellido: false,
@@ -39,38 +39,38 @@ for (input of inputs) {
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre', 'error_nombre');
+			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
 		case "apellido":
-			validarCampo(expresiones.apellido, e.target, 'apellido', 'error_apellido');
+			validarCampo(expresiones.apellido, e.target, 'apellido');
 		break;
 		case "dni":
-			validarCampo(expresiones.dni, e.target, 'dni', 'error_dni');
+			validarCampo(expresiones.dni, e.target, 'dni');
 		break;
 		case "fecha_nac":
             
 		break;
 		case "localidad":
-			validarCampo(expresiones.localidad, e.target, 'localidad', 'error_localidad');
+			validarCampo(expresiones.localidad, e.target, 'localidad');
 		break;
 		case "barrio":
-			validarCampo(expresiones.barrio, e.target, 'barrio', 'error_barrio');
+			validarCampo(expresiones.barrio, e.target, 'barrio');
 		break;
         case "nomcalle":
-			validarCampo(expresiones.nombrecalle, e.target, 'nomcalle', 'error_nomcalle');
+			validarCampo(expresiones.nombrecalle, e.target, 'nomcalle');
 		break;
         case "numcalle":
-			validarCampo(expresiones.numerocalle, e.target, 'numcalle', 'error_numcalle');
+			validarCampo(expresiones.numerocalle, e.target, 'numcalle');
 		break;
         case "pisodepto":
-			validarCampo(expresiones.pisodepto, e.target, 'numcalle', 'error_pisodepto');
+			validarCampo(expresiones.pisodepto, e.target, 'numcalle');
 		break;
 		break;
         case "email":
-			validarCampo(expresiones.email, e.target, 'email','error_email');
+			validarCampo(expresiones.email, e.target, 'email');
 		break;
         case "contrasenia":
-			validarCampo(expresiones.contrasenia, e.target, 'contrasenia','error_contrasenia');
+			validarCampo(expresiones.contrasenia, e.target, 'contrasenia');
             validarPassword1();
 		break;
         case "contrasenia1":
@@ -79,14 +79,14 @@ const validarFormulario = (e) => {
 	}
 }
 
-const validarCampo = (expresion, input, campo, error) => {
+const validarCampo = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
-		input.classList.add('is-valid');
+		document.getElementById( `${campo}`).classList.add('is-valid');
+        document.getElementById( `${campo}`).classList.remove('is-invalid');
 		campos[campo] = true;
 	} else {
-		input.classList.add('is-invalid');
-        var errorElement = document.getElementById(error);
-        errorElement.style.display='block';
+		document.getElementById( `${campo}`).classList.remove('is-valid');
+        document.getElementById( `${campo}`).classList.add('is-invalid');
 		campos[campo] = false;
 	}
 }
@@ -112,16 +112,5 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {
-	
-    try{
-        if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
-            formulario.reset();
-        } else {
-            e.preventDefault();
-        }   
-    }catch(ex){
-        console.log(ex);
-        e.preventDefault();
-    }
-	
+	e.preventDefault();
 });
