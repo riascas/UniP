@@ -42,6 +42,7 @@ CREATE TABLE `persona` (
   `NombreCalle` varchar(800) NOT NULL,
   `NumeroCalle` int(8) NOT NULL,
   `Password` varchar(12) NULL,
+  `IdProvincia` int(11) NOT NULL,
   `IdLocalidad` int(11) NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -224,22 +225,6 @@ CREATE TABLE `preferencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `profesor`
---
-
-DROP TABLE IF EXISTS `profesor`;
-CREATE TABLE `profesor` (
-  `IdProfesor` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Cuil` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `IdMateria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `provincia`
 --
@@ -248,23 +233,6 @@ DROP TABLE IF EXISTS `provincia`;
 CREATE TABLE `provincia` (
   `IdProvincia` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `reclutador`
---
-
-DROP TABLE IF EXISTS `reclutador`;
-CREATE TABLE `reclutador` (
-  `IdReclutador` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `Estado` tinyint(1) NOT NULL,
-  `UrlReclutador` varchar(50) NOT NULL,
-  `Cuiit` int(11) NOT NULL,
-  `ResumenEmpresa` varchar(250) NOT NULL,
-  `IdTipoEnte` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -415,23 +383,10 @@ ALTER TABLE `preferencias`
   ADD PRIMARY KEY (`IdPreferencia`);
 
 --
--- Indices de la tabla `profesor`
---
-ALTER TABLE `profesor`
-  ADD PRIMARY KEY (`IdProfesor`);
-
---
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
   ADD PRIMARY KEY (`IdProvincia`);
-
---
--- Indices de la tabla `reclutador`
---
-ALTER TABLE `reclutador`
-  ADD PRIMARY KEY (`IdReclutador`);
-
 --
 -- Indices de la tabla `skills`
 --
@@ -474,18 +429,8 @@ ALTER TABLE `Persona`
 ALTER TABLE `usuario_tipousuario`
   ADD PRIMARY KEY (`Id`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
--- AUTO_INCREMENT de la tabla `reclutador`
---
-ALTER TABLE `reclutador`
-  MODIFY `IdReclutador` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
   MODIFY `IdPersona` int(11) NOT NULL AUTO_INCREMENT;

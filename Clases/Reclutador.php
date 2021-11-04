@@ -1,6 +1,6 @@
 <?php
-require_once("Usuario.php");
-class Reclutador extends Usuario
+require_once('./Persona.php');
+class Reclutador extends Persona
 {
     private $IdReclutador;
     private $Cuil;
