@@ -18,22 +18,23 @@ class ReclutadorController
     //Metodo para guardar datos 
     public function Guardar()
     {
+        // $_REQUEST['apellido'];
         //Obtengo los datos del jason
-        $datos = json_decode( file_get_contents("php://input"));
+        // $datos = json_decode( file_get_contents("php://input"));
 
-        $usuario = new Usuario($datos->Nombre,$datos->apellidos,$datos->dni,$datos->fechaNac,$datos->email,$datos->imgPerfil);
-        
+        // $usuario = new Usuario($datos->Nombre,$datos->apellidos,$datos->dni,$datos->fechaNac,$datos->email,$datos->imgPerfil);
+        $usuario = new Usuario( $_REQUEST['Nombre'], $_REQUEST['Apellido'], $_REQUEST['DNI'], $_REQUEST['fechaNac'],$_REQUEST['Email'],$_REQUEST['imgPerfil']);
         //Inserto usuario
         $idUsr = $this->usuarioModel->Guardar($usuario);
-        $reclutador = new ReclutadorModel($idUsr,$datos->cuil,$datos->urlReclutador,$datos->tipoente,$datos->resumenEmpresa,$datos->estado);
+        // $reclutador = new ReclutadorModel($idUsr,$datos->cuil,$datos->urlReclutador,$datos->tipoente,$datos->resumenEmpresa,$datos->estado);
         //obgtengo pk de usuario
         //uso la pk para el reclutador
         //inserto reclutador
         //agregar validaciones
 
-        $datos = $this->reclutadorModel->Guardar($reclutador);
+        // $datos = $this->reclutadorModel->Guardar($reclutador);
 
-        return $datos;
+        return 'OK';
 
     }
 

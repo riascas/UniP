@@ -1,6 +1,6 @@
 
 const expresiones = {
-    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    nombre: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
     apellido:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
     dni:/^[0-9]{8,8}$/,
     localidad:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -107,13 +107,13 @@ const validarPassword1 = () => {
 	}
 }
 
-// inputs.forEach((input) => {
-// 	input.addEventListener('keyup', validarFormulario);
-// 	input.addEventListener('blur', validarFormulario);
-// });
+inputs.forEach((input) => {
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
 
 formulario.addEventListener('submit', (e) => {
 	validarFormulario;
 	console.log("entre al submmit");
-	// e.preventDefault();
+	e.preventDefault();
 });
