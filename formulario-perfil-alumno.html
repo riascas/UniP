@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +13,8 @@
 </head>
 
 <body>
+  
+
   <nav class="navbar navbar-expand-lg barra rounded">
     <div class="container-fluid">
       <a class="navbar-brand text-white " href="./V.principal-alumno.html">Unip</a>
@@ -51,9 +52,12 @@
       </div>
     </div>
   </nav>
+
+
+  
   <div class="container mt-3 container-reclutadores border rounded border-2 border-primary">
     <h1 class="h1  text-center text mt-2">Perfil Alumno</h1>
-    <form id="formulario">
+    <form id="formulario" method="POST" enctype="multipart/form-data" >
       <div class="row mt-5">
         <div class="col-md-4">
           <h1 class="h3  text-left pt-2">Datos Personales<i class="far fa-address-card ms-2 text-primary"></i>
@@ -71,7 +75,7 @@
               <select class="form-select mt-3" name="estadoCivil" id="estadoCivil" >
                 <option value="1" selected disabled>Estado Civil</option>
                 <option value="2">Soltero/a</option>
-                <option value="2">Casado/a</option>
+                <option value="3">Casado/a</option>
               
               </select>
             </div>
@@ -87,8 +91,7 @@
             </div>
 
             <div class="form-row">
-              <input class="form-control mt-3" type="number" name="cuil" id="cuil" placeholder="C.U.I.L">
-              <p  id="error_cuil"  class=" invalid-feedback text-warning">El cuil debe contenter 11 dígitos sin guiones  </p>
+              <input class="form-control mt-3" type="date" name="nacimiento" id="nacimiento">
             </div>
 
             <!--<div class="form-row">
@@ -99,21 +102,22 @@
                 <option value="2">Oteleria</option>
               </select>
             </div>-->
-            <div class="form-row">
-              <input class="form-control mt-3" id="añoIngreso" name="añoIngreso" type="number" min="2012" max="2099" step="1"
-              placeholder="Año de ingreso"/>
-              <p  id="error_añoIngreso"  class=" invalid-feedback text-warning">El año debe contener 4 dígitos </p>
-            </div>
         </div>
         <div class="col-md-4">
           <h1 class="h3  pt-2">Dirección<i class="fas fa-home ms-2 text-primary"></i></h1>
           <div class="form-row">
-            <input type="text" class="form-control mt-3" name="provincia" id="provincia" placeholder="Provincia">
-            <p  id="error_provincia"  class=" invalid-feedback text-warning">Campo provincia solo puede tener letras y espacios  </p>
+          <select class="form-select mt-3" name="provincia" id="provincia" >
+                <option value="1">Buenos Aires</option>
+                <option value="2">Cordoba</option>
+                <option value="3">Corrientes</option>
+              </select>
           </div>
           <div class="form-row">
-            <input type="text" class="form-control mt-3" name="localidad" id="localidad" placeholder="Localidad">
-            <p  id="error_localidad"  class=" invalid-feedback text-warning">Campo localidad solo puede tener letras, numeros y espacios  </p>
+          <select class="form-select mt-3" name="localidad" id="localidad" >
+                <option value="1" >ezeiza</option>
+                <option value="2">suarez</option>
+                <option value="3">MG</option>
+              </select>
           </div>
           <div class="form-row">
             <input type="text" class="form-control mt-3" name="calle" id="calle" placeholder="Calle">
@@ -156,13 +160,15 @@
             placeholder="Ingrese preferencias laborales ejemplo 'programador web'"></textarea>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-4 pt-5">
-          <button id="btn_guardar" type="submit" class="btn btn-primary btn-lg ">Guardar Perfil</button>
+        <div class="col-md-4 pt-5 btn-group" role="group">
+          <button id="btn_guardar" type="submit"   name="btn_guardar"  class="btn btn-primary btn-lg  ">Guardar Perfil</button>
+          
         </div>
       </div>
     </form>
   </div>
   <script src="./js/formulario-perfil-alumno.js"></script>
+
 </body>
 
 </html>

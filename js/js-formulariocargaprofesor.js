@@ -1,7 +1,11 @@
 
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
+<<<<<<< HEAD
     apellido:/^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
+=======
+    apellido:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+>>>>>>> f6cbb07fd93b95d23325af1e3b86083ace923537
     dni:/^[0-9]{8,8}$/,
     localidad:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
     barrio:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -114,6 +118,7 @@ const validarPassword1 = () => {
 }
 
 inputs.forEach((input) => {
+<<<<<<< HEAD
  	input.addEventListener('keyup', validarFormulario);
  	input.addEventListener('blur', validarFormulario);
  });
@@ -148,4 +153,14 @@ formulario.addEventListener('submit', (e) => {
         e.preventDefault();
     }
 	
+=======
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
+
+formulario.addEventListener('submit', (e) => {
+	validarFormulario;
+	console.log("entre al submmit");
+	e.preventDefault();
+>>>>>>> f6cbb07fd93b95d23325af1e3b86083ace923537
 });

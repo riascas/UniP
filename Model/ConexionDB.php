@@ -2,7 +2,7 @@
 
     class ConexionDB { 
         private $servername = "localhost";
-        private $dbname = "Unip";
+        private $dbname = "unip";
         private $username = "root";
         private $password = "";
         private $objPDO;
@@ -44,7 +44,7 @@
                 }
             } catch (PDOException $e) {
                 $this->estado = "ERROR: " . $e->getMessage();
-                //$this->desconectar();
+                $this->desconectar();
             }
         }
 

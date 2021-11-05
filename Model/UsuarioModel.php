@@ -10,7 +10,7 @@
             
         }
 
-        public function Guardar(Usuario $usr)
+        public function Guardar(Persona $usr)
         {
             $this->query="INSERT INTO Usuario(IdUsuario,Nombre, Apellido,DNI,Email,FechaNacimiento,FotoPerfil)
             VALUES(:idUsr,:nombre,:apellido,:dni,:email,:fechaNac,:fotoPrf)";
