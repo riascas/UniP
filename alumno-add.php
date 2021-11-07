@@ -17,9 +17,9 @@ include_once('./Clases/Persona.php');
         $telefono= $_POST['telefono'];
         $imagen= $_POST['imagen'];
     }
-    /*Instancio un ojeto de tipo persona con los datos que recibi del formulario */
+    /*Instancio un objeto de tipo persona con los datos que recibi del formulario */
     $alumno = new Persona($nombre,$apellido,$dni,$nacionalidad,$nacimiento,$telefono,$estadoCivil,$provincia,$localidad,$calle,$numero, $email,$imagen);
-    /*Instancio un ojeto de tipo Alumnomodel para usar su funcion de guardar en la bd */
+    /*Instancio un objeto de tipo Alumnomodel para usar su funcion de guardar en la bd */
     $alumnoModel = new AlumnoModel();
     $alumnoModel->guardar($alumno);
 ?>
