@@ -15,7 +15,7 @@ require_once (CONTROLLER_PATH."ReclutadorController.php");
         $provincia= $_POST['provincia'];
         $localidad= $_POST['localidad'];
         $calle= $_POST['calle'];
-        $numero= $_POST['numero'];
+        $numeroCalle= $_POST['numerocalle'];
         $email= $_POST['email'];
         $telefono= $_POST['telefono'];
         $imagen= $_POST['imagen'];

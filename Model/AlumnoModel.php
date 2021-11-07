@@ -1,7 +1,7 @@
 <?php 
 
-require_once('./Clases/Persona.php');
-require_once('./Model/ConexionDB.php');   
+require_once('../Clases/Persona.php');
+require_once('../Model/ConexionDB.php');   
 
     class AlumnoModel{
         private $servername = "localhost";

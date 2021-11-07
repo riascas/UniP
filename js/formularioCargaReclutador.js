@@ -145,10 +145,10 @@ formulario.onsubmit = function(e){
        provincia:provincia.value,
        localidad:localidad.value,
        calle:calle.value,
-       numero:numero.value,
+       numerocalle:numerocalle.value,
        email:email.value,
        telefono:numeroTelefono.value,
-       imagen: imagen ? imagen.value : null,
+       imagen: imagen ? imagen.value : null
     }
     console.log(postData);
     //envio el arreglo mediante POST .
