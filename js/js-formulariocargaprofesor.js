@@ -1,4 +1,3 @@
-
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
     apellido:/^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
@@ -21,8 +20,8 @@ const campos = {
     fecha_nac: true,//completar con false y validacion
 	localidad: false,
 	barrio: false,
-    nombrecalle: false,
-    numerocalle: false,
+    nomcalle: false,
+    numcalle: false,
     pisodepto:false,
     email: false,
     contrasenia: false,
@@ -40,7 +39,6 @@ const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre', 'error_nombre');
-			console.log("nombre input validacion");
 		break;
 		case "apellido":
 			validarCampo(expresiones.apellido, e.target, 'apellido', 'error_apellido');
@@ -49,7 +47,7 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.dni, e.target, 'dni', "error_dni");
 		break;
 		case "fecha_nac":
-            
+            //falta crear funcion validar fecha_nac
 		break;
 		case "localidad":
 			validarCampo(expresiones.localidad, e.target, 'localidad',"error_localidad");
@@ -58,16 +56,16 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.barrio, e.target, 'barrio',"error_barrio","error_barrio");
 		break;
 		case "estadoCivil":
-            console.log('funciona');
+            //console.log('funciona');
         break;
 		case "provincia":
-            console.log('funciona');
+            //console.log('funciona');
         break;
 		case "nacionalidad":
             validarCampo(expresiones.nombre,e.target,'nacionalidad',"error_nacionalidad");
         break;
 		case "imagen":
-            console.log('funciona');
+            //console.log('funciona');
         break;
         case "nomcalle":
 			validarCampo(expresiones.nombrecalle, e.target, 'nomcalle',"error_nomcalle");
@@ -117,12 +115,12 @@ const validarPassword1 = () => {
 		inputPassword1.classList.add('is-valid');
 		var errorElement = document.getElementById("error_contrasenia1");
 		errorElement.style.display='none';
-		campos['contrasenia1'] = false;
+		campos['contrasenia1'] = true;
 	} else{
 		inputPassword1.classList.add('is-invalid');
 		var errorElement = document.getElementById("error_contrasenia1");
         errorElement.style.display='block';
-		campos['contrasenia1'] = true;
+		campos['contrasenia1'] = false;
 	}
 }
 
@@ -133,52 +131,22 @@ inputs.forEach((input) => {
 
 formulario.addEventListener('submit', (e) => {
 	try{
-        if(campos.dni && campos.nombre && campos.password && campos.correo && campos.apellido && campos.fecha_nac && campos.localidad && campos.barrio && campos.nombrecalle && campos.numerocalle && campos.pisodepto && campos.email && campos.contrasenia && campos.contrasenia1){
-            console.log("entre al metodo");
-			var nombre = document.getElementById('nombre');
-			var apellido = document.getElementById('apellido');
-			var nacionalidad = document.getElementById('nacionalidad');
-			var dni = document.getElementById("dni");
-			var estadoCivil = document.getElementById('estadoCivil');
-			var fecha_nac = document.getElementById("fecha_nac");
-			var provincia = document.getElementById('provincia');
-			var localidad = document.getElementById("localidad");
-			var barrio = document.getElementById("barrio");
-			var nombrecalle = document.getElementById("nomcalle");
-			var numerocalle = document.getElementById("numcalle");
-			var pisodepto = document.getElementById("pisodepto");
-			var email = document.getElementById("email");
-			var contrasenia = document.getElementById("contrasenia");
-			var imagen =  document.getElementById('imagen');
-			
-			   //creo un arreglo con los valores de los elementos del formulario .
-			const postData= {
-			   nombre:nombre.value,
-			   apellido:apellido.value,
-			   dni:dni.value,
-			   nacionalidad:nacionalidad.value,
-			   estadoCivil:estadoCivil.value,
-			   fecha_nac: fecha_nac.value,//completar con false y validacion
-			   provincia:provincia.value,
-			   localidad: localidad.value,
-			   barrio: barrio.value,
-			   nombrecalle: nombrecalle.value,
-			   numerocalle: numerocalle.value,
-			   pisodepto:pisodepto.value,
-			   email: email.value,
-			   contrasenia: contrasenia.value,
-			   imagen:imagen.value,//falta validacion
-			}
-			alert(postData);
+        if(campos.dni && campos.nombre && campos.apellido && campos.fecha_nac && campos.localidad && campos.barrio && campos.nomcalle && campos.numcalle && campos.pisodepto && campos.email && campos.contrasenia && campos.contrasenia1){
+			var postData=$('#formulario').serialize();
             $.ajax({
-				type:"POST",
-				url:"profesor-add.php",
+				type:"post",
+				url:"./Rutas/profesor-add.php",
 				data:postData,
-				succes:function(){
-
+				succes:function(r){
+					if(r==1){
+						alert("agregado con exito");
+					}else{
+						alert("fallo el server");
+					}
 				}
 			});
-
+			return false;
+			e.preventDefault();
             //formulario.reset();
         } else {
             e.preventDefault();
