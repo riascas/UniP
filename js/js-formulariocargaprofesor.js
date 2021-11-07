@@ -1,11 +1,7 @@
 
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
-<<<<<<< HEAD
     apellido:/^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
-=======
-    apellido:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
->>>>>>> f6cbb07fd93b95d23325af1e3b86083ace923537
     dni:/^[0-9]{8,8}$/,
     localidad:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
     barrio:/^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -44,6 +40,7 @@ const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre', 'error_nombre');
+			console.log("nombre input validacion");
 		break;
 		case "apellido":
 			validarCampo(expresiones.apellido, e.target, 'apellido', 'error_apellido');
@@ -60,6 +57,18 @@ const validarFormulario = (e) => {
 		case "barrio":
 			validarCampo(expresiones.barrio, e.target, 'barrio',"error_barrio","error_barrio");
 		break;
+		case "estadoCivil":
+            console.log('funciona');
+        break;
+		case "provincia":
+            console.log('funciona');
+        break;
+		case "nacionalidad":
+            validarCampo(expresiones.nombre,e.target,'nacionalidad',"error_nacionalidad");
+        break;
+		case "imagen":
+            console.log('funciona');
+        break;
         case "nomcalle":
 			validarCampo(expresiones.nombrecalle, e.target, 'nomcalle',"error_nomcalle");
 		break;
@@ -118,7 +127,6 @@ const validarPassword1 = () => {
 }
 
 inputs.forEach((input) => {
-<<<<<<< HEAD
  	input.addEventListener('keyup', validarFormulario);
  	input.addEventListener('blur', validarFormulario);
  });
@@ -126,25 +134,52 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 	try{
         if(campos.dni && campos.nombre && campos.password && campos.correo && campos.apellido && campos.fecha_nac && campos.localidad && campos.barrio && campos.nombrecalle && campos.numerocalle && campos.pisodepto && campos.email && campos.contrasenia && campos.contrasenia1){
-            console.log("entre al metodo")
-            fetch('ProfesorController.php', {
-                method: 'POST', // or 'PUT'
-                body: JSON.stringify(profesor), // data can be `string` or {object}!
-                headers:{
-                  'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => {
-                console.log(response)
-        
-                if ( response.error != 'N'){
-        
-                }else {
-                    alert('Error de algo');
-                }
-            });
-            formulario.reset();
+            console.log("entre al metodo");
+			var nombre = document.getElementById('nombre');
+			var apellido = document.getElementById('apellido');
+			var nacionalidad = document.getElementById('nacionalidad');
+			var dni = document.getElementById("dni");
+			var estadoCivil = document.getElementById('estadoCivil');
+			var fecha_nac = document.getElementById("fecha_nac");
+			var provincia = document.getElementById('provincia');
+			var localidad = document.getElementById("localidad");
+			var barrio = document.getElementById("barrio");
+			var nombrecalle = document.getElementById("nomcalle");
+			var numerocalle = document.getElementById("numcalle");
+			var pisodepto = document.getElementById("pisodepto");
+			var email = document.getElementById("email");
+			var contrasenia = document.getElementById("contrasenia");
+			var imagen =  document.getElementById('imagen');
+			
+			   //creo un arreglo con los valores de los elementos del formulario .
+			const postData= {
+			   nombre:nombre.value,
+			   apellido:apellido.value,
+			   dni:dni.value,
+			   nacionalidad:nacionalidad.value,
+			   estadoCivil:estadoCivil.value,
+			   fecha_nac: fecha_nac.value,//completar con false y validacion
+			   provincia:provincia.value,
+			   localidad: localidad.value,
+			   barrio: barrio.value,
+			   nombrecalle: nombrecalle.value,
+			   numerocalle: numerocalle.value,
+			   pisodepto:pisodepto.value,
+			   email: email.value,
+			   contrasenia: contrasenia.value,
+			   imagen:imagen.value,//falta validacion
+			}
+			alert(postData);
+            $.ajax({
+				type:"POST",
+				url:"profesor-add.php",
+				data:postData,
+				succes:function(){
+
+				}
+			});
+
+            //formulario.reset();
         } else {
             e.preventDefault();
         }   
@@ -152,15 +187,4 @@ formulario.addEventListener('submit', (e) => {
         console.log(ex);
         e.preventDefault();
     }
-	
-=======
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
-
-formulario.addEventListener('submit', (e) => {
-	validarFormulario;
-	console.log("entre al submmit");
-	e.preventDefault();
->>>>>>> f6cbb07fd93b95d23325af1e3b86083ace923537
 });
