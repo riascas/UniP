@@ -1,7 +1,16 @@
 <?php
+    require_once("../dirs.php");
+    require_once (MODEL_PATH."ConexionDB.php");
+
     class ReclutadorModel extends ConexionDB
     {
-        public function Listar(){
+        // public function __construct()
+        // {
+        //     parent::__construct();
+        // }
+
+        public function Listar()
+        {
             $this->query = "SELECT R.IdReclutador,U.IdUsuario, U.Nombre, U.Apellido,U.Cuil, R.UrlReclutador
                             FROM Reclutadores R
                             INNER JOIN Usuario U ON U.IdUsuario = R.IdUsuario";
@@ -11,14 +20,53 @@
             return $this->rows;
         }
 
-        public function Guardar(){
-            $this->query = "INSERT INTO Recultador(IdReclutador, IdUsuario, URL)
-                            VALUES(:nombre, :url)";
-            $this->ejecutar( array(
-                    ':nombre' => $this->nombre,
-                    ':url' => $this->url
-                ));
-            $this->documentoId = $this->ultimoId();
+        public function LitarReclutadorPorId($id)
+        {
+            $this->query ="SELECT IdPersona, Nombre, Apellida, DNI, Email, FechaNacimiento,FotoPerfil,Nacionalidad,Telefono,IdEstadoCivil, NombreCalle,NumeroCalle,IdProvincia,IdLocal
+            From Persona
+            WHERE IdPersona = :IdPersona";
+            return $this->obtenerRows(array(
+                ':IdPersona'=> $id
+            ));
+        }
+
+        public function Guardar(Reclutador $datos)
+        {
+            print_r($datos);
+            print_r($this);
+            echo($datos->getNombre()."NombreModel");
+            try
+            {
+                $this->query = "INSERT INTO persona (Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad)
+                VALUES (:nombre, :apellido,:dni,:email,:fechaNacimiento,:fotoPerfil, :nacionalidad, :telefono, :idEstadoCivil, :nombreCalle, :numeroCalle, :pass,:idProvincia, :idLocalidad);";
+                $this->ejecutar( array(
+                        ':nombre' => $datos->getNombre(),
+                        ':apellido' => $datos->getApellido(),
+                        ':dni' => $datos->getDNI(),
+                        ':email' => $datos->getEmail(),
+                        ':fechaNacimiento' => $datos->getFechaNacimiento(),
+                        ':fotoPerfil' => $datos->getImagenPerfil(),
+                        ':nacionalidad'=> $datos->getNacionalidad(),
+                        ':telefono' => $datos->getTelefono(),
+                        ':idEstadoCivil' => $datos->getEstadoCivil(),
+                        ':nombreCalle'=> $datos->getCalle(),
+                        ':numeroCalle'=> $datos->getNumeroCalle(),
+                        ':pass' => $datos->getPassword(),
+                        ':idProvincia' => $datos->getProvincia(),
+                        ':idLocalidad' => $datos->getLocalidad()
+                    ));
+                
+                echo($this->estado);
+                $datos->setIdUsuario( $this->ultimoId());
+                echo(strval($this->ultimoId()));
+                echo($datos->getNombre());
+                echo($this->estado);
+                echo('Ok');
+            }
+            catch(Exception $e)
+            {
+                $this->estado = "ERROR INSERTAR RECLUTADOR: " . $e->getMessage();
+            }
         }
     }
 

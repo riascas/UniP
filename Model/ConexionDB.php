@@ -1,5 +1,4 @@
 <?php
-
     class ConexionDB { 
         private $servername = "localhost";
         private $dbname = "unip";
@@ -22,7 +21,8 @@
                 
                 $this->estado = "Conectado";
             } catch(PDOException $e){
-                $this->estado = "ERROR: " . $e->getMessage();
+                $this->estado = "ERROR-No se pudo conectar: " . $e->getMessage();
+                $this->desconectar();
                 echo( $e->getMessage() );
             }
         }
@@ -43,8 +43,8 @@
                     $resultado->execute();
                 }
             } catch (PDOException $e) {
-                $this->estado = "ERROR: " . $e->getMessage();
-                $this->desconectar();
+                $this->estado = "ERROR-No se pudo ejecutar: " . $e->getMessage();
+                // $this->desconectar();
             }
         }
 
@@ -60,7 +60,7 @@
                     $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
                 }
             } catch (PDOException $e) {
-                $this->estado = "ERROR: " . $e->getMessage();
+                $this->estado = "ERRO-No se pudo obtener Rows: " . $e->getMessage();
             }
         }
 
@@ -68,7 +68,7 @@
             try {
                 return $this->objPDO->lastInsertId();
             } catch (PDOException $e) {
-                $this->estado = "ERROR: " . $e->getMessage();
+                $this->estado = "ERROR-No se pudo obtener el ultimo Id: " . $e->getMessage();
             }
         }
 

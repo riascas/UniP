@@ -48,8 +48,11 @@ const validarFormulario = (e) => {
 		case "dni":
 			validarCampo(expresiones.dni, e.target, 'dni', 'error_dni');
 		break;
+        case "nacionalidad":
+            validarCampo(expresiones.nombre,e.target,'nacionalidad');
+        break;
 		case "fecha_nac":
-            
+            validarCampo(expresiones.fecha_nac,e.target,'fecha_nac')
 		break;
 		case "localidad":
 			validarCampo(expresiones.localidad, e.target, 'localidad', 'error_localidad');
@@ -112,42 +115,45 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-	const reclutador = {
-        nombre: document.getElementById('nombre').value,
-        apellido: document.getElementById('apellido').value,
-        cuit: document.getElementById('cuit').value,
-        fecha_nac: document.getElementById('FechaNac').value,
-        tipoente: document.getElementById('tipo-ente').value,
-        email: document.getElementById('email').value,
-        contrasenia: document.getElementById('password').value,
-        contrasenia1:document.getElementById('password1').value,
-        resumenempresa: document.getElementById('resumenempresa').value ,
-        urlempresa: document.getElementById('urlempresa').value
-    }
-    console.log(reclutador);
-    console.log(campos);
-    
-    if(campos.nombre && campos.password && campos.correo ){
-        e.preventDefault();
-        console.log("entre al metodo")
-        // llamada al back
-        $.ajax({
-            type: "POST",
-            url: "./Rutas/AltaReclutador.php",
-            contentType: "application/json; charset=utf-8",
-            data: reclutador,
-            dataType: "json",
-            success: function (result) {
-        $.each(result, function () {
-                $('#selEmpleado').append($("<option></option>").attr("value",this.idempleado).text(this.apellido));
-        });   
-        },
-        error: function (xhr, status, error) {
-            console.log("No ha sido posible cargar las opciones.");
-        }
 
-        })
+formulario.onsubmit = function(e){
+    e.preventDefault();
+    var nombre = document.getElementById('nombre');
+    var apellido = document.getElementById('apellido');
+    var nacionalidad = document.getElementById('nacionalidad');
+    var estadoCivil = document.getElementById('estadoCivil');
+    var edad = document.getElementById('edad');
+    var dni = document.getElementById("dni");
+    var nacimiento = document.getElementById("nacimiento");
+    var provincia = document.getElementById('provincia');
+    var localidad = document.getElementById('localidad');
+    var calle = document.getElementById('calle');
+    var numero = document.getElementById('numero');
+    var cp = document.getElementById('cp');
+    var email = document.getElementById('email');
+    var numeroTelefono = document.getElementById('numeroTelefono');
+    var imagen =  document.getElementById('imagen');
+       //creo un arreglo con los valores de los elementos del formulario .
+    const postData= {
+       nombre:nombre.value,
+       apellido:apellido.value,
+       dni:dni.value,
+       nacionalidad:nacionalidad.value,
+       estadoCivil:estadoCivil.value,
+       edad:edad.value,
+       nacimiento:nacimiento.value,
+       provincia:provincia.value,
+       localidad:localidad.value,
+       calle:calle.value,
+       numero:numero.value,
+       email:email.value,
+       telefono:numeroTelefono.value,
+       imagen: imagen ? imagen.value : null,
     }
-});
+    console.log(postData);
+    //envio el arreglo mediante POST .
+    $.post('./Rutas/AltaReclutador.php',postData,function(response){
+       console.log(response);
+    })
+    
+ };
