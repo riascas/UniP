@@ -1,39 +1,43 @@
 <?php
-require_once("Model/ProfesorModel.php");
-require_once("Model/UsuarioModel.php");
-require_once("Clases/Usuario.php");
-require_once("Clases/Profesor.php");
+require_once("../dirs.php");
+require_once (CLASES_PATH."Persona.php");
+require_once (MODEL_PATH."ProfesorModel.php");
+
 class ProfesorController
 {
-    private $profesorModel = new ProfesorModel();
-    private $usuarioModel = new UsuarioModel();
+    private $profModel;
+
+    function __construct(){
+            $this->profModel= new ProfesorModel();
+        }
+    
+    // private $recModel = new ReclutadorModel();
+    
     //Metodo para obtener todos los registros
     public function Listar()
     {
-       $datos=$this->profesorModel->Listar();
+       $datos=$this->profModel->Listar();
 
        return $datos;
     }
 
     //Metodo para guardar datos 
-    public function Guardar()
+    public function Guardar(Profesor $profesor)
     {
-        //Obtengo los datos del jason
-        $datos = json_decode( file_get_contents("php://input"));
-
-        $usuario = new Usuario($datos->Nombre,$datos->apellidos,$datos->dni,$datos->fechaNac,$datos->email,$datos->imgPerfil);
         
-        //Inserto usuario
-        $idUsr = $this->usuarioModel->Guardar($usuario);
-        $profesor = new ProfesorModel($idUsr,$datos->cuil,$datos->nombre,$datos->IdProfesor,$datos->IdMateria);
+        
+        $profModel = new ProfesorModel();
+    
+        $idUsr = $profModel->Guardar($profesor);
+        // $reclutador = new ReclutadorModel($idUsr,$datos->cuil,$datos->urlReclutador,$datos->tipoente,$datos->resumenEmpresa,$datos->estado);
         //obgtengo pk de usuario
-        //uso la pk para el profesor
-        //inserto presor
+        //uso la pk para el reclutador
+        //inserto reclutador
         //agregar validaciones
 
-        $datos = $this->profesorModel->Guardar($profesor);
+        // $datos = $this->reclutadorModel->Guardar($reclutador);
 
-        return $datos;
+        return 'OK';
 
     }
 

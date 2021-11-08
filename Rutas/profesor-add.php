@@ -4,6 +4,13 @@ require_once (MODEL_PATH."AlumnoModel.php");
 require_once (CLASES_PATH."Profesor.php");
 require_once (CONTROLLER_PATH."ProfesorController.php");
 
+//recibimos los datos de la imagen
+$nombre_imagen= $_FILES['imagen']["name"];
+//ruta de la carpeta destino
+$carpeta_destino= $_SERVER["DOCUMENT_ROOT"]."/UNIP/tempimagenes";
+//movemos la imagen del directorio temporal al directorio escogido 
+move_uploaded_file($_FILES['imagen']["tmp_name"],$carpeta_destino.$nombre_imagen);
+
     if(isset($_POST['nombre']))
     {
         $nombre = $_POST['nombre'];
@@ -11,14 +18,16 @@ require_once (CONTROLLER_PATH."ProfesorController.php");
         $dni = $_POST['dni'];
         $nacionalidad= $_POST['nacionalidad'];
         $estadoCivil = $_POST['estadoCivil'];
-        $nacimiento = $_POST['nacimiento'];
+        $fecNac = $_POST['fecha_nac'];
         $provincia= $_POST['provincia'];
         $localidad= $_POST['localidad'];
-        $calle= $_POST['calle'];
-        $numeroCalle= $_POST['numerocalle'];
+        $calle= $_POST['nomcalle'];
+        $numeroCalle= $_POST['numcalle'];
         $email= $_POST['email'];
         $telefono= $_POST['telefono'];
-        $imagen= $_POST['imagen'];
+        $imgPerfil=$carpeta_destino;
+        $pass= sha1($_POST['contrasenia']);
+        
     }
     echo($nombre);
     /*Instancio un ojeto de tipo persona con los datos que recibi del formulario */
