@@ -7,24 +7,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <title>Solicitud de Reclutadores</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="js/solicitudReclutadores.js" language="javascript" type="text/javascript" ></script>
+	<script src="../js/solicitudReclutadores.js" language="javascript" type="text/javascript" ></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg barra rounded">
 		<div class="container-fluid">
-		  <a class="navbar-brand text-white" href="./pantalla-principal.html">Unip</a>
-		  <img src="./img/Logo3.png" alt="5%" width="3%">
+		  <a class="navbar-brand text-white" href="../pantalla-principal.html">Unip</a>
+		  <img src="../img/Logo3.png" alt="5%" width="3%">
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			  <li class="nav-item">
-				<a class="nav-link active text-white" aria-current="page" href="./Perfil-Administrador.html">Mi Perfil</a>
+				<a class="nav-link active text-white" aria-current="page" href="../Perfil-Administrador.html">Mi Perfil</a>
 			  </li>
 			 
 			  <li class="nav-item dropdown">
@@ -76,37 +76,27 @@
 					</tr>
 				</thead>
 				<tbody id ="tbody" class="tb-reclutadores">
-					<tr class="table-active">
-						<!-- <td><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> </a></td>
-							<span class="label label-success">Fijo</span>
-							<span class="label label-info">Contratado</span>
-							<span class="label label-warning">Outsourcing</span>
-						</td> -->
-						<td>RI111</td>
-						<td>Facundo Heredia</td>
-						<td>04/09/2021</td>
-						<td>fheredia@mercadolibre.com</td>
-						<td>11246687845</td>
-						<td>Recluter IT</td>
-						<td>Aprobado</td>
-						<td>
-							<button id="a1" class="btn btn-primary btn-sm btn-aceptar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-edit" aria-hidden="true">Aceptar</span></button>
-							<button id="r1" class="btn btn-danger btn-sm btn-rechazar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-trash" aria-hidden="true">Rechazar</span></button>
-						</td>
-					</tr>
-					<tr class="table-active">
-						<td>RI112</td>
-						<td>Marcelo Pagani</td>
-						<td>04/09/2021</td>
-						<td>mpagano@globant.com</td>
-						<td>11249887885</td>
-						<td>Recursos Humanos</td>
-						<td>Pendiente</td>
-						<td>
-							<button id="a2" class="btn btn-primary btn-sm btn-aceptar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-edit" aria-hidden="true">Aceptar</span></button>
-							<button id="r2" class="btn btn-danger btn-sm btn-rechazar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-trash" aria-hidden="true">Rechazar</span></button>
-						</td>
-					</tr>
+					<?php
+						foreach ($listaReclutadores as $row) {
+							echo('
+							<tr class="table-active">
+								<td>'.$row['IdPersona'].'</td>
+								<td>'.$row['Nombre'].'</td>
+								<td>04/09/2021</td>
+								<td>fheredia@mercadolibre.com</td>
+								<td>11246687845</td>
+								<td>Recluter IT</td>
+								<td>'.$row['Estado'].'</td>
+								<td>
+									<button id="a1" class="btn btn-primary btn-sm btn-aceptar" data-id="'.$row['IdPersona'].'" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-edit" aria-hidden="true">Aceptar</span></button>
+									<button id="r1" class="btn btn-danger btn-sm btn-rechazar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-trash" aria-hidden="true">Rechazar</span></button>
+								</td>
+						</tr>
+							');
+						}
+
+
+					?>
 				</tbody>	
 			</table>
 			</div>

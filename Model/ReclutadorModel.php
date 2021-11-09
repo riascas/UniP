@@ -4,25 +4,20 @@
 
     class ReclutadorModel extends ConexionDB
     {
-        // public function __construct()
-        // {
-        //     parent::__construct();
-        // }
 
         public function Listar()
         {
-            $this->query = "SELECT R.IdReclutador,U.IdUsuario, U.Nombre, U.Apellido,U.Cuil, R.UrlReclutador
-                            FROM Reclutadores R
-                            INNER JOIN Usuario U ON U.IdUsuario = R.IdUsuario";
-            $this->obtenerRows(array(
-                ':inscripcionId' => $this->inscripcionId
-            ));
+            $this->query = "SELECT IdPersona,Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad,P.IdEstado, E.Descripcion AS Estado
+                            FROM Persona P
+                            INNER JOIN estadoreclutador E on P.IdEstado = E.IdEstado";
+                           
+            $this->obtenerRows();
             return $this->rows;
         }
 
         public function LitarReclutadorPorId($id)
         {
-            $this->query ="SELECT IdPersona, Nombre, Apellida, DNI, Email, FechaNacimiento,FotoPerfil,Nacionalidad,Telefono,IdEstadoCivil, NombreCalle,NumeroCalle,IdProvincia,IdLocal
+            $this->query ="SELECT IdPersona, Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad
             From Persona
             WHERE IdPersona = :IdPersona";
             return $this->obtenerRows(array(
@@ -30,11 +25,22 @@
             ));
         }
 
+        public function ModificarEstado($id,$idestado)
+        {
+            $this->query = "UPDATE Persona
+                            SET IdEstado = :idestado
+                            WHERE IdPersona = :id";
+            $this->ejecutar(array(
+                                ':idestado' => $idestado,
+                                ':id' => $id 
+            ));
+        }
+
         public function Guardar(Reclutador $datos)
         {
-            print_r($datos);
-            print_r($this);
-            echo($datos->getNombre()."NombreModel");
+            // print_r($datos);
+            // print_r($this);
+            // echo($datos->getNombre()."NombreModel");
             try
             {
                 $this->query = "INSERT INTO persona (Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad)
@@ -56,12 +62,13 @@
                         ':idLocalidad' => $datos->getLocalidad()
                     ));
                 
-                echo($this->estado);
-                $datos->setIdUsuario( $this->ultimoId());
-                echo(strval($this->ultimoId()));
-                echo($datos->getNombre());
-                echo($this->estado);
-                echo('Ok');
+                // echo($this->estado);
+                // $datos->setIdUsuario( $this->ultimoId());
+                return $this->ultimoId();
+                // echo(strval($this->ultimoId()));
+                // echo($datos->getNombre());
+                // echo($this->estado);
+                // echo('Ok');
             }
             catch(Exception $e)
             {

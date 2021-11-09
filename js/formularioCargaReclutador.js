@@ -123,18 +123,25 @@ formulario.onsubmit = function(e){
     var nacionalidad = document.getElementById('nacionalidad');
     var estadoCivil = document.getElementById('estadoCivil');
     var edad = document.getElementById('edad');
-    var dni = document.getElementById("dni");
+    var dni = document.getElementById("cuit");
     var nacimiento = document.getElementById("nacimiento");
-    var provincia = document.getElementById('provincia');
-    var localidad = document.getElementById('localidad');
+    var idprovincia = document.getElementById('provincia');
+    var idlocalidad = document.getElementById('localidad');
     var calle = document.getElementById('calle');
-    var numero = document.getElementById('numero');
+    var numerocalle = document.getElementById('numerocalle');
     var cp = document.getElementById('cp');
     var email = document.getElementById('email');
     var numeroTelefono = document.getElementById('numeroTelefono');
     var imagen =  document.getElementById('imagen');
+    var urlEmpresa = document.getElementById('urlempresa');
+    var tipoente = document.getElementById('tipo-ente');
+    var resumen = document.getElementById('resumenempresa');
+    var cuil = document.getElementById('cuit');
+    var pass = document.getElementById('password');
+    // var nombreEmpresa = document.getElementById('nombreEmpresa');
+    // var idEmpresa = docuemnte.getElementById('idEmpresa');
        //creo un arreglo con los valores de los elementos del formulario .
-    const postData= {
+    const reclutador= {
        nombre:nombre.value,
        apellido:apellido.value,
        dni:dni.value,
@@ -142,18 +149,71 @@ formulario.onsubmit = function(e){
        estadoCivil:estadoCivil.value,
        edad:edad.value,
        nacimiento:nacimiento.value,
-       provincia:provincia.value,
-       localidad:localidad.value,
+       idprovincia:idprovincia.value,
+       idlocalidad:idlocalidad.value,
        calle:calle.value,
        numerocalle:numerocalle.value,
+       cp: cp.value,
        email:email.value,
        telefono:numeroTelefono.value,
-       imagen: imagen ? imagen.value : null
+       imagen: imagen ? imagen.value : null,
+       urlEmpresa: urlEmpresa.value,
+       tipoente: tipoente.value,
+       resumen: resumen.value,
+       cuil: cuil.value,
+       tipoent: tipoente.value,
+       pass: pass.value
     }
-    console.log(postData);
+    console.log(reclutador);
     //envio el arreglo mediante POST .
-    $.post('./Rutas/AltaReclutador.php',postData,function(response){
-       console.log(response);
-    })
+    // $.post('./Rutas/AltaReclutador.php',postData,function(response){
+    //    console.log(response);
+    // })
+    try{
+        //if(campos.usuario && campos.nombre && campos.password && campos.correo ){
+        if( true) {
+            e.preventDefault();
+            console.log("entre al metodo")
+            // $.ajax({
+            //     type: "post",
+            //     data: JSON.stringify(reclutador),
+            //     cache: false,
+            //     url: "./Rutas/AltaReclutador.php",
+            //     dataType: "json",
+            //     error: function (reclutador, error) {
+            //         console.log(reclutador);
+            //         alert(" Can't do because: " + error);
+            //     },
+            //     success: function () {
+            //         alert(" Done ! ");
+            //         formulario.reset();
+            //     }
+            // });
+            fetch('./Rutas/AltaReclutador.php', {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(reclutador), // data can be `string` or {object}!
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error.value))
+            .then(response => {
+                console.log(response)
+        
+                if ( response.error != 'N'){
+        
+                }else {
+                    alert('Error de algo');
+                }
+            });
+            formulario.reset();
+        } else {
+            e.preventDefault();
+        }   
+    }catch(ex){
+        console.log(ex);
+        e.preventDefault();
+        
+    }
     
  };

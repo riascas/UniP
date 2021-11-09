@@ -7,20 +7,20 @@ class Reclutador extends Persona
     private $ResumenEmpresa;
     private $UrlEmpresa;
     private $Estado;
-    private $IdTipoUsuario;
+    private $IdRol;
     private $Password;
     private $IdProvincia;
     private $IdLocalidad;
 
-    public function __construct($nombre, $apellido,$dni,$nacionalidad,$fecNac,$telefono,$estadoCivil,$provincia,$localidad,$calle,$numeroCalle,$email,$imgPerfil,$cuil,$tipoent,$resum,$url,$est,$pass,$idprovincia,$idLocalidad)
+    public function __construct($nombre, $apellido,$dni,$nacionalidad,$fecNac,$telefono,$estadoCivil,$calle,$numeroCalle,$email,$imgPerfil,$cuil,$tipoent,$resum,$url,$pass,$idprovincia,$idlocalidad)
     {   
-        parent::__construct($nombre, $apellido,$dni,$nacionalidad,$fecNac,$telefono,$estadoCivil,$provincia,$localidad,$calle,$numeroCalle,$email,$imgPerfil);
+        parent::__construct($nombre, $apellido,$dni,$nacionalidad,$fecNac,$telefono,$estadoCivil,$idprovincia,$idlocalidad,$calle,$numeroCalle,$email,$imgPerfil);
         $this->Cuil = $cuil;
         $this->IdTipoEnte = $tipoent;
         $this->ResumenEmpresa = $resum;
         $this->UrlEmpresa = $url;
-        $this->Estado = $est;
-        $this->IdTipoUsuario = 4;   
+        $this->Estado = "Pendiente";
+        $this->IdRol = 4;   
         $this->Password = $pass;
     }
 
@@ -84,9 +84,9 @@ class Reclutador extends Persona
         return $this->Estado;
     }
     
-    public function getTipoUsuario()
+    public function getRol()
     {
-        return $this->IdTipoUsuario;
+        return $this->IdRol;
     }
 
     public function setIdProvincia($idProv)
