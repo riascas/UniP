@@ -96,12 +96,13 @@ const validarCampo = (expresion, input, campo) => {
 }
 
 const validarPassword1 = () => {
+    console.log("Valido Pass");
 	const inputPassword = document.getElementById('password');
 	const inputPassword1 = document.getElementById('password1');
 
 	if(inputPassword.value !== inputPassword1.value){
 		input.classList.add('is-invalid');
-        var errorElement = document.getElementById(error_contrasenia1);
+        var errorElement = document.getElementById('error_contrasenia1');
         errorElement.style.display='block';
 		campos['password'] = false;
 	} else {
@@ -174,21 +175,6 @@ formulario.onsubmit = function(e){
         if( true) {
             e.preventDefault();
             console.log("entre al metodo")
-            // $.ajax({
-            //     type: "post",
-            //     data: JSON.stringify(reclutador),
-            //     cache: false,
-            //     url: "./Rutas/AltaReclutador.php",
-            //     dataType: "json",
-            //     error: function (reclutador, error) {
-            //         console.log(reclutador);
-            //         alert(" Can't do because: " + error);
-            //     },
-            //     success: function () {
-            //         alert(" Done ! ");
-            //         formulario.reset();
-            //     }
-            // });
             fetch('./Rutas/AltaReclutador.php', {
                 method: 'POST', // or 'PUT'
                 body: JSON.stringify(reclutador), // data can be `string` or {object}!

@@ -8,7 +8,7 @@ require_once (CONTROLLER_PATH."ReclutadorController.php");
 $reclutadorcontroller = new ReclutadorController();
 $listaReclutadores = $reclutadorcontroller->Listar();
 
-print_r($listaReclutadores);
+// print_r($listaReclutadores);
 
 require_once (VISTAS_PATH."ABMSolicitudReclutadores.php");
 ?>
