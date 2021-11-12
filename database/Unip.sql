@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2021 a las 02:00:34
+-- Tiempo de generación: 10-11-2021 a las 05:26:32
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -20,57 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `unip`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `alumno`
---
-
-DROP TABLE IF EXISTS `persona`;
-CREATE TABLE `persona` (
-  `IdPersona` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `DNI` int(11) NOT NULL,
-  `Email` varchar(25) NOT NULL,
-  `FechaNacimiento` date NOT NULL,
-  `FotoPerfil` char(20) NOT NULL,
-  `Nacionalidad` varchar(15) NOT NULL,
-  `Telefono` int(11) NOT NULL,
-  `IdEstadoCivil` int(11) NOT NULL,
-  `NombreCalle` varchar(800) NOT NULL,
-  `NumeroCalle` int(8) NOT NULL,
-  `Password` varchar(12) NULL,
-  `IdProvincia` int(11) NOT NULL,
-  `IdLocalidad` int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `alumno_ofertas`
---
-
-DROP TABLE IF EXISTS `postulaciones`;
-CREATE TABLE `postulaciones` (
-  `IdPostulacion` int(11) NOT NULL,
-  `IdPersonaAlumno` int(11) NOT NULL,
-  `IdOferta` int(11) NOT NULL,
-  `IdEstado` int (2) NOT NULL,
-  `FechaPostulacion` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
---
--- Estructura de tabla para la tabla `alumno_ofertas`
---
-
-DROP TABLE IF EXISTS `estadopostulacion`;
-CREATE TABLE `estadopostulacion` (
-  `IdEstado` int(11) NOT NULL,
-  `Descripcion` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -115,31 +64,7 @@ CREATE TABLE `departamentoalumno` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estado_civil`
---
-
-DROP TABLE IF EXISTS `estado_civil`;
-CREATE TABLE `estado_civil` (
-  `IdEstadoCivil` int(11) NOT NULL,
-  `Descripcion` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estado_civil`
---
-
-DROP TABLE IF EXISTS `empresa_persona`;
-CREATE TABLE `empresa_persona` (
-  `IdEmpresa` int(11) NOT NULL,
-  `IdPersona` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estado_civil`
+-- Estructura de tabla para la tabla `empresa`
 --
 
 DROP TABLE IF EXISTS `empresa`;
@@ -149,6 +74,43 @@ CREATE TABLE `empresa` (
   `Url` varchar(30) NOT NULL,
   `Cuit` int(11) NOT NULL,
   `Resumen` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa_persona`
+--
+
+DROP TABLE IF EXISTS `empresa_persona`;
+CREATE TABLE `empresa_persona` (
+  `IdEmpresaPersona` int(11) NOT NULL,
+  `IdEmpresa` int(11) NOT NULL,
+  `IdPersona` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estadopostulacion`
+--
+
+DROP TABLE IF EXISTS `estadopostulacion`;
+CREATE TABLE `estadopostulacion` (
+  `IdEstado` int(11) NOT NULL,
+  `Descripcion` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado_civil`
+--
+
+DROP TABLE IF EXISTS `estado_civil`;
+CREATE TABLE `estado_civil` (
+  `IdEstadoCivil` int(11) NOT NULL,
+  `Descripcion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -214,6 +176,46 @@ CREATE TABLE `partido` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `persona`
+--
+
+DROP TABLE IF EXISTS `persona`;
+CREATE TABLE `persona` (
+  `IdPersona` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `Apellido` varchar(50) NOT NULL,
+  `DNI` int(11) NOT NULL,
+  `Email` varchar(25) NOT NULL,
+  `FechaNacimiento` date NOT NULL,
+  `FotoPerfil` char(20) DEFAULT NULL,
+  `Nacionalidad` varchar(15) NOT NULL,
+  `Telefono` int(11) NOT NULL,
+  `IdEstadoCivil` int(11) NOT NULL,
+  `NombreCalle` varchar(800) NOT NULL,
+  `NumeroCalle` int(8) NOT NULL,
+  `Password` varchar(12) DEFAULT NULL,
+  `IdProvincia` int(11) NOT NULL,
+  `IdLocalidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `postulaciones`
+--
+
+DROP TABLE IF EXISTS `postulaciones`;
+CREATE TABLE `postulaciones` (
+  `IdPostulacion` int(11) NOT NULL,
+  `IdPersonaAlumno` int(11) NOT NULL,
+  `IdOferta` int(11) NOT NULL,
+  `IdEstado` int(2) NOT NULL,
+  `FechaPostulacion` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `preferencias`
 --
 
@@ -225,6 +227,7 @@ CREATE TABLE `preferencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `provincia`
 --
@@ -233,6 +236,41 @@ DROP TABLE IF EXISTS `provincia`;
 CREATE TABLE `provincia` (
   `IdProvincia` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE `roles` (
+  `IdRol` int(11) NOT NULL,
+  `Descripcion` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`IdRol`, `Descripcion`) VALUES
+(1, 'Administrador'),
+(2, 'DepartamentoAlumnos'),
+(3, 'Alumno'),
+(4, 'Reclutador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rolespersona`
+--
+
+DROP TABLE IF EXISTS `rolespersona`;
+CREATE TABLE `rolespersona` (
+  `Id` int(11) NOT NULL,
+  `IdUsuario` int(11) NOT NULL,
+  `IdTipoUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -260,6 +298,16 @@ CREATE TABLE `tipocontrato` (
   `DetalleContrato` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tipocontrato`
+--
+
+INSERT INTO `tipocontrato` (`IdTipoContrato`, `DetalleContrato`) VALUES
+(1, 'Por Tiempo Indeterminado'),
+(2, 'A Plazo Fijo'),
+(3, 'Trabajo Eventual'),
+(4, 'Trabajo de Grupo');
+
 -- --------------------------------------------------------
 
 --
@@ -271,6 +319,15 @@ CREATE TABLE `tipoente` (
   `IdTipoEnte` int(11) NOT NULL,
   `Descripcion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipoente`
+--
+
+INSERT INTO `tipoente` (`IdTipoEnte`, `Descripcion`) VALUES
+(1, 'Recursos Humanos'),
+(2, 'Consultora IT'),
+(3, 'Particular');
 
 -- --------------------------------------------------------
 
@@ -284,49 +341,18 @@ CREATE TABLE `tipojornada` (
   `Detalle` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `tipousuario`
+-- Volcado de datos para la tabla `tipojornada`
 --
 
-DROP TABLE IF EXISTS `tipousuario`;
-CREATE TABLE `tipousuario` (
-  `IdTipoUsuario` int(11) NOT NULL,
-  `Descripcion` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tipousuario`
---
-
-INSERT INTO `tipousuario` (`IdTipoUsuario`, `Descripcion`) VALUES
-(1, 'Administrador'),
-(2, 'DepartamentoAlumnos'),
-(3, 'Alumno'),
-(4, 'Reclutador');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario_tipousuario`
---
-
-DROP TABLE IF EXISTS `usuario_tipousuario`;
-CREATE TABLE `usuario_tipousuario` (
-  `Id` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `IdTipoUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `tipojornada` (`IdTipoJornada`, `Detalle`) VALUES
+(1, 'Jornada Completa'),
+(2, 'Part Time'),
+(3, 'Pasantia');
 
 --
 -- Índices para tablas volcadas
 --
-
--- Indices de la tabla `alumno_ofertas`
---
-ALTER TABLE `postulaciones`
-  ADD PRIMARY KEY (`IdPostulacion`);
 
 --
 -- Indices de la tabla `alumno_preferencias`
@@ -377,6 +403,18 @@ ALTER TABLE `partido`
   ADD PRIMARY KEY (`IdPartido`);
 
 --
+-- Indices de la tabla `persona`
+--
+ALTER TABLE `persona`
+  ADD PRIMARY KEY (`IdPersona`);
+
+--
+-- Indices de la tabla `postulaciones`
+--
+ALTER TABLE `postulaciones`
+  ADD PRIMARY KEY (`IdPostulacion`);
+
+--
 -- Indices de la tabla `preferencias`
 --
 ALTER TABLE `preferencias`
@@ -387,6 +425,19 @@ ALTER TABLE `preferencias`
 --
 ALTER TABLE `provincia`
   ADD PRIMARY KEY (`IdProvincia`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`IdRol`);
+
+--
+-- Indices de la tabla `rolespersona`
+--
+ALTER TABLE `rolespersona`
+  ADD PRIMARY KEY (`Id`);
+
 --
 -- Indices de la tabla `skills`
 --
@@ -412,28 +463,32 @@ ALTER TABLE `tipojornada`
   ADD PRIMARY KEY (`IdTipoJornada`);
 
 --
--- Indices de la tabla `tipousuario`
+-- AUTO_INCREMENT de las tablas volcadas
 --
-ALTER TABLE `tipousuario`
-  ADD PRIMARY KEY (`IdTipoUsuario`);
 
 --
--- Indices de la tabla `usuario`
---
-ALTER TABLE `Persona`
-  ADD PRIMARY KEY (`IdPersona`);
-
---
--- Indices de la tabla `usuario_tipousuario`
---
-ALTER TABLE `usuario_tipousuario`
-  ADD PRIMARY KEY (`Id`);
-
-
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
   MODIFY `IdPersona` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipocontrato`
+--
+ALTER TABLE `tipocontrato`
+  MODIFY `IdTipoContrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `tipoente`
+--
+ALTER TABLE `tipoente`
+  MODIFY `IdTipoEnte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `tipojornada`
+--
+ALTER TABLE `tipojornada`
+  MODIFY `IdTipoJornada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

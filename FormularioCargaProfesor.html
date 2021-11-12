@@ -63,7 +63,7 @@
         <div class="container">
             <div class="card mt-3">
               <div class="card-body">
-                <form action="" id="formulario" enctype='multipart/form-data' method="POST">   
+                <form action="profesor-add.php" id="formulario" enctype='multipart/form-data' method="POST">   
                         <div class="row mb-3">
                             <label for="nombre" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 form-label">Nombre</label>
                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -80,9 +80,10 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-xs-12 col-sm-12 col-md-4 col-lg-4 form-label" for="imagen" >Imagen</label>
+      
                             <div lass="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                                <input type="file" name="imagen" id="imagen" accept=".jpg,.png,.jpeg">
+                                <h1 class="h3  pt-2 ">Imagen <i class="fas fa-camera-retro text-primary mt-2"></i></h1>
+                                <input type="file" class="form-control mt-3" name="imagen" id="imagen" accept=".jpg,.png,.jpeg">
                                 <!--Previsualizacion-->
                                 <div id="preview" class="styleImage mt-3 text-center"></div>
                                 <!-- //mejores -->

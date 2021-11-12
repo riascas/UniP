@@ -130,12 +130,13 @@ inputs.forEach((input) => {
  });
 
 formulario.addEventListener('submit', (e) => {
+	e.preventDefault();
 	try{
         if(campos.dni && campos.nombre && campos.apellido && campos.fecha_nac && campos.localidad && campos.barrio && campos.nomcalle && campos.numcalle && campos.pisodepto && campos.email && campos.contrasenia && campos.contrasenia1){
 			var postData=$('#formulario').serialize();
             $.ajax({
 				type:"post",
-				url:"./Rutas/profesor-add.php",
+				url:'./Rutas/profesor-add.php',
 				data:postData,
 				succes:function(r){
 					if(r==1){
@@ -146,7 +147,6 @@ formulario.addEventListener('submit', (e) => {
 				}
 			});
 			return false;
-			e.preventDefault();
             //formulario.reset();
         } else {
             e.preventDefault();

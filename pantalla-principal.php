@@ -256,7 +256,7 @@ include('login-google.php');
                 <input type="password" class="form-control-plaintext border border-secondary rounded" id="inputPassword">
               </div>
             </div>
-            <a type="submit" class="btn btn-danger" href="./ABMSolicitudReclutadores.html">
+            <a type="submit" class="btn btn-danger" href="./Rutas/ListarReclutador.php">
               Ingresar
             </a>
         <a type="button" class="btn btn-link" href="./recuperar-contraseña.html" >
