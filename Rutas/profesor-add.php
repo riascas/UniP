@@ -1,5 +1,5 @@
 <?php
-console.log("entro a profesor-add");
+//console.log("entro a profesor-add");
 /*este archivo  recibe el arreglo con los datos del formulario alumno y los envia a la BD*/
 include_once('./Model/ProfesorModel.php');
 include_once('./Clases/Persona.php');
