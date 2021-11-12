@@ -10,7 +10,7 @@ require_once('../Model/ConexionDB.php');
         private $password = "";
 
 
-       public function guardar(Persona $usr) {
+       public function guardar(Alumno $usr) {
         try{
 
             /*me conecto a la BD*/
