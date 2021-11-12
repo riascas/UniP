@@ -1,15 +1,16 @@
 <?php 
 
-require_once('../Clases/Persona.php');
-require_once('../Model/ConexionDB.php');   
+require_once('./Clases/Persona.php');
+require_once('./Model/ConexionDB.php');   
 
-    class AlumnoModel{
+    class AlumnoModel extends ConexionDB  {
         private $servername = "localhost";
         private $dbname = "unip";
         private $username = "root";
         private $password = "";
-
-
+        private $idAlumno;
+        private $idRol;
+        private $idPreferencia;
        public function guardar(Alumno $usr) {
         try{
 
@@ -34,26 +35,55 @@ require_once('../Model/ConexionDB.php');
             $sentenciaSQL->bindParam('IdProvincia',$usr->getProvincia());
             $sentenciaSQL->bindParam('IdLocalidad',$usr->getLocalidad());
             $sentenciaSQL->execute();
-            /*$this->query = ("INSERT INTO persona ( Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdLocalidad)
-            VALUES (:Nombre, :Apellido, :DNI,:Email, :FechaNacimiento, :FotoPerfil, :Nacionalidad, :Telefono, :IdEstadoCivil,  :NombreCalle, :NumeroCalle, NULL, :IdLocalidad);");
-            echo "Conectado a sistema y guardado";
-            $this->ejecutar( array(
-                ':Nombre' => $usr->getNombre(),
-                ':Apellido' => $usr->getApellido(),
-                ':Dni' => $usr->getDNI(),
-                ':Email' => $usr->getEmail(),
-                ':FechaNac' => $usr->getFechaNacimiento(),
-                ':FotoPerfil' => $usr->getImagenPerfil(),
-                ':Nacionalidad' => $usr->getNacionalidad(),
-                ':Telefono' => $usr->getTelefono(),
-                ':IdEstadoCivil' => $usr->getTelefono(),
-                ':Telefono' => $usr->getTelefono(),
-                ':Telefono' => $usr->getTelefono(),
-                ':Telefono' => $usr->getTelefono(),
-            ));*/
+           $this->idAlumno =  $conexion->lastInsertId();
+           $this->idRol = $usr->getRol();
+           $this->idPreferencia = $usr->getPreferencia();
+
         }catch( Exception $ex){
             echo $ex->getMessage();
         }
     } 
+
+
+    public function GuardarRol()
+    {
+        try
+        {
+          /*me conecto a la BD*/
+          $conexion = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password,
+          array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+          /*query para insertar datos en tabla rolespersona*/
+          $sentenciaSQL= $conexion->prepare("INSERT INTO rolespersona (IdUsuario, IdTipoUsuario) VALUES (:IdUsuario, :IdTipo);");
+           /* valores para los parametros */
+           $sentenciaSQL->bindParam('IdUsuario',$this->idAlumno);
+           $sentenciaSQL->bindParam('IdTipo',$this->idRol);
+           $sentenciaSQL->execute();
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
+
+
+    public function GuardarPreferencia(){
+        /*me conecto a la BD*/
+
+        try{
+            $conexion = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password,
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        /*query para insertar datos en tabla alumno_preferencia*/
+        $sentenciaSQL= $conexion->prepare("INSERT INTO `alumno_preferencias` (`IdAlumno`, `IdPreferencia`) VALUES ( :IdAlumno, :IdPreferencia);");
+        /* valores para los parametros */
+        $sentenciaSQL->bindParam('IdAlumno',$this->idAlumno);
+        $sentenciaSQL->bindParam('IdPreferencia',$this->idPreferencia);
+        $sentenciaSQL->execute();
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    
+    }
 } 
 ?>

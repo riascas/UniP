@@ -12,6 +12,8 @@ const expresiones = {
     numero:/^\d{1,10}$/, 
 
 }
+
+
 const formulario = document.getElementById('formulario');
 const inputs =  document.querySelectorAll('#formulario input');
 
@@ -112,7 +114,9 @@ formulario.onsubmit = function(e){
    var cp = document.getElementById('cp');
    var email = document.getElementById('email');
    var numeroTelefono = document.getElementById('numeroTelefono');
+   var preferencia = document.getElementById('preferencia');
    var imagen =  document.getElementById('imagen');
+   
       //creo un arreglo con los valores de los elementos del formulario .
    const postData= {
       nombre:nombre.value,
@@ -128,6 +132,7 @@ formulario.onsubmit = function(e){
       numero:numero.value,
       email:email.value,
       telefono:numeroTelefono.value,
+      preferencia:preferencia.value,
       imagen:imagen.value,
    }
    //envio el arreglo mediante POST .

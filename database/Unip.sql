@@ -473,6 +473,20 @@ ALTER TABLE `persona`
   MODIFY `IdPersona` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `RolesPersona`
+--
+
+  ALTER TABLE `rolespersona`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+  --
+-- AUTO_INCREMENT de la tabla `alumno_preferencias`
+--
+
+  ALTER TABLE `alumno_preferencias`
+  MODIFY `IdAlumnoPreferencia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tipocontrato`
 --
 ALTER TABLE `tipocontrato`
