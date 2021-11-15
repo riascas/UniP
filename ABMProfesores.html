@@ -76,44 +76,28 @@
                     <th scope="col">Acción</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="table-active">
-                    <td>Mark</td>
-                    <td>Zotta</td>
-                    <td>41549829</td>
-                    <td>    
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                        Ver
-                      </button>
-                      <button type="button" class="btn btn-primary" >Editar</button>
-                      <button type="button" class="borrar btn btn-primary">Borrar</button>
-                    </td>
-                </tr>
-                <tr class="table-active">
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>42583562</td>
-                    <td>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                        Ver
-                      </button>
-                      <button type="button" class="btn btn-primary">Editar</button>
-                      <button type="button" class="borrar btn btn-primary">Borrar</button>
-                    </td>
-                </tr>
-                <tr class="table-active">
-                  <td>María</td>
-                  <td>Velasquez</td>
-                  <td>12589652</td>
-                  <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                      Ver
-                    </button>
-                    <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="borrar btn btn-primary">Borrar</button>
-                  </td>
-              </tr>
+              <tbody id ="tbody" class="tb-profesores">
+                <?php
+                  foreach ($listaProfesores as $row) {
+                    echo('
+                    <tr class="table-active">
+                      <td>'.$row['IdPersona'].'</td>
+                      <td>'.$row['Nombre'].'</td>
+                      <td>04/09/2021</td>
+                      <td>fheredia@mercadolibre.com</td>
+                      <td>11246687845</td>
+                      <td>Profesores IT</td>
+                      <td>'.$row['Estado'].'</td>
+                      <td>
+                        <button id="a1" class="btn btn-primary btn-sm btn-aceptar" data-id="'.$row['IdPersona'].'" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-edit" aria-hidden="true">Aceptar</span></button>
+                        <button id="r1" class="btn btn-danger btn-sm btn-rechazar" data-toggle="modal" data-target="#mensajeModal"><span class="glyphicon glyphicon-trash" aria-hidden="true">Rechazar</span></button>
+                      </td>
+                  </tr>
+                    ');
+                  }
+      
+      
+                ?>
               </tbody>
             </table> 
             <a href="FormularioCargaProfesor.html">
