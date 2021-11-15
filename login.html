@@ -43,28 +43,30 @@
         </div>
       </nav>
       <div class="row align-items-center" style="padding-top:10%;padding-left: 30%;padding-right: 30%;">
-        <form style="background-color: aliceblue; padding:10%;">
+        <form id="miform" style="background-color: aliceblue; padding:10%;">
             <div>
                 <h1 style="text-align: center;">Login</h1>
             </div>
             <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                  <input type="text" readonly class="form-control-plaintext" id="email" value="email@example.com">
                 </div>
             </div>
               <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword">
+                  <input type="password" class="form-control" id="password">
                 </div>
               </div>
               <a type="submit" class="btn btn-secondary" href="./pantalla-principal-administrador.html">
                     Ingresar
               </a>
-              <button type="button" class="btn btn-link">
+              <button id="miboton" type="button" class="btn btn-link">
                     Olvide mi contraseña 
               </button>
         </form>
       </div>
+      <scrip src="jquery-3.1.1.min.js"></scrip>
+      <script src="main.js"></script>
 </body>
