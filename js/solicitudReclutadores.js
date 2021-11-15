@@ -3,7 +3,13 @@ $(document).ready(function(){
         console.log(this);
         $("#mensaje").html("Seguro que desea aceptar la socilcitud?");
         $('#mensajeModal').modal('toggle');
-        confirmar_resultado(this.id);
+        var id = $(this).attr('data-id');
+        console.log(id);
+        var dato = {
+            idpersona: parseInt(id),
+            idestado: 2 
+        }
+        confirmar_resultado(dato);
                     
     });
 
@@ -25,26 +31,42 @@ $(document).ready(function(){
     });
     
 
-    function confirmar_resultado(botonId){
+    function confirmar_resultado(dato){
         $("#confirmar").click(function(){
             console.log("entre aca");
-            var MyRows = $('#tbody').find('tr');
-          
-            for (var i = 0; i < MyRows.length; i++) {
-                if($(MyRows[i]).find('td:eq(7)').html() == botonId){
-                    $(MyRows[i]).find('td:eq(6)').html("Si")
+            $.ajax({
+                type: "post",
+                data: JSON.stringify(dato),
+                cache: false,
+                url: "ModificarEstadoReclutador.php",
+                dataType: "json",
+                error: function (dato, error) {
+                    console.log(dato);
+                    alert(" Can't do because: " + error);
+                },
+                success: function () {
+                    // alert(" Done ! ");
+                    $("#mensajeModal").modal("hide");
+                    location.reload();
                 }
-                var MyIndexValue = $(MyRows[i]).find('td:eq(0)').html();
-            }
-            console.log(botonId);
-            console.log(MyIndexValue);
-            if(this.id=="a1" || this.id =="a2"){
-                MyIndexValue[6].html("Aprobado");
-            }
+            });
+            // var MyRows = $('#tbody').find('tr');
+          
+            // for (var i = 0; i < MyRows.length; i++) {
+            //     if($(MyRows[i]).find('td:eq(7)').html() == botonId){
+            //         $(MyRows[i]).find('td:eq(6)').html("Si")
+            //     }
+            //     var MyIndexValue = $(MyRows[i]).find('td:eq(0)').html();
+            // }
+            // console.log(botonId);
+            // console.log(MyIndexValue);
+            // if(this.id=="a1" || this.id =="a2"){
+            //     MyIndexValue[6].html("Aprobado");
+            // }
 
-            $("#mensajeModal").modal("hide");
+            // $("#mensajeModal").modal("hide");
            
-            return true;
+            // return true;
         });
     }    
     $("#cancelar").click(function(){
