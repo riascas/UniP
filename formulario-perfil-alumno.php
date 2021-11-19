@@ -1,3 +1,5 @@
+<?php include('./login-google.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +15,9 @@
 </head>
 
 <body>
-  
-
   <nav class="navbar navbar-expand-lg barra rounded">
     <div class="container-fluid">
-      <a class="navbar-brand text-white " href="./V.principal-alumno.html">Unip</a>
+      <a class="navbar-brand text-white " href="./V.principal-alumno.php">Unip</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-white " aria-current="page" href="./perfil-alumno.html">Mi Perfil</a>
+            <a class="nav-link active text-white " aria-current="page" href="./perfil-alumno.php">Mi Perfil</a>
           </li>
           
           <li class="nav-item dropdown">
@@ -64,11 +64,11 @@
           </h1>
           <form action="">
             <div class="form-row">
-              <input type="text" class="form-control mt-3" name="nombre" id="nombre" placeholder="Nombre">
+              <input type="text" class="form-control mt-3" name="nombre" id="nombre" placeholder="Nombre" value="<?php if(isset($_SESSION['user_first_name'])){echo $_SESSION['user_first_name'];}?>">
               <p  id="error_nombre"  class=" invalid-feedback text-warning">Nombre solo puede tener letras y espacios</p>
             </div>
             <div class="form-row">
-              <input type="text" class="form-control mt-3" name="apellido" id="apellido" placeholder="Apellido">
+              <input type="text" class="form-control mt-3" name="apellido" id="apellido" placeholder="Apellido" value="<?php if(isset($_SESSION['user_last_name'])){echo $_SESSION['user_last_name'];}?>">
               <p  id="error_apellido"  class=" invalid-feedback text-warning">Apellido solo puede tener letras y espacios</p>
               <input type="text" class="form-control mt-3" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad">
               <p  id="error_nacionalidad"  class=" invalid-feedback text-warning">Nacionalidad solo puede tener letras y espacios</p>
@@ -80,13 +80,7 @@
                 <option value="3">Casado/a</option>
               
               </select>
-            </div>
-            
-            <div class="form-row">
-              <input class="form-control mt-3" type="number" name="edad" id="edad" placeholder="Edad">
-              <p  id="error_edad"  class=" invalid-feedback text-warning">la edad debe contener 2 dígitos </p>
-            </div>
-            
+            </div> 
             <div class="form-row">
               <input class="form-control mt-3 " type="number" name="dni" id="dni" placeholder="D.N.I" >
               <p  id="error_dni"  class=" invalid-feedback text-warning">El dni debe contenter 8 dígitos </p>
@@ -148,8 +142,7 @@
             <h1 class="h3  mt-3 ">Contacto<i class="fas fa-phone-square-alt ms-2 text-primary"></i></h1>
           </div>
           <div class="form-row">
-            <input type="text" class="form-control mt-3" name="email" id="email" placeholder="Email">
-            <p  id="error_cp"  class=" invalid-feedback text-warning">Ingresar un correo valido ej: example@gmail.com </p>
+            <span class="h5">Email:  </span>  <span class="h5" id="email" name="email"><?php echo $_SESSION['user_email_address'];  ?></span>
           </div>
           <div class="form-row">
             <input type="number" class="form-control mt-3" name="numeroTelefono" id="numeroTelefono" placeholder="Numero de telefono">

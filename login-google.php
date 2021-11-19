@@ -4,9 +4,7 @@
 
 //Include Configuration File
 include('config.php');
-
 $login_button = '';
-
 
 if(isset($_GET["code"]))
 {
@@ -71,5 +69,7 @@ if(!isset($_SESSION['access_token']))
  </div>
 </a>';
 }
+
+
 
 ?>

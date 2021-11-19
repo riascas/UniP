@@ -1,4 +1,15 @@
-<?php include('login-google.php') ?>
+<?php 
+include('login-google.php');
+include_once('./Model/AlumnoModel.php');
+
+
+$alumnoModel = new AlumnoModel();
+$result =  $alumnoModel->existeAlumno($_SESSION['user_email_address']);
+if($result==false){
+  header("Location: formulario-perfil-alumno.php");
+  exit(); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +37,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="./perfil-alumno.html">Mi Perfil</a>
+                <a class="nav-link active text-white" aria-current="page" href="./perfil-alumno.php">Mi Perfil</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="./ABMmisOfertasLaborales.html">Mis postulaciones</a>

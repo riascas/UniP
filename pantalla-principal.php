@@ -1,8 +1,6 @@
 <?php
 
-include('login-google.php');
-
-
+include('./login-google.php');
 
 ?>
 

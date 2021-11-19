@@ -48,9 +48,6 @@ const validarFormulario = (e) => {
        case "estadoCivil":
             console.log('funciona');
        break;
-       case "edad":
-        validarCampo(expresiones.edad,e.target,'edad')
-       break;
        case "dni":
             validarCampo(expresiones.dni,e.target,'dni');
        break;
@@ -102,9 +99,8 @@ formulario.onsubmit = function(e){
    
    var nombre = document.getElementById('nombre');
    var apellido = document.getElementById('apellido');
-   var nacionalidad = document.getElementById('nombre');
+   var nacionalidad = document.getElementById('nacionalidad');
    var estadoCivil = document.getElementById('estadoCivil');
-   var edad = document.getElementById('edad');
    var dni = document.getElementById("dni");
    var nacimiento = document.getElementById("nacimiento");
    var provincia = document.getElementById('provincia');
@@ -124,13 +120,12 @@ formulario.onsubmit = function(e){
       dni:dni.value,
       nacionalidad:nacionalidad.value,
       estadoCivil:estadoCivil.value,
-      edad:edad.value,
       nacimiento:nacimiento.value,
       provincia:provincia.value,
       localidad:localidad.value,
       calle:calle.value,
       numero:numero.value,
-      email:email.value,
+      email:email.textContent,
       telefono:numeroTelefono.value,
       preferencia:preferencia.value,
       imagen:imagen.value,
@@ -138,9 +133,11 @@ formulario.onsubmit = function(e){
    //envio el arreglo mediante POST .
    $.post('alumno-add.php',postData,function(response){
       console.log(response);
-      window.alert("Guardado correctamente");
+      window.alert("Guardado");
    })
    e.preventDefault();
+
+   
 };
 
 
