@@ -4,7 +4,7 @@ require_once (CLASES_PATH."Persona.php");
 require_once (MODEL_PATH."DeptoAlumnosModel.php");
 require_once (MODEL_PATH."RolesUsuarios.php");
 
-class ProfesorController
+class DeptoAlumnosController
 {
     private $DeptoAlumnosModel;
     private $rolesUsuariosModel;
