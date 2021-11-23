@@ -9,5 +9,11 @@
             $datos = $this->usuarioModel->Listar();
             return $datos; 
         }
+
+        public function LogearUsuario($correo,$pass)
+        {
+            $datos = $this->usuarioModel->LogearUsuario($correo,$pass);
+            return $datos;
+        }
     }
 ?>

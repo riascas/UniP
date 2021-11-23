@@ -44,7 +44,7 @@
                 }
             } catch (PDOException $e) {
                 $this->estado = "ERROR-No se pudo ejecutar: " . $e->getMessage();
-                // $this->desconectar();
+                $this->desconectar();
             }
         }
 
@@ -61,6 +61,7 @@
                 }
             } catch (PDOException $e) {
                 $this->estado = "ERRO-No se pudo obtener Rows: " . $e->getMessage();
+                $this->desconectar();
             }
         }
 
@@ -69,6 +70,7 @@
                 return $this->objPDO->lastInsertId();
             } catch (PDOException $e) {
                 $this->estado = "ERROR-No se pudo obtener el ultimo Id: " . $e->getMessage();
+                $this->desconectar();
             }
         }
 

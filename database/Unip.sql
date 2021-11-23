@@ -203,6 +203,17 @@ CREATE TABLE `persona` (
 --
 -- Estructura de tabla para la tabla `postulaciones`
 --
+CREATE TABLE `permisos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `postulaciones`
+--
 
 DROP TABLE IF EXISTS `postulaciones`;
 CREATE TABLE `postulaciones` (
@@ -269,9 +280,20 @@ INSERT INTO `roles` (`IdRol`, `Descripcion`) VALUES
 DROP TABLE IF EXISTS `rolespersona`;
 CREATE TABLE `rolespersona` (
   `Id` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
+  `IdPersona` int(11) NOT NULL,
   `IdTipoUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rolesPermisos`
+--
+CREATE TABLE `rolespermisos` (
+  `Id` int(11) NOT NULL,
+  `IdRol` int(11) NOT NULL,
+  `IdPermiso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

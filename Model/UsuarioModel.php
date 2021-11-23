@@ -26,10 +26,19 @@
             return $this->ultimoId();
         }
 
-    //     public function ObtenerId()
-    //     {
-    //         $this->query = "SELECT MAX(IdReclutador) From Reclutador";
-    //         $this->$recutador;
-    //     }
+        public function LogearUsuario($correo,$pass)
+        {
+            $this->query = "SELECT p.IdPersona, Nombre, Apellido, DNI, Email,r.IdRol,r.Descripcion FROM persona p
+            INNER JOIN rolespersona rp ON p.IdPersona = rp.IdPersona
+            INNER JOIN roles r ON r.IdRol = rp.IdRol
+            WHERE Correo = :coreo AND Password = :pass";
+            $usuarioLogeado = $this->ejecutar((array(
+                ':correo' => $correo,
+                ':pass' => $pass
+            )));
+
+            return $usuarioLogeado;
+            
+        }
     }
 ?>

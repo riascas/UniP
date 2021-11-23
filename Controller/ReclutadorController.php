@@ -24,6 +24,16 @@ class ReclutadorController
        return $datos;
     }
 
+    public function ListarPerfil($idreclutador)
+    {
+        $datos = $this->recModel->ListarPerfil($idreclutador);
+        if($datos == null)
+        {
+            echo("no data");
+        }
+        return $datos;
+    }
+
     public function ModificarEstado($id,$idestado)
     {
         $this->recModel->ModificarEstado($id,$idestado);
@@ -48,10 +58,10 @@ class ReclutadorController
         try {
         
             $idUsr = $this->recModel->Guardar($reclutador);
-            echo($idUsr);
-            echo($reclutador->getRol());
+            // echo($idUsr);
+            // echo($reclutador->getRol());
             $this->rolesUsuariosModel->Guardar($idUsr,$reclutador->getRol());
-            print_r($this->rolesUsuariosModel);
+            // print_r($this->rolesUsuariosModel);
             // $reclutador = new ReclutadorModel($idUsr,$datos->cuil,$datos->urlReclutador,$datos->tipoente,$datos->resumenEmpresa,$datos->estado);
             //obgtengo pk de usuario
             //uso la pk para el reclutador
