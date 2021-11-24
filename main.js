@@ -1,4 +1,4 @@
-jQuery(document).on('submit','#miform',function(event){
+/* jQuery(document).on('submit','#miform',function(event){
     event.preventDefault;
 
     jQuery.ajax({
@@ -32,4 +32,35 @@ jQuery(document).on('submit','#miform',function(event){
         console.log("complete");
     });
 
-});
+}); */
+
+
+function login(event){
+    event.preventDefault();
+    var email = document.querySelector("#email").value;
+    var password = document.querySelector("#password").value;
+
+    $.ajax({
+        url:'Rutas/LogearUsuarios.php',
+        type:'POST',
+        dataType:'json',
+        data:{
+            "email": email,
+            "password" : password,
+            "param": "login",
+        },
+        success(data){
+            console.log(data[0]);
+
+            if(data != ""){
+                location.href = "/sofia/clase%202/pantalla-principal-administrador.html";
+            }else{
+                alert("no")
+            }
+        },
+        
+    })
+
+    /* vista (cuando genera una accion "ajax")>controlador(pide datos al modelo)>modelo(le devuelve los valores al controlar)<controlador(le pasa esos datos a la vista)<vista(lo imprimis o los utilizas) */
+
+}

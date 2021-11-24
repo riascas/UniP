@@ -12,7 +12,9 @@ class DeptoAlumnosController
     function __construct(){
         $this->DeptoAlumnosModel= new DeptoAlumnosModel();
         $this->rolesUsuariosModel = new RolesUsuariosModel();
+
     }
+
     public function Listar()
     {
        $datos=$this->DeptoAlumnosModel->Listar();
