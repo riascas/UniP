@@ -37,14 +37,17 @@
             try {
                 if( is_array($parametros)){
                     $consulta =  $this->objPDO->prepare($this->query);
+                  
                     $consulta->execute($parametros);
+                    $rts =   $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    return $rts;
                 } else {
                     $resultado =  $this->objPDO->prepare($this->query);
                     $resultado->execute();
                 }
             } catch (PDOException $e) {
                 $this->estado = "ERROR-No se pudo ejecutar: " . $e->getMessage();
-                // $this->desconectar();
+                $this->desconectar();
             }
         }
 
@@ -61,6 +64,7 @@
                 }
             } catch (PDOException $e) {
                 $this->estado = "ERRO-No se pudo obtener Rows: " . $e->getMessage();
+                $this->desconectar();
             }
         }
 
@@ -69,6 +73,7 @@
                 return $this->objPDO->lastInsertId();
             } catch (PDOException $e) {
                 $this->estado = "ERROR-No se pudo obtener el ultimo Id: " . $e->getMessage();
+                $this->desconectar();
             }
         }
 

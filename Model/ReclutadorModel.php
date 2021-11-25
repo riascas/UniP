@@ -15,14 +15,22 @@
             return $this->rows;
         }
 
-        public function LitarReclutadorPorId($id)
+        public function ListarPerfil($id)
         {
-            $this->query ="SELECT IdPersona, Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad
-            From Persona
-            WHERE IdPersona = :IdPersona";
-            return $this->obtenerRows(array(
-                ':IdPersona'=> $id
+            
+            $this->query ="SELECT IdPersona, p.Nombre as Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, 
+            Nacionalidad, Telefono, p.IdEstadoCivil, ec.Descripcion as EstadoCivil, NombreCalle, NumeroCalle, 
+            Password, p.IdProvincia, prov.Nombre as Provincia, p.IdLocalidad, loc.Descripcion as Localidad, p.Edad,p.CP,p.CUIL 
+            From persona p 
+            INNER JOIN provincia prov on p.IdProvincia = prov.IdProvincia 
+            INNER JOIN localidad loc on p.IdLocalidad = loc.IdLocalidad 
+            INNER JOIN estado_civil ec on p.IdEstadoCivil = ec.IdEstadoCivil 
+            WHERE IdPersona = :IdPers";
+            $this->obtenerRows(array(
+                ':IdPers'=> intval($id)
             ));
+
+            return $this->rows;
         }
 
         public function ModificarEstado($id,$idestado)

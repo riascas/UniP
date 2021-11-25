@@ -5,7 +5,7 @@ class AlumnoModel
     private $idAlumno;
     private $idRol;
     private $idPreferencia;
-    public function guardar(Alumno $usr)
+    public function guardar( $usr)
     {
         try {
             /*me conecto a la BD*/

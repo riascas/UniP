@@ -82,7 +82,7 @@
 							<tr class="table-active">
 								<td>'.$row['IdPersona'].'</td>
 								<td>'.$row['Nombre'].'</td>
-								<td>04/09/2021</td>
+								<td>'.$row['Fecha'].'</td>
 								<td>fheredia@mercadolibre.com</td>
 								<td>11246687845</td>
 								<td>Recluter IT</td>

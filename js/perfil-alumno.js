@@ -1,7 +1,6 @@
 
 $('#btn-editar').click(function(){
     $("#loginmodal4").modal("show");
-    //console.log('puto');
 })
 
 $("#formAlumno").submit(function(e){

@@ -25,6 +25,5 @@ include_once('../Clases/Alumno.php');
     $resultado = $alumnoModel->guardar($alumno);
     $alumnoModel->GuardarRol();
     $alumnoModel->GuardarPreferencia();
-   
 
 ?>

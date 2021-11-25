@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2021 a las 05:26:32
+-- Tiempo de generación: 25-11-2021 a las 01:53:25
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -37,13 +37,13 @@ CREATE TABLE `alumno_preferencias` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno_skills`
+-- Estructura de tabla para la tabla `materia_skill`
 --
 
-DROP TABLE IF EXISTS `alumno_skills`;
-CREATE TABLE `alumno_skills` (
-  `IdAlumnoSkills` int(11) NOT NULL,
-  `IdAlumno` int(11) NOT NULL,
+DROP TABLE IF EXISTS `materia_skills`;
+CREATE TABLE `materia_skills` (
+  `Id` int(11) NOT NULL,
+  `Idmateria` int(11) NOT NULL,
   `IdSkills` int(11) NOT NULL,
   `ProfesorValidador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -75,6 +75,13 @@ CREATE TABLE `empresa` (
   `Cuit` int(11) NOT NULL,
   `Resumen` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`IdEmpresa`, `Nombre`, `Url`, `Cuit`, `Resumen`) VALUES
+(1, 'Softtek', 'https://www.softtek.com/', 306815199, 'Softtek es una empresa de tecnología de la información con sede en México que opera en América del Norte, América Latina, Europa y Asia. Con sede en Monterrey, México, la empresa tiene 15.000 asociado');
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,7 @@ DROP TABLE IF EXISTS `localidad`;
 CREATE TABLE `localidad` (
   `IdLocalidad` int(11) NOT NULL,
   `Descripcion` varchar(50) NOT NULL,
-  `IdPartido` int(11) NOT NULL
+  `IdProvincia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -152,7 +159,7 @@ CREATE TABLE `oferta` (
   `IdOferta` int(11) NOT NULL,
   `Titulo` varchar(50) NOT NULL,
   `IdEmpresa` int(11) NOT NULL,
-  `UbicacoionOferta` varchar(50) NOT NULL,
+  `UbicacionOferta` varchar(50) NOT NULL,
   `DetallePuesto` varchar(200) NOT NULL,
   `FuncionesPuesto` varchar(200) NOT NULL,
   `IdTipoContrato` int(11) NOT NULL,
@@ -162,18 +169,6 @@ CREATE TABLE `oferta` (
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `partido`
---
-
-DROP TABLE IF EXISTS `partido`;
-CREATE TABLE `partido` (
-  `IdPartido` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `IdProvincia` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `persona`
@@ -207,7 +202,7 @@ CREATE TABLE `persona` (
 DROP TABLE IF EXISTS `postulaciones`;
 CREATE TABLE `postulaciones` (
   `IdPostulacion` int(11) NOT NULL,
-  `IdPersonaAlumno` int(11) NOT NULL,
+  `IdAlumno` int(11) NOT NULL,
   `IdOferta` int(11) NOT NULL,
   `IdEstado` int(2) NOT NULL,
   `FechaPostulacion` date NOT NULL
@@ -363,14 +358,20 @@ ALTER TABLE `alumno_preferencias`
 --
 -- Indices de la tabla `alumno_skills`
 --
-ALTER TABLE `alumno_skills`
-  ADD PRIMARY KEY (`IdAlumnoSkills`);
+ALTER TABLE `materia_skills`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `departamentoalumno`
 --
 ALTER TABLE `departamentoalumno`
   ADD PRIMARY KEY (`IdDepAlumno`);
+
+--
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`IdEmpresa`);
 
 --
 -- Indices de la tabla `estado_civil`
@@ -396,11 +397,6 @@ ALTER TABLE `materia`
 ALTER TABLE `oferta`
   ADD PRIMARY KEY (`IdOferta`);
 
---
--- Indices de la tabla `partido`
---
-ALTER TABLE `partido`
-  ADD PRIMARY KEY (`IdPartido`);
 
 --
 -- Indices de la tabla `persona`
@@ -467,24 +463,40 @@ ALTER TABLE `tipojornada`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `alumno_preferencias`
+--
+ALTER TABLE `alumno_preferencias`
+  MODIFY `IdAlumnoPreferencia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `estado_civil`
+--
+ALTER TABLE `estado_civil`
+  MODIFY `IdEstadoCivil` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  MODIFY `IdOferta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
   MODIFY `IdPersona` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `RolesPersona`
+-- AUTO_INCREMENT de la tabla `rolespersona`
 --
-
-  ALTER TABLE `rolespersona`
+ALTER TABLE `rolespersona`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
-  --
--- AUTO_INCREMENT de la tabla `alumno_preferencias`
---
-
-  ALTER TABLE `alumno_preferencias`
-  MODIFY `IdAlumnoPreferencia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipocontrato`
