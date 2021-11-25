@@ -67,8 +67,8 @@ include('./login-google.php');
     <div class="row   buscador">
       <div class="col-md-2"></div>
       <div class="col-md-6 ">
-        <a type="button" class="btn btn-primary btn-lg" href="./v.principal-reclutador.html">Candidatos</a>
-        <a type="button" class="btn btn-success btn-lg text-white" href="./V.principal-alumno.php">Publicaciones</a>
+        <a type="button" class="btn btn-primary btn-lg" href="./v.principal-reclutador.php">Candidatos</a>
+        <a type="button" class="btn btn-success btn-lg text-white">Publicaciones</a>
       </div>
     </div>
 
