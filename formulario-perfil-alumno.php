@@ -1,4 +1,4 @@
-<?php include('./login-google.php');
+<?php require_once('./Rutas/login-google.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,27 +1,8 @@
-//var botonEditar = document.getElementById('btn-editar');
-//var modal = document.getElementById('loginmodal4')
 
 $('#btn-editar').click(function(){
     $("#loginmodal4").modal("show");
     //console.log('puto');
 })
-
-
-
-$('#btnGuardar').click(function(){
-    mail = $('#email').text();
-    nombre = $('#nombre').text();
-    apellido = $('#apellido').text();
-    dni = $('#dni').text();
-    nacionalidad = $('#nacionalidad').text();
-    estadoCivil = $('#estadoCivil').text();
-    fecha = $('#fechaNacimiento').text();
-    calle = $('#calle').text();
-    numeroCalle = $('#numeroCalle').text();
-    telefono = $('#telefono').text();
-    opcion = 2;
-})
-
 
 $("#formAlumno").submit(function(e){
     e.preventDefault();
@@ -35,24 +16,27 @@ $("#formAlumno").submit(function(e){
      calle = $.trim($("#Fcalle").val());
      numeroCalle = $.trim($("#FnumeroCalle").val());
      telefono = $.trim($("#FnumeroTelefono").val());
+     imagen= $.trim($("#Fimagen").val());
+     opcion = 2;
+     //window.location.reload();
     $.ajax({
-        url: "perfil-alumno.php",
+        url: "Rutas/AlumnoEditSearch.php",
         type: "POST",
-        data: {email, nombre,apellido, dni, nacionalidad, estadoCivil, fecha, calle, numeroCalle, telefono, opcion},
-        success: function(data){  
-            email = email;        
-            nombre = nombre;
-            apellido = apellido;
-            dni= dni;
-            nacionalidad = nacionalidad;
-            estadoCivil = estadoCivil;
-            fecha = fecha;
-            calle = calle;
-            numeroCalle = numeroCalle;
-            telefono = telefono;
-            //if(opcion == 2){tablaPersonas.row(fila).data([email,nombre,apellido,dni,nacionalidad,estadoCivil,fecha,calle,numeroCalle,telefono]).draw()};          
-        }        
+        data: {email:email ,nombre:nombre,apellido:apellido,dni:dni , nacionalidad:nacionalidad, fecha:fecha, calle:calle, numeroCalle:numeroCalle, telefono:telefono,imagen:imagen, opcion:opcion},
+        success: function(response){
+            console.log(response);
+            var datos =  JSON.parse(response)
+            $('#nombre').html(datos[0].nombre);
+            $('#apellido').html(datos[0].apellido);
+            $('#dni').html(datos[0].dni);
+            $('#nacionalidad').html(datos[0].nacionalidad);
+            $('#fechaNacimiento').html(datos[0].fecha);
+            $('#telefono').html(datos[0].telefono);
+            $('#calle').html(datos[0].calle);
+            $('#numeroCalle').html(datos[0].numeroCalle);
+            $('#nacionalidad').html(datos[0].nacionalidad);
+            
+        }     
     });
     $("#loginmodal4").modal("hide");    
-    
 });    

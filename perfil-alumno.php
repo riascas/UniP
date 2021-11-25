@@ -2,29 +2,15 @@
 
 use Google\Service\CloudSearch\Value;
 
-require_once('./login-google.php');
-$alumno = new AlumnoModel();
-$resultado = $alumno->datosAlumno($_SESSION['user_email_address']);
-$data = $resultado->fetch(PDO::FETCH_ASSOC);
+require_once('./Rutas/login-google.php');
+require_once('./Model/AlumnoModel.php');
+if (isset($_SESSION['user_email_address'])) {
+    $alumno = new AlumnoModel();
+    $resultado = $alumno->datosAlumno($_SESSION['user_email_address']);
+    $data= $resultado->fetch(PDO::FETCH_ASSOC);
+    //$data  = json_encode($data);
+}
 
-    if(isset($_POST['nombre'],$_POST['opcion'])){
-        $email= $_POST['email'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $dni = $_POST['dni'];
-        $nacionalidad= $_POST['nacionalidad'];
-        $estadoCivil = $_POST['estadoCivil'];
-        $fecha = $_POST['fecha'];
-        $calle= $_POST['calle'];
-        $numero= $_POST['numeroCalle'];
-        $telefono= $_POST['telefono'];
-        $opcion =$_POST['opcion'];
-        switch($opcion){
-            case 2:
-                $alumno = new AlumnoModel();
-                $alumno->actualizarDatos($email,$nombre,$apellido,$dni,$nacionalidad,$fecha,$calle,$numero,$telefono);
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -58,22 +44,11 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
                         <a class="nav-link active text-white" aria-current="page" href="./perfil-alumno.php">Mi Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="./ABMNotificacionAlumno.html>Mis postulaciones</a>
+                        <a class="nav-link text-white" href="./ABMNotificacionAlumno.html">Mis postulaciones</a>
                     </li>
-                    <li class="nav-item dropdown">
-                      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a> -->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li class="nav-item">
+                </ul>
+                </li>
+                <!-- <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                   </li> -->
                 </ul>
@@ -94,7 +69,7 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="row">
             <div class="col-md-3 mb-1  ">
-                <img class="rounded-circle" src="./img/Perfil-facu.jpg ?>" alt="" width="165">
+                <img class="rounded-circle" src="https://i.ibb.co/BjkSMS5/Perfil-facu.jpg" alt="" width="165">
             </div>
 
             <div class="col-md-6  pt-2">
@@ -110,8 +85,8 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="row">
             <div class="col-md-4">
-                <p class="t h4" > Nombre: <span id="nombre" name="nombre"><?php echo $data['Nombre'] ?></span>  </p>
-                <p class="t h4" > Apellido: <span id="apellido" name="appellido"><?php echo $data['Apellido'] ?></span></p>
+                <p class="t h4"> Nombre: <span id="nombre" name="nombre"><?php echo $data['Nombre'] ?></span> </p>
+                <p class="t h4"> Apellido: <span id="apellido" name="appellido"><?php echo $data['Apellido'] ?></span></p>
             </div>
             <div class="col-md-6">
                 <p class="t h3">Tecnicatura universitaria en Desarrollo de software</p>
@@ -121,23 +96,23 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
             <div class="col-md-4 t ">
                 <p class="h4 t mb-2">Información Personal<i class="far fa-address-card ms-2 text-dark"></i>
                 </p>
-                <p class="h5 t mb-2" >Nacionalidad: <span id="nacionalidad" name="nacionalidad" ><?php echo $data['Nacionalidad'] ?></span>  </p>
+                <p class="h5 t mb-2">Nacionalidad: <span id="nacionalidad" name="nacionalidad"><?php echo $data['Nacionalidad'] ?></span> </p>
                 <p class="h5 t mb-2" id="estadoCivil" name="estadoCivil">Estado civil: soltero</p>
-                <p class="h5 t mb-2" >Fecha de nacimiento:<span id="fechaNacimiento" name="fechaNacimiento"><?php echo $data['FechaNacimiento']?></span></p>
-                <p class="h5 t mb-2" >D.N.i: <span id="dni" name="dni" > <?php echo $data['DNI'] ?></span> </p>    
+                <p class="h5 t mb-2">Fecha de nacimiento:<span id="fechaNacimiento" name="fechaNacimiento"><?php echo $data['FechaNacimiento'] ?></span></p>
+                <p class="h5 t mb-2">D.N.i: <span id="dni" name="dni"> <?php echo $data['DNI'] ?></span> </p>
             </div>
             <div class="col-md-3 t">
                 <p class="h4 t mb-2" id="direccion" name="direccion">Dirección<i class="fas fa-home ms-2 text-dark"></i></p>
                 <p class="h5 t mb-2">Provincia: Buenos Aires</p>
                 <p class="h5 t mb-2">Localidad: Tristan Suarez</p>
-                <p class="h5 t mb-2" >Calle : <span id="calle" name="calle"><?php echo $data['NombreCalle'] ?></span> </p>
-                <p class="h5 t mb-2"  >Nro: <span id="numeroCalle" name="numeroCalle"><?php echo $data['NumeroCalle'] ?></span> </p>
+                <p class="h5 t mb-2">Calle : <span id="calle" name="calle"><?php echo $data['NombreCalle'] ?></span> </p>
+                <p class="h5 t mb-2">Nro: <span id="numeroCalle" name="numeroCalle"><?php echo $data['NumeroCalle'] ?></span> </p>
             </div>
             <div class="col-md-3 t">
                 <p class="h4 t"> Datos de contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i>
                 </p>
-                <p class="h5 t mb-2"  >Nro telefono: <span id="telefono" name="elefono"><?php echo $data['Telefono'] ?></span></p>
-                <p class="h5 t mb-2" >Email: <span id="email" name="email"><?php echo $data['Email'] ?></span></p>
+                <p class="h5 t mb-2">Nro telefono: <span id="telefono" name="elefono"><?php echo $data['Telefono'] ?></span></p>
+                <p class="h5 t mb-2">Email: <span id="email" name="email"><?php echo $data['Email'] ?></span></p>
             </div>
 
             <div class="col-md-2 t ">
@@ -189,10 +164,10 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
                                 <input type="text" class="form-control mt-3" name="Fnombre" id="Fnombre" placeholder="Nombre" value="<?php echo $data['Nombre'] ?>">
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control mt-3" name="Fprovincia" id="Fprovincia" placeholder="Provincia" >
+                                <input type="text" class="form-control mt-3" name="Fprovincia" id="Fprovincia" placeholder="Provincia">
                             </div>
                             <div class="col-md-4">
-                                <input type="number" class="form-control mt-3" name="FnumeroTelefono" id="FnumeroTelefono" placeholder="Numero de Telefono" value="<?php echo $data['Telefono'] ?>" >
+                                <input type="number" class="form-control mt-3" name="FnumeroTelefono" id="FnumeroTelefono" placeholder="Numero de Telefono" value="<?php echo $data['Telefono'] ?>">
                             </div>
                         </div>
                         <div class="form-row ">
@@ -208,7 +183,7 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-row ">
                             <div class="col-md-4">
-                                <input type="text" class="form-control mt-3" name="Fdni" id="Fdni" placeholder="Dni" value="<?php echo $data['DNI'] ?>" >
+                                <input type="text" class="form-control mt-3" name="Fdni" id="Fdni" placeholder="Dni" value="<?php echo $data['DNI'] ?>">
                             </div>
                             <div class="col-md-4">
                                 <input type="text" class="form-control mt-3" name="Fcalle" id="Fcalle" placeholder="calle" value="<?php echo $data['NombreCalle'] ?>">
@@ -231,9 +206,9 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <input type="number" class="form-control mt-3" id="FnumeroCalle" name="FnumeroCalle"  placeholder="Numero" value="<?php echo $data['NumeroCalle'] ?>">
+                                <input type="number" class="form-control mt-3" id="FnumeroCalle" name="FnumeroCalle" placeholder="Numero" value="<?php echo $data['NumeroCalle'] ?>">
                             </div>
-                            
+
                         </div>
                         <div class="form-row">
                             <div class="col-md-4">
@@ -242,7 +217,7 @@ $data = $resultado->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-row  mt-3">
                             <div class="col-md-4">
-                                <input placeholder="Fecha Nacimiento" class="textbox-n" type="text" onfocus="(this.type='date')" id="Fdate">
+                                <input placeholder="Fecha Nacimiento" class="textbox-n" type="text" onfocus="(this.type='date')" id="Fdate" value="<?php echo $data['FechaNacimiento'] ?>" >
                             </div>
                         </div>
                         <div class="modal-footer">

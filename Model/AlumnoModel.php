@@ -1,5 +1,5 @@
 <?php
-require_once('./Model/ConexionFacu.php');
+require_once('ConexionFacu.php');
 class AlumnoModel 
 {
     private $idAlumno;
@@ -125,7 +125,7 @@ class AlumnoModel
     }
 
 
-    public function actualizarDatos( $email,$nombre,$apellido,$dni,$nacionalidad,$fecha,$calle,$numero,$telefono )
+    public function actualizarDatos( $email,$nombre,$apellido,$dni,$nacionalidad,$fecha,$foto,$calle,$numero,$telefono )
     {
 
         try{
@@ -133,8 +133,12 @@ class AlumnoModel
             $objeto = new ConexionFacu();
             $conexion = $objeto->Conectar();
             /*query para buscar alumno por email*/
-            $sentenciaSQL = $conexion->prepare("UPDATE Persona SET Nombre='$nombre', Apellido='$apellido', Dni='$dni',FechaNacimiento='$fecha',Nacionalidad='$nacionalidad',Telefono='$telefono',NombreCalle='$calle',NumeroCalle='$numero' WHERE Email='$email' ");
+            $sentenciaSQL = $conexion->prepare("UPDATE Persona SET Nombre='$nombre', Apellido='$apellido', Dni='$dni',FechaNacimiento='$fecha', FotoPerfil='$foto', Nacionalidad='$nacionalidad',Telefono='$telefono',NombreCalle='$calle',NumeroCalle='$numero' WHERE Email='$email' ");
             $sentenciaSQL->execute();
+            /*query para buscar alumno por email*/
+            $sentenciaSQL = $conexion->prepare("SELECT * FROM persona WHERE Email = '$email'");
+            $sentenciaSQL->execute();
+            return $sentenciaSQL;
         }catch (Exception $ex) {
             echo $ex->getMessage();
         }

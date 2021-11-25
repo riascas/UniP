@@ -1,6 +1,6 @@
 <?php
 
-include('./login-google.php');
+require_once('./Rutas/login-google.php');
 
 ?>
 

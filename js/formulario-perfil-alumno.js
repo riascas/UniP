@@ -131,7 +131,7 @@ formulario.onsubmit = function(e){
       imagen:imagen.value,
    }
    //envio el arreglo mediante POST .
-   $.post('alumno-add.php',postData,function(response){
+   $.post('Rutas/alumno-add.php',postData,function(response){
       console.log(response);
       window.alert("Guardado");
    })

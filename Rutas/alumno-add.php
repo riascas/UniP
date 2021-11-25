@@ -1,7 +1,7 @@
 <?php
 /*este archivo  recibe el arreglo con los datos del formulario alumno y los envia a la BD*/
-include_once('./Model/AlumnoModel.php');
-include_once('./Clases/Alumno.php');
+include_once('../Model/AlumnoModel.php');
+include_once('../Clases/Alumno.php');
     if(isset($_POST['nombre'])){
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -18,11 +18,13 @@ include_once('./Clases/Alumno.php');
         $preferencia = $_POST['preferencia'];
         $imagen= $_POST['imagen'];
     }
-    /*Instancio un objeto de tipo persona con los datos que recibi del formulario */
+    //Instancio un objeto de tipo alumno  con los datos que recibi del formulario */
     $alumno = new Alumno($nombre,$apellido,$dni,$nacionalidad,$nacimiento,$telefono,$estadoCivil,$provincia,$localidad,$calle,$numero, $email,$imagen,$preferencia);
-    /*Instancio un objeto de tipo Alumnomodel para usar su funcion de guardar en la bd */
+    //Instancio un objeto de tipo Alumnomodel para usar su funcion de guardar en la bd */
     $alumnoModel = new AlumnoModel();
-    $alumnoModel->guardar($alumno);
+    $resultado = $alumnoModel->guardar($alumno);
     $alumnoModel->GuardarRol();
     $alumnoModel->GuardarPreferencia();
+   
+
 ?>

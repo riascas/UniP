@@ -1,5 +1,5 @@
 <?php 
-include('login-google.php');
+include('./Rutas/login-google.php');
 include_once('./Model/AlumnoModel.php');
 
 
@@ -49,7 +49,7 @@ if($result==false){
     
 
 
-    <a class ="nav-link text-white text-aling-left ms-3 " href="logout-google.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</h3></div>
+    <a class ="nav-link text-white text-aling-left ms-3 " href="./Rutas/logout-google.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</h3></div>
 
    
   </li>';

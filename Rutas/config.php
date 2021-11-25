@@ -4,9 +4,8 @@
 session_start();
 
 //config.php
-include('./Model/AlumnoModel.php');
 //Include Google Client Library for PHP autoload file
-require_once 'vendor/autoload.php';
+require_once 'C:\xampp\htdocs\Unip\UniP\Rutas/vendor/autoload.php';
 
 //Make object of Google API Client for call Google API
 $google_client = new Google_Client();
