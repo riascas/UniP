@@ -67,7 +67,8 @@
                         ':numeroCalle'=> $datos->getNumeroCalle(),
                         ':pass' => $datos->getPassword(),
                         ':idProvincia' => $datos->getProvincia(),
-                        ':idLocalidad' => $datos->getLocalidad()
+                        ':idLocalidad' => $datos->getLocalidad(),
+                        ':cuil' => $datos->getCuil()
                     ));
                 
                 // echo($this->estado);
