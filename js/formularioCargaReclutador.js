@@ -123,14 +123,12 @@ formulario.onsubmit = function(e){
     var apellido = document.getElementById('apellido');
     var nacionalidad = document.getElementById('nacionalidad');
     var estadoCivil = document.getElementById('estadoCivil');
-    var edad = document.getElementById('edad');
     var dni = document.getElementById("cuit");
     var nacimiento = document.getElementById("nacimiento");
     var idprovincia = document.getElementById('provincia');
     var idlocalidad = document.getElementById('localidad');
     var calle = document.getElementById('calle');
     var numerocalle = document.getElementById('numerocalle');
-    var cp = document.getElementById('cp');
     var email = document.getElementById('email');
     var numeroTelefono = document.getElementById('numeroTelefono');
     var imagen =  document.getElementById('imagen');
@@ -148,13 +146,11 @@ formulario.onsubmit = function(e){
        dni:dni.value,
        nacionalidad:nacionalidad.value,
        estadoCivil:estadoCivil.value,
-       edad:edad.value,
        nacimiento:nacimiento.value,
        idprovincia:idprovincia.value,
        idlocalidad:idlocalidad.value,
        calle:calle.value,
        numerocalle:numerocalle.value,
-       cp: cp.value,
        email:email.value,
        telefono:numeroTelefono.value,
        imagen: imagen ? imagen.value : null,
