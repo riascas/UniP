@@ -69,10 +69,6 @@ const validarFormulario = (e) => {
        case "numero":
           validarCampo(expresiones.numero,e.target,'numero');
           break;
-       break;
-       case "cp":
-          validarCampo(expresiones.numero,e.target,'cp');
-       break;
        case "email":
           validarCampo(expresiones.correo,e.target,'email');
        break;
@@ -107,11 +103,11 @@ formulario.onsubmit = function(e){
    var localidad = document.getElementById('localidad');
    var calle = document.getElementById('calle');
    var numero = document.getElementById('numero');
-   var cp = document.getElementById('cp');
    var email = document.getElementById('email');
    var numeroTelefono = document.getElementById('numeroTelefono');
    var preferencia = document.getElementById('preferencia');
    var imagen =  document.getElementById('imagen');
+
    
       //creo un arreglo con los valores de los elementos del formulario .
    const postData= {
@@ -128,16 +124,26 @@ formulario.onsubmit = function(e){
       email:email.textContent,
       telefono:numeroTelefono.value,
       preferencia:preferencia.value,
-      imagen:imagen.value,
    }
    //envio el arreglo mediante POST .
-   $.post('Rutas/alumno-add.php',postData,function(response){
+   /*$.post('Rutas/alumno-add.php',postData,function(response){
       console.log(response);
-      window.alert("Guardado");
-   })
-   e.preventDefault();
+      //window.alert("Guardado");
+   })*/
+   var formData = new FormData($("#formulario")[0]);
+   formData.append('email', email.textContent);
+   $.ajax({
+       url: "Rutas/alumno-add.php",
+       type: "POST",
+       data: formData,
+       processData: false,
+       contentType: false,
+       success: function(response){
+           console.log(response);
+       }
+   });
 
-   
+   e.preventDefault();
 };
 
 

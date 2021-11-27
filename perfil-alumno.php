@@ -69,7 +69,7 @@ if (isset($_SESSION['user_email_address'])) {
         </div>
         <div class="row">
             <div class="col-md-3 mb-1  ">
-                <img class="rounded-circle" src="https://i.ibb.co/BjkSMS5/Perfil-facu.jpg" alt="" width="165">
+                <img class="rounded-circle" id="img-perfil" src="./img/<?php echo $data['FotoPerfil'] ?>" alt="" width="165">
             </div>
 
             <div class="col-md-6  pt-2">
@@ -111,7 +111,7 @@ if (isset($_SESSION['user_email_address'])) {
             <div class="col-md-3 t">
                 <p class="h4 t"> Datos de contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i>
                 </p>
-                <p class="h5 t mb-2">Nro telefono: <span id="telefono" name="elefono"><?php echo $data['Telefono'] ?></span></p>
+                <p class="h5 t mb-2">Nro telefono: <span id="telefono" name="telefono"><?php echo $data['Telefono'] ?></span></p>
                 <p class="h5 t mb-2">Email: <span id="email" name="email"><?php echo $data['Email'] ?></span></p>
             </div>
 
@@ -157,7 +157,7 @@ if (isset($_SESSION['user_email_address'])) {
                 <div class="modal-header bg-primary">
                     <div class="col-12 h3 text-white">Editar Perfil</div>
                 </div>
-                <form id="formAlumno" class="form">
+                <form id="formAlumno" class="form"  enctype="multipart/form-data" method="post">
                     <div class="modal-body">
                         <div class=" form-row">
                             <div class="col-md-4">
@@ -178,7 +178,7 @@ if (isset($_SESSION['user_email_address'])) {
                                 <input type="text" class="form-control mt-3" name="Flocalidad" id="Flocalidad" placeholder="Localidad">
                             </div>
                             <div class="col-md-4">
-                                <input type="file" class=" mt-3" name="Fimagen" id="Fimagen" accept=".jpg,.png,.jpeg">
+                                <input type="file" class=" mt-3" name="Fimagen" id="Fimagen" accept=".jpg,.png,.jpeg" value="<?php echo $data['FotoPerfil']; ?>" >
                             </div>
                         </div>
                         <div class="form-row ">
@@ -217,7 +217,7 @@ if (isset($_SESSION['user_email_address'])) {
                         </div>
                         <div class="form-row  mt-3">
                             <div class="col-md-4">
-                                <input placeholder="Fecha Nacimiento" class="textbox-n" type="text" onfocus="(this.type='date')" id="Fdate" value="<?php echo $data['FechaNacimiento'] ?>" >
+                                <input placeholder="Fecha Nacimiento" class="textbox-n" type="text" onfocus="(this.type='date')" name="Fdate" id="Fdate" value="<?php echo $data['FechaNacimiento'] ?>" >
                             </div>
                         </div>
                         <div class="modal-footer">

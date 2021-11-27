@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2021 a las 18:48:36
+-- Tiempo de generación: 25-11-2021 a las 01:53:25
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `alumno_preferencias`
 --
 
+DROP TABLE IF EXISTS `alumno_preferencias`;
 CREATE TABLE `alumno_preferencias` (
   `IdAlumnoPreferencia` int(11) NOT NULL,
   `IdAlumno` int(11) NOT NULL,
@@ -36,9 +37,24 @@ CREATE TABLE `alumno_preferencias` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `materia_skill`
+--
+
+DROP TABLE IF EXISTS `materia_skills`;
+CREATE TABLE `materia_skills` (
+  `Id` int(11) NOT NULL,
+  `Idmateria` int(11) NOT NULL,
+  `IdSkills` int(11) NOT NULL,
+  `ProfesorValidador` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `departamentoalumno`
 --
 
+DROP TABLE IF EXISTS `departamentoalumno`;
 CREATE TABLE `departamentoalumno` (
   `IdDepAlumno` int(11) NOT NULL,
   `IdUsuario` int(11) NOT NULL,
@@ -51,6 +67,7 @@ CREATE TABLE `departamentoalumno` (
 -- Estructura de tabla para la tabla `empresa`
 --
 
+DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `IdEmpresa` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
@@ -72,6 +89,7 @@ INSERT INTO `empresa` (`IdEmpresa`, `Nombre`, `Url`, `Cuit`, `Resumen`) VALUES
 -- Estructura de tabla para la tabla `empresa_persona`
 --
 
+DROP TABLE IF EXISTS `empresa_persona`;
 CREATE TABLE `empresa_persona` (
   `IdEmpresaPersona` int(11) NOT NULL,
   `IdEmpresa` int(11) NOT NULL,
@@ -84,6 +102,7 @@ CREATE TABLE `empresa_persona` (
 -- Estructura de tabla para la tabla `estadopostulacion`
 --
 
+DROP TABLE IF EXISTS `estadopostulacion`;
 CREATE TABLE `estadopostulacion` (
   `IdEstado` int(11) NOT NULL,
   `Descripcion` varchar(30) NOT NULL
@@ -95,6 +114,7 @@ CREATE TABLE `estadopostulacion` (
 -- Estructura de tabla para la tabla `estado_civil`
 --
 
+DROP TABLE IF EXISTS `estado_civil`;
 CREATE TABLE `estado_civil` (
   `IdEstadoCivil` int(11) NOT NULL,
   `Descripcion` varchar(30) NOT NULL
@@ -106,6 +126,7 @@ CREATE TABLE `estado_civil` (
 -- Estructura de tabla para la tabla `localidad`
 --
 
+DROP TABLE IF EXISTS `localidad`;
 CREATE TABLE `localidad` (
   `IdLocalidad` int(11) NOT NULL,
   `Descripcion` varchar(50) NOT NULL,
@@ -118,6 +139,7 @@ CREATE TABLE `localidad` (
 -- Estructura de tabla para la tabla `materia`
 --
 
+DROP TABLE IF EXISTS `materia`;
 CREATE TABLE `materia` (
   `IdMateria` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
@@ -129,22 +151,10 @@ CREATE TABLE `materia` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materia_skills`
---
-
-CREATE TABLE `materia_skills` (
-  `Id` int(11) NOT NULL,
-  `Idmateria` int(11) NOT NULL,
-  `IdSkills` int(11) NOT NULL,
-  `ProfesorValidador` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `oferta`
 --
 
+DROP TABLE IF EXISTS `oferta`;
 CREATE TABLE `oferta` (
   `IdOferta` int(11) NOT NULL,
   `Titulo` varchar(50) NOT NULL,
@@ -154,16 +164,17 @@ CREATE TABLE `oferta` (
   `FuncionesPuesto` varchar(200) NOT NULL,
   `IdTipoContrato` int(11) NOT NULL,
   `IdTipoJornada` int(11) NOT NULL,
-  `IdReclutador` int(11) NOT NULL,
-  `AcercadeEmpresa` varchar(500) NOT NULL
+  `IdReclutador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+
 
 --
 -- Estructura de tabla para la tabla `persona`
 --
 
+DROP TABLE IF EXISTS `persona`;
 CREATE TABLE `persona` (
   `IdPersona` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
@@ -188,6 +199,7 @@ CREATE TABLE `persona` (
 -- Estructura de tabla para la tabla `postulaciones`
 --
 
+DROP TABLE IF EXISTS `postulaciones`;
 CREATE TABLE `postulaciones` (
   `IdPostulacion` int(11) NOT NULL,
   `IdAlumno` int(11) NOT NULL,
@@ -202,6 +214,7 @@ CREATE TABLE `postulaciones` (
 -- Estructura de tabla para la tabla `preferencias`
 --
 
+DROP TABLE IF EXISTS `preferencias`;
 CREATE TABLE `preferencias` (
   `IdPreferencia` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
@@ -214,6 +227,7 @@ CREATE TABLE `preferencias` (
 -- Estructura de tabla para la tabla `provincia`
 --
 
+DROP TABLE IF EXISTS `provincia`;
 CREATE TABLE `provincia` (
   `IdProvincia` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL
@@ -225,6 +239,7 @@ CREATE TABLE `provincia` (
 -- Estructura de tabla para la tabla `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `IdRol` int(11) NOT NULL,
   `Descripcion` varchar(25) NOT NULL
@@ -246,6 +261,7 @@ INSERT INTO `roles` (`IdRol`, `Descripcion`) VALUES
 -- Estructura de tabla para la tabla `rolespersona`
 --
 
+DROP TABLE IF EXISTS `rolespersona`;
 CREATE TABLE `rolespersona` (
   `Id` int(11) NOT NULL,
   `IdUsuario` int(11) NOT NULL,
@@ -258,6 +274,7 @@ CREATE TABLE `rolespersona` (
 -- Estructura de tabla para la tabla `skills`
 --
 
+DROP TABLE IF EXISTS `skills`;
 CREATE TABLE `skills` (
   `IdSkills` int(11) NOT NULL,
   `Descripcion` varchar(25) NOT NULL,
@@ -270,6 +287,7 @@ CREATE TABLE `skills` (
 -- Estructura de tabla para la tabla `tipocontrato`
 --
 
+DROP TABLE IF EXISTS `tipocontrato`;
 CREATE TABLE `tipocontrato` (
   `IdTipoContrato` int(11) NOT NULL,
   `DetalleContrato` varchar(25) NOT NULL
@@ -291,6 +309,7 @@ INSERT INTO `tipocontrato` (`IdTipoContrato`, `DetalleContrato`) VALUES
 -- Estructura de tabla para la tabla `tipoente`
 --
 
+DROP TABLE IF EXISTS `tipoente`;
 CREATE TABLE `tipoente` (
   `IdTipoEnte` int(11) NOT NULL,
   `Descripcion` varchar(30) NOT NULL
@@ -311,6 +330,7 @@ INSERT INTO `tipoente` (`IdTipoEnte`, `Descripcion`) VALUES
 -- Estructura de tabla para la tabla `tipojornada`
 --
 
+DROP TABLE IF EXISTS `tipojornada`;
 CREATE TABLE `tipojornada` (
   `IdTipoJornada` int(11) NOT NULL,
   `Detalle` varchar(50) NOT NULL
@@ -334,6 +354,12 @@ INSERT INTO `tipojornada` (`IdTipoJornada`, `Detalle`) VALUES
 --
 ALTER TABLE `alumno_preferencias`
   ADD PRIMARY KEY (`IdAlumnoPreferencia`);
+
+--
+-- Indices de la tabla `alumno_skills`
+--
+ALTER TABLE `materia_skills`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `departamentoalumno`
@@ -366,16 +392,11 @@ ALTER TABLE `materia`
   ADD PRIMARY KEY (`IdMateria`);
 
 --
--- Indices de la tabla `materia_skills`
---
-ALTER TABLE `materia_skills`
-  ADD PRIMARY KEY (`Id`);
-
---
 -- Indices de la tabla `oferta`
 --
 ALTER TABLE `oferta`
   ADD PRIMARY KEY (`IdOferta`);
+
 
 --
 -- Indices de la tabla `persona`

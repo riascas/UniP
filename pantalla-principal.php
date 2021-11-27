@@ -210,16 +210,17 @@ require_once('./Rutas/login-google.php');
               <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext border border-secondary rounded" id="staticEmail">
+                  <input type="text" class="form-control-plaintext border border-secondary rounded" id="reclutadorEmail">
                 </div>
               </div>
               <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-2 col-form-label ">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control-plaintext border border-secondary rounded" id="inputPassword">
+                  <input type="password" class="form-control-plaintext border border-secondary rounded" id="reclutadorPass">
                 </div>
               </div>
-              <a type="submit" id="btnLoginReclutador" class="btn btn-danger" href="./v.principal-reclutador.html">
+              <a type="button" id="btnLoginReclutador" class="btn btn-danger" >
+                <!-- href="./v.principal-reclutador.html" -->
                 Ingresar
               </a>
               <a type="button" class="btn btn-link" href="./recuperar-contraseña.html">
@@ -247,7 +248,7 @@ require_once('./Rutas/login-google.php');
               <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext border border-secondary rounded" id="staticEmail" value="email@example.com">
+                  <input type="text"  class="form-control-plaintext border border-secondary rounded" id="staticEmail" value="email@example.com">
                 </div>
               </div>
               <div class="mb-3 row">

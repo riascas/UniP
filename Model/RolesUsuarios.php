@@ -7,7 +7,7 @@ class RolesUsuariosModel extends ConexionDB
     {
         try
         {
-            $this->query="INSERT INTO rolesusuarios(idrol,idusuario)
+            $this->query="INSERT INTO reolespersona(IdTipoUsuario,IdUsuario)
             VALUES(:idrol,:idusuario)";
             $this->ejecutar(array(
                 ':idrol' => $idRol,

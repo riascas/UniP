@@ -20,6 +20,7 @@ $(document).ready(function(){
     })
 
     function validar_formulario(){
+       
         if (!(validar_descripcion($("#infoEmpresa").val()))) {
             valido.push(false)
             $('#infoEmpresa').addClass('is-invalid')
@@ -48,6 +49,16 @@ $(document).ready(function(){
             $('#tipoContrato').addClass('is-invalid')
         }
 
+        if(!(validar_seleccion($("#lbltituloOferta").val()))){  //Agregue para el titulo de la oferta//
+            valido.push(false);
+            $('#lbltituloOferta').addClass('is-invalid')
+        }
+
+        if(!(validar_seleccion($("#nombreEmpresa").val()))){  //Agregue para el titulo de la oferta//
+            valido.push(false);
+            $('#nombreEmpresa').addClass('is-invalid')
+        }
+ 
         if(!valido.includes(false)){
             return true;
         }else{
@@ -64,6 +75,8 @@ $(document).ready(function(){
         $('#formOfertaLaboral').find('#tipoContrato').removeClass('is-invalid')
         $('#formOfertaLaboral').find('tipoJornada').val("0");
         $('#formOfertaLaboral').find('tipoContrato').val("0");
+        $('#formOfertaLaboral').find('lbltituloOferta').val(""); //Lo agregue para el titulo//
+        $('#nombreEmpresa').find('nombreEmpresa').val(""); 
     }
 
     function validar_seleccion(tiposeleccion){

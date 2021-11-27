@@ -5,8 +5,12 @@ $('#btn-editar').click(function(){
 
 $("#formAlumno").submit(function(e){
     e.preventDefault();
-     email = $.trim($("#email").text()); 
-     nombre = $.trim($("#Fnombre").val());
+    email = $.trim($("#email").text());
+    opcion = 2; 
+    var formData = new FormData($("#formAlumno")[0]);
+    formData.append('email', email);
+    formData.append('opcion', opcion);
+     /*nombre = $.trim($("#Fnombre").val());
      apellido = $.trim($("#Fapellido").val());
      dni = $.trim($("#Fdni").val());
      nacionalidad = $.trim($("#Fnacionalidad").val());
@@ -16,15 +20,19 @@ $("#formAlumno").submit(function(e){
      numeroCalle = $.trim($("#FnumeroCalle").val());
      telefono = $.trim($("#FnumeroTelefono").val());
      imagen= $.trim($("#Fimagen").val());
-     opcion = 2;
+     */
      //window.location.reload();
+
+     
     $.ajax({
         url: "Rutas/AlumnoEditSearch.php",
         type: "POST",
-        data: {email:email ,nombre:nombre,apellido:apellido,dni:dni , nacionalidad:nacionalidad, fecha:fecha, calle:calle, numeroCalle:numeroCalle, telefono:telefono,imagen:imagen, opcion:opcion},
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(response){
             console.log(response);
-            var datos =  JSON.parse(response)
+            var datos =  JSON.parse(response);
             $('#nombre').html(datos[0].nombre);
             $('#apellido').html(datos[0].apellido);
             $('#dni').html(datos[0].dni);
@@ -34,7 +42,7 @@ $("#formAlumno").submit(function(e){
             $('#calle').html(datos[0].calle);
             $('#numeroCalle').html(datos[0].numeroCalle);
             $('#nacionalidad').html(datos[0].nacionalidad);
-            
+            $("#img-perfil").prop("src","./img/"+datos[0].foto); 
         }     
     });
     $("#loginmodal4").modal("hide");    
