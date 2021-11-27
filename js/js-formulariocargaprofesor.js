@@ -138,7 +138,8 @@ formulario.addEventListener('submit', (e) => {
 				type:"post",
 				url:'./Rutas/profesor-add.php',
 				data:postData,
-				succes:function(r){
+				//dataType:'json',
+				success:function(r){
 					if(r==1){
 						alert("agregado con exito");
 					}else{

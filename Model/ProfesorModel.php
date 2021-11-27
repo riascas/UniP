@@ -1,6 +1,7 @@
 <?php
+    
     require_once("../dirs.php");
-    require_once (MODEL_PATH."ConexionDB.php");
+    require_once ("ConexionDB.php");
 
     class ProfesorModel extends ConexionDB
     {

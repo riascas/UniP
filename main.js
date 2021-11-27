@@ -53,7 +53,7 @@ function login(event){
             console.log(data[0]);
 
             if(data != ""){
-                location.href = "/sofia/clase%202/pantalla-principal-administrador.html";
+                location.href = "pantalla-principal-administrador.html";
             }else{
                 alert("no")
             }

@@ -26,7 +26,7 @@ class ProfesorController
         if($this->profModel->estado=='Conectado')
         {
             echo(json_encode(array('Estado'=> 'Ok' )));
-            // echo('Ok');
+          
         }
         else
         {
@@ -41,12 +41,11 @@ class ProfesorController
         try {
         
             $idUsr = $this->profModel->Guardar($profesor);
-            echo($idUsr);
-            echo($profesor->getRol());
+         
             $this->rolesUsuariosModel->Guardar($idUsr,$profesor->getRol());
-            print_r($this->rolesUsuariosModel);
+          
 
-            return 'OK';
+            return 1;
         } 
         catch (Exception $e) {
             $e->getMessage();
