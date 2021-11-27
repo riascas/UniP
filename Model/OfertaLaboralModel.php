@@ -52,17 +52,19 @@
             ));
         }
         */
-        public function Guardar(Reclutador $datos)
+        public function Guardar(OfertaLaboral $datos)
         {
             // print_r($datos);
             // print_r($this);
             // echo($datos->getNombre()."NombreModel");
             try
             {
-                $this->query = "INSERT INTO oferta (Titulo, Contejamiento, DNI, Email, FechaNacimiento, FotoPerfil, Nacionalidad, Telefono, IdEstadoCivil, NombreCalle, NumeroCalle, Password, IdProvincia, IdLocalidad)
-                VALUES (:nombre, :apellido,:dni,:email,:fechaNacimiento,:fotoPerfil, :nacionalidad, :telefono, :idEstadoCivil, :nombreCalle, :numeroCalle, :pass,:idProvincia, :idLocalidad);";
+                $this->query = "INSERT INTO oferta (idOferta, Titulo, IdEmpresa, UbicacionOferta, DetallePuesto,FuncionesPuesto, IdTipoontrato,IdTipoJornada,IdReclutador, AcercadeEmpresa)
+
+
+                VALUES (:lbltituloOferta, :nombreEmpresa,:ubicacion,:lblDetalleEmpleo,:lblDetalleFunciones,:TipoDeContrato,:TipoDeJornada,:acercaDeEmpresa);";
                 $this->ejecutar( array(
-                        ':nombre' => $datos->getNombre(),
+                        ':nombreEmpresa' => $datos->getNombre(),
                         ':apellido' => $datos->getApellido(),
                         ':dni' => $datos->getDNI(),
                         ':email' => $datos->getEmail(),
