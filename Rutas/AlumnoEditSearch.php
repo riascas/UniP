@@ -1,21 +1,27 @@
 <?php
 require_once('../Model/AlumnoModel.php');
+$nom_encriptado;
 if(isset($_POST['email'],$_POST['opcion'])){
-    $email= $_POST['email'];
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $dni = $_POST['dni'];
-    $nacionalidad= $_POST['nacionalidad'];
-    $fecha = $_POST['fecha'];
-    $calle= $_POST['calle'];
-    $numero= $_POST['numeroCalle'];
-    $telefono= $_POST['telefono'];
-    $imagen = $_POST['imagen'];
+    $email= $_POST['email'];   
+    $nombre = $_POST['Fnombre'];
+    $apellido = $_POST['Fapellido'];
+    $dni = $_POST['Fdni'];
+    $nacionalidad= $_POST['Fnacionalidad'];
+    $fecha = $_POST['Fdate'];
+    $calle= $_POST['Fcalle'];
+    $numero= $_POST['FnumeroCalle'];
+    $telefono= $_POST['FnumeroTelefono'];
+    $foto=  $_FILES['Fimagen'];
     $opcion=$_POST['opcion'];
     switch($opcion){
         case 2:
+            if($foto["type"] == "image/jpg" or $foto["type"] == "image/jpeg"){
+                $nom_encriptado = $foto["name"];
+                $ruta = "../img/".$nom_encriptado;
+                move_uploaded_file($foto["tmp_name"], $ruta);
+            }
             $alumno = new AlumnoModel();
-            $resultado= $alumno->actualizarDatos($email,$nombre,$apellido,$dni,$nacionalidad,$fecha,$imagen,$calle,$numero,$telefono);
+            $resultado= $alumno->actualizarDatos($email,$nombre,$apellido,$dni,$nacionalidad,$fecha,$nom_encriptado,$calle,$numero,$telefono);
             
             $datos =  $resultado->fetch(PDO::FETCH_ASSOC);
             $json[] = array(
@@ -29,7 +35,6 @@ if(isset($_POST['email'],$_POST['opcion'])){
                 'numeroCalle' => $datos['NumeroCalle'],
                 'telefono' => $datos['Telefono'],
             );
-
             $jsonstring =  json_encode($json);
             echo $jsonstring;
     }

@@ -57,7 +57,7 @@
   
   <div class="container mt-3 container-reclutadores border rounded border-2 border-primary">
     <h1 class="h1  text-center text mt-2">Perfil Alumno</h1>
-    <form id="formulario" method="POST" enctype="multipart/form-data" >
+    <form id="formulario"  enctype="multipart/form-data" method="post" >
       <div class="row mt-5">
         <div class="col-md-4">
           <h1 class="h3  text-left pt-2">Datos Personales<i class="far fa-address-card ms-2 text-primary"></i>
@@ -74,7 +74,7 @@
               <p  id="error_nacionalidad"  class=" invalid-feedback text-warning">Nacionalidad solo puede tener letras y espacios</p>
             </div>
             <div class="form-row">
-              <select class="form-select mt-3" name="estadoCivil" id="estadoCivil" >
+              <select class="form-select mt-3"  id="estadoCivil" name="estadoCivil" >
                 <option value="1" selected disabled>Estado Civil</option>
                 <option value="2">Soltero/a</option>
                 <option value="3">Casado/a</option>
@@ -102,14 +102,14 @@
         <div class="col-md-4">
           <h1 class="h3  pt-2">Dirección<i class="fas fa-home ms-2 text-primary"></i></h1>
           <div class="form-row">
-          <select class="form-select mt-3" name="provincia" id="provincia" >
+          <select class="form-select mt-3"  id="provincia" name="provincia" >
                 <option value="1">Buenos Aires</option>
                 <option value="2">Cordoba</option>
                 <option value="3">Corrientes</option>
               </select>
           </div>
           <div class="form-row">
-          <select class="form-select mt-3" name="localidad" id="localidad" >
+          <select class="form-select mt-3" id="localidad" name="localidad"  >
                 <option value="1" >ezeiza</option>
                 <option value="2">suarez</option>
                 <option value="3">MG</option>
@@ -142,10 +142,10 @@
             <h1 class="h3  mt-3 ">Contacto<i class="fas fa-phone-square-alt ms-2 text-primary"></i></h1>
           </div>
           <div class="form-row">
-            <span class="h5">Email:  </span>  <span class="h5" id="email" name="email"><?php echo $_SESSION['user_email_address'];  ?></span>
+            <span class="h5">Email:  </span>  <span class="h5" name="email" id="email" ><?php echo $_SESSION['user_email_address'];  ?></span>
           </div>
           <div class="form-row">
-            <input type="number" class="form-control mt-3" name="numeroTelefono" id="numeroTelefono" placeholder="Numero de telefono">
+            <input type="number" class="form-control mt-3" name="numeroTelefono"   id="numeroTelefono" placeholder="Numero de telefono">
             <p  id="error_numeroTelefono"  class=" invalid-feedback text-warning">Ingresar un telefono valido min 7 dígitos max 14  </p>
           </div>
             <h1 class="h3  pt-2 ">Imagen <i class="fas fa-camera-retro text-primary mt-2"></i></h1>
