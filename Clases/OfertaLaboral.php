@@ -5,6 +5,7 @@ class Ofertalaboral extends Persona
     private $IdOferta;
     private $Titulo;
     private $IdEmpresa;
+    private $NombreEmpresa;
     private $UbicacionOferta;
     private $DetallePuesto;
     private $FuncionesPuesto;
@@ -12,12 +13,13 @@ class Ofertalaboral extends Persona
     private $IdTipoJornada;
     private $IdReclutador;
 
-    public function __construct($nombre, $apellido,$dni,$IdOferta,$Titulo,$IdEmpresa,$UbicacionOferta,$DetallePuesto,$FuncionesPuesto,$IdTipoContrato,$IdTipoJornada,$IdReclutador)
+    public function __construct($NombreEmpresa,$IdOferta,$Titulo,$IdEmpresa,$UbicacionOferta,$DetallePuesto,$FuncionesPuesto,$IdTipoContrato,$IdTipoJornada,$IdReclutador)
     {   
-        parent::__construct($IdOferta,$Titulo,$IdEmpresa,$UbicacionOferta,$DetallePuesto,$FuncionesPuesto,$IdTipoContrato,$IdTipoJornada,$IdReclutador);
+        parent::__construct($IdOferta,$Titulo,$IdEmpresa,$NombreEmpresa,$UbicacionOferta,$DetallePuesto,$FuncionesPuesto,$IdTipoContrato,$IdTipoJornada,$IdReclutador);
         $this->IdOferta= $IdOferta;
         $this->Titulo = $Titulo;
         $this->IdEmpresa = $IdEmpresa;
+        $this->NombreEmpresa = $nombreEmpresa;
         $this->UrlEmpresa = $UrlEmpresa;
         $this->UbicacionOferta = $UbicacionOferta;
         $this->DetallePuesto = $DetallePuesto;   
@@ -67,6 +69,26 @@ class Ofertalaboral extends Persona
         return $this->IdEmpresa;
     }
 
+    public function setNombreEmpresa($nombreEmpresa)
+    {
+        $this->NombreEmpresa = $nombreEmpresa;
+    }
+
+    public function getNombreEmpresa()
+    {
+        return $this->NombreEmpresa;
+    }
+
+    public function setUrlEmpresa($urlEmpresa)
+    {
+        $this->UrlEmpresa = $urlEmpresa;
+    }
+
+    public function getUrlEmpresa()
+    {
+        return $this->UrlEmpresa;
+    }
+
     public function setUbicacionOferta($ubicacionOferta)
     {
         $this->UbicacionOferta = $ubicacionOferta;
@@ -87,11 +109,6 @@ class Ofertalaboral extends Persona
         return $this->DetallePuesto;
     }
     
-    public function getDetallePuesto()
-    {
-        return $this->DetallePuesto;
-    }
-
     public function setFuncionesPuesto($funcionesPuesto)
     {
         $this->FuncionesPuesto = $funcionesPuesto;

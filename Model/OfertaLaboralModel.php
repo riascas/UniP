@@ -35,7 +35,7 @@
             WHERE IdOferta = :IdOfer";
 
             $this->obtenerRows(array(
-                ':IdPers'=> intval($id)
+                ':IdOfer'=> intval($id)
             ));
 
             return $this->rows;
@@ -59,38 +59,30 @@
             // echo($datos->getNombre()."NombreModel");
             try
             {
-                $this->query = "INSERT INTO oferta (idOferta, Titulo, IdEmpresa, UbicacionOferta, DetallePuesto,FuncionesPuesto, IdTipoontrato,IdTipoJornada,IdReclutador, AcercadeEmpresa)
+                $this->query = "INSERT INTO oferta (idOferta, Titulo, IdEmpresa, UbicacionOferta, DetallePuesto,FuncionesPuesto, IdTipoontrato,IdTipoJornada,IdReclutador, AcercadeEmpresa, UrlEmpresa)
 
 
-                VALUES (:lbltituloOferta, :nombreEmpresa,:ubicacion,:lblDetalleEmpleo,:lblDetalleFunciones,:TipoDeContrato,:TipoDeJornada,:acercaDeEmpresa);";
+                VALUES (:lbltituloOferta, :nombreEmpresa,:ubicacion,:lblDetalleEmpleo,:lblDetalleFunciones,:TipoDeContrato,:TipoDeJornada,:acercaDeEmpresa,:UrlEmpresa);";
                 $this->ejecutar( array(
-                        ':nombreEmpresa' => $datos->getNombre(),
-                        ':apellido' => $datos->getApellido(),
-                        ':dni' => $datos->getDNI(),
-                        ':email' => $datos->getEmail(),
-                        ':fechaNacimiento' => $datos->getFechaNacimiento(),
-                        ':fotoPerfil' => $datos->getImagenPerfil(),
-                        ':nacionalidad'=> $datos->getNacionalidad(),
-                        ':telefono' => $datos->getTelefono(),
-                        ':idEstadoCivil' => $datos->getEstadoCivil(),
-                        ':nombreCalle'=> $datos->getCalle(),
-                        ':numeroCalle'=> $datos->getNumeroCalle(),
-                        ':pass' => $datos->getPassword(),
-                        ':idProvincia' => $datos->getProvincia(),
-                        ':idLocalidad' => $datos->getLocalidad()
+                        ':lbltituloOferta' => $datos->getTitulo(),
+                        ':nombreEmpresa' => $datos->getNombreEmpresa(),
+                        ':ubicacion' => $datos->getUbicacionOferta(),
+                        ':lblDetalleEmpleo' => $datos->getDetallePuesto(),
+                        ':lblDetalleFunciones' => $datos->getFuncionesPuesto(),
+                        ':TipoDeContrato' => $datos->getIdTipoContrato(),
+                        ':TipoDeJornada'=> $datos->getIdTipoJornada(),
+                        ':acercaDeEmpresa'=> $datos->getIdTipoJornada(),
+                        ':UrlEmpresa'=> $datos->getIdTipoJornada(),
+              
                     ));
                 
-                // echo($this->estado);
-                // $datos->setIdUsuario( $this->ultimoId());
+            
                 return $this->ultimoId();
-                // echo(strval($this->ultimoId()));
-                // echo($datos->getNombre());
-                // echo($this->estado);
-                // echo('Ok');
+           
             }
             catch(Exception $e)
             {
-                $this->estado = "ERROR INSERTAR RECLUTADOR: " . $e->getMessage();
+                $this->estado = "ERROR INSERTAR OFERTA: " . $e->getMessage();
             }
         }
     }
