@@ -27,14 +27,14 @@
             return $this->ultimoId();
         }
 
-        public function LogearUsuario($correo,$pass)
+        public function BuscarUsuario($correo,$pass)
         {
 
-            /* $this->query = "SELECT p.IdPersona, Nombre, Apellido, DNI, Email,r.IdRol,r.Descripcion FROM persona p
-            INNER JOIN rolespersona rp ON p.IdPersona = rp.IdPersona
-            INNER JOIN roles r ON r.IdRol = rp.IdRol
-            WHERE Correo = :coreo AND Password = :pass"; */ 
-            $this->query = "SELECT * FROM persona WHERE Email = :correo AND Password = :pass "; 
+            $this->query = "SELECT p.IdPersona as IdPersona, Nombre, Apellido, DNI, Email,r.IdRol as IdRol,r.Descripcion as Rol FROM persona p
+            INNER JOIN rolespersona rp ON p.IdPersona = rp.IdUsuario
+            INNER JOIN roles r ON r.IdRol = rp.IdTipoUsuario
+            WHERE Email = :correo AND Password = :pass"; 
+            // $this->query = "SELECT * FROM persona WHERE Email = :correo AND Password = :pass "; 
             
             $usuarioLogeado = $this->ejecutar(array(
                 ':correo' => $correo,
