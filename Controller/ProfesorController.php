@@ -1,8 +1,8 @@
 <?php
 require_once("../dirs.php");
-require_once (CLASES_PATH."Persona.php");
-require_once (MODEL_PATH."ProfesorModel.php");
-require_once (MODEL_PATH."RolesUsuarios.php");
+require_once (CLASES_PATH."/Persona.php");
+require_once (MODEL_PATH."/ProfesorModel.php");
+require_once (MODEL_PATH."/RolesUsuarios.php");
 
 class ProfesorController
 {

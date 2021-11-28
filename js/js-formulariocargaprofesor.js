@@ -138,22 +138,132 @@ formulario.addEventListener('submit', (e) => {
 				type:"post",
 				url:'./Rutas/profesor-add.php',
 				data:postData,
-				//dataType:'json',
-				success:function(r){
-					if(r==1){
-						alert("agregado con exito");
+				dataType:'json',
+				success:function(response){
+					if(response.resultado == "OK") {
+						//Mostral modal informando al usuario
+						removeClass();
+						$('#task-form').trigger('reset');  
 					}else{
-						alert("fallo el server");
-					}
+						response.errores.forEach(function(objError, index, array){
+							switch(objError.campo) {
+								case 'nombre':
+								$('#nombre').removeClass('is-valid');
+								$('#nombre').addClass('is-invalid');
+								$('#error_nombre').html(objError.descripcion);
+								var errorElement = document.getElementById("error_nombre");
+        						errorElement.style.display='block';
+								break;
+								case 'apellido':
+								$('#apellido').removeClass('is-valid');
+								$('#apellido').addClass('is-invalid');
+								$('#error_apellido').html(objError.descripcion);
+								var errorElement = document.getElementById("error_apellido");
+        						errorElement.style.display='block';
+								break;
+								case 'dni':
+								$('#dni').removeClass('is-valid');
+								$('#dni').addClass('is-invalid');
+								$('#error_dni').html(objError.descripcion);
+								var errorElement = document.getElementById("error_dni");
+        						errorElement.style.display='block';
+								break;
+								case 'nacionalidad':
+								$('#nacionalidad').removeClass('is-valid');
+								$('#nacionalidad').addClass('is-invalid');
+								$('#error_nacionalidad').html(objError.descripcion);
+								var errorElement = document.getElementById("error_nacionalidad");
+        						errorElement.style.display='block';
+								break;
+								case 'estadoCivil':
+								$('#estadoCivil').removeClass('is-valid');
+								$('#estadoCivil').addClass('is-invalid');
+								$('#error_estadocivil').html(objError.descripcion);
+								var errorElement = document.getElementById("error_estadocivil");
+        						errorElement.style.display='block';
+								break;
+								case 'fecha_nac':
+								$('#fecha_nac').removeClass('is-valid');
+								$('#fecha_nac').addClass('is-invalid');
+								$('#error_edad').html(objError.descripcion);
+								var errorElement = document.getElementById("error_edad");
+        						errorElement.style.display='block';
+								break;
+								case 'provincia':
+								$('#provincia').removeClass('is-valid');
+								$('#provincia').addClass('is-invalid');
+								$('#error_provincia').html(objError.descripcion);
+								var errorElement = document.getElementById("error_provincia");
+        						errorElement.style.display='block';
+								break;
+								case 'localidad':
+								$('#localidad').removeClass('is-valid');
+								$('#localidad').addClass('is-invalid');
+								$('#error_localidad').html(objError.descripcion);
+								var errorElement = document.getElementById("error_localidad");
+        						errorElement.style.display='block';
+								break;
+								case 'nomcalle':
+								$('#nomcalle').removeClass('is-valid');
+								$('#nomcalle').addClass('is-invalid');
+								$('#error_nomcalle').html(objError.descripcion);
+								var errorElement = document.getElementById("error_nomcalle");
+        						errorElement.style.display='block';
+								break;
+								case 'numcalle':
+								$('#numcalle').removeClass('is-valid');
+								$('#numcalle').addClass('is-invalid');
+								$('#error_numcalle').html(objError.descripcion);
+								var errorElement = document.getElementById("error_numcalle");
+        						errorElement.style.display='block';
+								break;
+								case 'email':
+								$('#email').removeClass('is-valid');
+								$('#email').addClass('is-invalid');
+								$('#error_email').html(objError.descripcion);
+								var errorElement = document.getElementById("error_email");
+        						errorElement.style.display='block';
+								break;
+								case 'telefono':
+								$('#telefono').removeClass('is-valid');
+								$('#telefono').addClass('is-invalid');
+								$('#error_telefono').html(objError.descripcion);
+								var errorElement = document.getElementById("error_telefono");
+        						errorElement.style.display='block';
+								break;
+								case 'imagen':
+								$('#imagen').removeClass('is-valid');
+								$('#imagen').addClass('is-invalid');
+								$('#error_imagen').html(objError.descripcion);
+								var errorElement = document.getElementById("error_imagen");
+        						errorElement.style.display='block';
+								break;
+								case 'contrasenia':
+								$('#contrasenia').removeClass('is-valid');
+								$('#contrasenia').addClass('is-invalid');
+								$('#error_contrasenia').html(objError.descripcion);
+								var errorElement = document.getElementById("error_contrasenia");
+        						errorElement.style.display='block';
+								break;
+								default:
+								//mostrar modal error genérico
+								alert("Ha ocurrido un error!");
+								// code block
+							}              
+						});
+					}	
+				},
+				error: function(error) {
+					console.log(error);
 				}
-			});
-			return false;
-            //formulario.reset();
+			});  
         } else {
-            e.preventDefault();
+			//Hacer modal error, falta un dato.
+			console.log("Falta ingresar un dato.");
         }   
     }catch(ex){
-        console.log(ex);
-        e.preventDefault();
+		//hacer modal que avise error al ejecutar ajax
+		console.log(ex);
+        
     }
 });
