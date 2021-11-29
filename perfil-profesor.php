@@ -18,7 +18,7 @@
     require_once("Controller/ProfesorController.php");
     $profesor = New ProfesorController();
     $getData = $profesor->getDataId($_SESSION["IdPersona"]);
-    var_dump($getData);
+   
     ?>
     
     <div class="container container-reclutadores mt-4  border rounded ">
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2 mb-2 pt-5">
-                <button type="button" class="btn btn-primary btn-lg    mb-2" onclick="location.href='./formulario-perfil-alumno.html'">Editar Perfil</button>
+                <button type="button" class="btn btn-primary btn-lg    mb-2" onclick="location.href='./formulario-perfil-alumno.php'">Editar Perfil</button>
             </div>
         </div>
         <div class="row">
@@ -58,24 +58,22 @@
                 <p class="h4  mb-2">Información Personal<i class="far fa-address-card ms-2 text-dark"></i>
                 </p>
                 <p class="h5 mb-2">Nacionalidad: <?php echo $getData[0]["Nacionalidad"] ?></p>
-                <p class="h5 mb-2">Estado civil: xxxxxxx</p>
-                <p class="h5 mb-2">Edad: 00</p>
-                <p class="h5 mb-2">D.N.i: 000000</p>
-                <p class="h5 mb-2">C.U.I.L: 00-0000000-0</p>
+                <p class="h5 mb-2">Estado civil: <?php echo $getData[0]["IdEstadoCivil"] ?></p>
+                <p class="h5 mb-2">D.N.I: <?php echo $getData[0]["DNI"] ?></p>
             </div>
             <div class="col-md-3 ">
                 <p class="h4 mb-2">Dirección<i class="fas fa-home ms-2 text-dark"></i></p>
-                <p class="h5 mb-2">Provincia: xxxxxxx</p>
-                <p class="h5 mb-2">Localidad: xxxxxx</p>
-                <p class="h5 mb-2">Calle : xxxxxx</p>
-                <p class="h5 mb-2">Nro: 00</p>
-                <p class="h5 mb-2">CP: 0000</p>
+                <p class="h5 mb-2">Provincia: <?php echo $getData[0]["IdProvincia"] ?></p>
+                <p class="h5 mb-2">Localidad: <?php echo $getData[0]["IdLocalidad"] ?></p>
+                <p class="h5 mb-2">Calle : <?php echo $getData[0]["NombreCalle"] ?></p>
+                <p class="h5 mb-2">Nro: <?php echo $getData[0]["NumeroCalle"] ?></p>
+
             </div>
             <div class="col-md-3 ">
                 <p class="h4"> Datos de contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i>
                 </p>
-                <p class="h5 mb-2">Nro telefono: 00000000</p>
-                <p class="h5 mb-2">Email: xxxxx@xxxxx.com</p>
+                <p class="h5 mb-2">Nro telefono: <?php echo $getData[0]["Telefono"] ?></p>
+                <p class="h5 mb-2">Email: <?php echo $getData[0]["Email"] ?></p>
             </div>
         </div>
         <!--<div class="row mt-3">

@@ -12,12 +12,14 @@
           <?php 
             if($_SESSION["IdRol"] == 2){
           ?>
-            <a class="nav-link active text-white" aria-current="page" href="perfil-alumno.php">Mi Perfil</a>
+            <a class="nav-link active text-white" aria-current="page" href="perfil-DeptoAlumnos.php">Mi Perfil</a>
           <?php } else if($_SESSION["IdRol"] == 1){ ?>
             <a class="nav-link active text-white" aria-current="page" href="Perfil-Administrador.html">Mi Perfil</a>
          <?php }else if($_SESSION["IdRol"] == 5){ ?>
-          <a class="nav-link active text-white" aria-current="page" href="perfil-profesor.html">Mi Perfil</a>
-         <?php } ?>
+          <a class="nav-link active text-white" aria-current="page" href="perfil-profesor.php">Mi Perfil</a>
+          <?php }else if($_SESSION["IdRol"] == 3){ ?>
+          <a class="nav-link active text-white" aria-current="page" href="perfil-alumno.php">Mi Perfil</a>
+          <?php } ?>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="formularioDepartamentoAlumnos.html">Gestión de usuarios</a>

@@ -5,11 +5,17 @@ switch ($session) {
   case 1:
     header("Location: pantalla-principal-administrador.php");
     break;
-  case "2":
-    header("Location: ABMdepartamentoalumnos.php"); 
+  case 2:
+    header("Location: v.principal-reclutador.php"); 
     break;
-  case "5":
-    header("Location: perfil-profesor.php"); 
+  case 3:
+    header("Location: V.principal-alumno.php"); 
+    break;
+  case 4:
+    header("Location: v.principal-reclutador.php"); 
+    break;
+  case 5:
+    header("Location: v.principal-reclutador.php"); 
     break;
   case "":
     break;

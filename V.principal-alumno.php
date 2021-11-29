@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if($_SESSION["IdRol"] != 3){
+  header("Location: login.php"); 
+}
+?>
+
 <?php 
 include('./Rutas/login-google.php');
 include_once('./Model/AlumnoModel.php');

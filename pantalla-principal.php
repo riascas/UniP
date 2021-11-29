@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Rutas/login-google.php');
+require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
 
 ?>
 
@@ -118,7 +118,7 @@ require_once('./Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <p class=" h5 ps-5 text-center">INGRESAR</p>
+                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                       </div>
                     </button>
@@ -142,7 +142,7 @@ require_once('./Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <p class=" h5 ps-5 text-center">INGRESAR</p>
+                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                       </div>
                     </button>
@@ -167,7 +167,7 @@ require_once('./Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <p class=" h5 ps-5 text-center">INGRESAR</p>
+                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                     </button>
                     </a>
@@ -192,77 +192,6 @@ require_once('./Rutas/login-google.php');
               <div class="modal-footer">
                 <?php echo $login_button; ?>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!----modal para login reclutadores ------>
-      <div class="modal fade" role="dialog" id="loginmodal2">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-secondary">
-              <h3 class="moddal-tittle text-white ">Bienvenido</h3>
-            </div>
-            <div class="modal-body">
-              <div class="row text-center">
-                <div class="col-12 h3">Iniciar Sesión</div>
-              </div>
-              <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control-plaintext border border-secondary rounded" id="reclutadorEmail">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label ">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control-plaintext border border-secondary rounded" id="reclutadorPass">
-                </div>
-              </div>
-              <a type="button" id="btnLoginReclutador" class="btn btn-danger" >
-                <!-- href="./v.principal-reclutador.html" -->
-                Ingresar
-              </a>
-              <a type="button" class="btn btn-link" href="./recuperar-contraseña.html">
-                Olvide mi contraseña
-              </a>
-              <a href="./FormularioCargaReclutador.html" class="btn btn-link">
-                No tengo cuenta
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!----modal para login dptAlumno y profesores------>
-      <div class="modal fade" role="dialog" id="loginmodal3">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-secondary">
-              <h3 class="moddal-tittle text-white ">Bienvenido</h3>
-            </div>
-            <div class="modal-body">
-              <div class="row text-center">
-                <div class="col-12 h3">Iniciar Sesión</div>
-              </div>
-              <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="text"  class="form-control-plaintext border border-secondary rounded" id="staticEmail" value="email@example.com">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label ">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control-plaintext border border-secondary rounded" id="inputPassword">
-                </div>
-              </div>
-              <a type="submit" class="btn btn-danger" href="./Rutas/ListarReclutador.php">
-                Ingresar
-              </a>
-              <a type="button" class="btn btn-link" href="./recuperar-contraseña.html">
-                Olvide mi contraseña
-              </a>
             </div>
           </div>
         </div>

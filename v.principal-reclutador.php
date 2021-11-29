@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if($_SESSION["IdRol"] != 2 && $_SESSION["IdRol"] != 4 && $_SESSION["IdRol"] != 5 ){
+  header("Location: login.php"); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

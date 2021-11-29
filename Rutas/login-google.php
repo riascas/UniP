@@ -3,7 +3,7 @@
 //index.php
 
 //Include Configuration File
-include_once('C:\xampp\htdocs\Unip\UniP\Rutas/config.php');
+include_once('C:/xampp/htdocs/Unip/Rutas/config.php');
 $login_button = '';
 
 if(isset($_GET["code"]))
