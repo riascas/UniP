@@ -1,10 +1,3 @@
-<?php
-session_start();
-
-if($_SESSION["IdRol"] != 2 && $_SESSION["IdRol"] != 4 && $_SESSION["IdRol"] != 5 ){
-  header("Location: login.php"); 
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +75,25 @@ if($_SESSION["IdRol"] != 2 && $_SESSION["IdRol"] != 4 && $_SESSION["IdRol"] != 5
         </ul>
       </div>
     </div>
-    <div class="row">
+    <?php
+      require_once("dirs.php");
+      require_once(CONTROLLER_PATH."AlumnosController.php");
+      $alumnosController = new AlumnoController();
+      $listaAlumnos = $alumnosController->ListarAlumnosResumido();
+      // print_r($listaAlumnos);
+      foreach($listaAlumnos as $row){
+        echo('
+          <div class="row">
+          <div class="col-md-5 mt-4  border border-2 border-dark rounded  tarjeta-laboral tarjetas">
+            <img class="rounded-circle mt-1 ms-2" src="./'.$row["FotoPerfil"].'" alt="" width="100">
+            <P class="h3 ms-2">'.$row['Nombre'].' '.$row['Apellido'].'</P>
+            <p class="h4 ms-2 ">Alumno cursando tercer año de la carrera tecnicatura universitaria de software</p>
+            <a href="Vistas/Consultaperfil-alumno.php?Id='.$row['IdPersona'].'" class="link-dark float-end btn btn-primary text-white mb-2 mt-4 ">Ver Perfil completo</a>
+          </div>
+        ');
+      }
+    ?>
+    <!-- <div class="row">
       <div class="col-md-5 mt-4  border border-2 border-dark rounded  tarjeta-laboral tarjetas">
         <img class="rounded-circle mt-1 ms-2" src="./img/Perfil.jpg" alt="" width="100">
         <P class="h3 ms-2">Facundo Sergio</P>
@@ -129,7 +140,7 @@ if($_SESSION["IdRol"] != 2 && $_SESSION["IdRol"] != 4 && $_SESSION["IdRol"] != 5
         <p class="h4 ms-2 ">Alumno cursando tercer año de la carrera tecnicatura universitaria de software</p>
         <a href="./perfil-alumno.html" class="link-dark float-end btn btn-primary text-white mb-2">Ver Perfil completo</a>
       </div>
-    </div>
+    </div> -->
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
