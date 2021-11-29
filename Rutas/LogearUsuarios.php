@@ -1,6 +1,5 @@
 <?php
-require_once("../dirs.php");
-require_once (CONTROLLER_PATH."UsuarioController.php");
+require_once ("C:/xampp/htdocs/Unip/Controller/UsuarioController.php");
 
 
 

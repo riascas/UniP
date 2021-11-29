@@ -1,8 +1,6 @@
 <?php
-    require_once("../dirs.php");
-    require_once(MODEL_PATH."UsuarioModel.php");
-    // require_once("../Model/UsuarioModel.php");
- /*    require_once("../Clases/Usuario.php"); */
+    require_once("C:/xampp/htdocs/Unip/Model/UsuarioModel.php");
+    require_once("C:/xampp/htdocs/Unip/Clases/Persona.php"); 
     class UsuarioController 
     {
         function __construct(){
@@ -26,6 +24,7 @@
                 $_SESSION["IdRol"] = $datos[0]["IdRol"];
                 $_SESSION["IdPersona"] = $datos[0]["IdPersona"];
                 return $datos;
+                
             }
         }
     }

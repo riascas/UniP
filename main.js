@@ -58,9 +58,9 @@ function login(event){
                 }else if(data[0].IdRol == 2){
                     location.href = "ABMdepartamentoalumnos.php";
                 }else if(data[0].IdRol == 3){
-                    console.log("asd");
+                    location.href = "pantalla-principal-administrador.php";
                 }else if(data[0].IdRol == 4){
-                    console.log("asd");
+                    location.href = "pantalla-principal-administrador.php";
                 }else if(data[0].IdRol == 5){
                     location.href = "perfil-profesor.php";
                 }
@@ -68,5 +68,4 @@ function login(event){
         },
         
     })
-    /* vista (cuando genera una accion "ajax")>controlador(pide datos al modelo)>modelo(le devuelve los valores al controlar)<controlador(le pasa esos datos a la vista)<vista(lo imprimis o los utilizas) */
 }
