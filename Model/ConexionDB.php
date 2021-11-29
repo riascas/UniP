@@ -56,7 +56,7 @@
                 if( is_array($parametros)){
                     $consulta =  $this->objPDO->prepare($this->query);
                     $consulta->execute($parametros);
-                    $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    return $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $consulta =  $this->objPDO->prepare($this->query);
                     $consulta->execute();

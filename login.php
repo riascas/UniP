@@ -1,3 +1,25 @@
+<?php 
+session_start();
+$session = (isset($_SESSION["IdRol"]) ? $_SESSION["IdRol"] : "");
+switch ($session) {
+  case 1:
+    header("Location: pantalla-principal-administrador.php");
+    break;
+  case "2":
+    header("Location: ABMdepartamentoalumnos.php"); 
+    break;
+  case "5":
+    header("Location: perfil-profesor.php"); 
+    break;
+  case "":
+    break;
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

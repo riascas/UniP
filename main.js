@@ -50,17 +50,23 @@ function login(event){
             "param": "login",
         },
         success(data){
-            console.log(data[0]);
-
-            if(data != ""){
-                location.href = "pantalla-principal-administrador.html";
+            if(data.error == 1){
+                alert(data.mensaje);
             }else{
-                alert("no")
+                if(data[0].IdRol == 1){
+                    location.href = "pantalla-principal-administrador.php";
+                }else if(data[0].IdRol == 2){
+                    location.href = "ABMdepartamentoalumnos.php";
+                }else if(data[0].IdRol == 3){
+                    console.log("asd");
+                }else if(data[0].IdRol == 4){
+                    console.log("asd");
+                }else if(data[0].IdRol == 5){
+                    location.href = "perfil-profesor.php";
+                }
             }
         },
         
     })
-
     /* vista (cuando genera una accion "ajax")>controlador(pide datos al modelo)>modelo(le devuelve los valores al controlar)<controlador(le pasa esos datos a la vista)<vista(lo imprimis o los utilizas) */
-
 }

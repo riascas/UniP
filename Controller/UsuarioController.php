@@ -18,7 +18,15 @@
         {
             
             $datos = $this->usuarioModel->BuscarUsuario($correo,$pass);
-            return $datos;
+            if(empty($datos)){
+                return 1;
+            }else{
+                session_start();
+                $_SESSION["Email"] = $datos[0]["Email"];
+                $_SESSION["IdRol"] = $datos[0]["IdRol"];
+                $_SESSION["IdPersona"] = $datos[0]["IdPersona"];
+                return $datos;
+            }
         }
     }
 ?>

@@ -3,32 +3,27 @@ require_once("../dirs.php");
 require_once (CONTROLLER_PATH."UsuarioController.php");
 
 
-$datos = json_decode(file_get_contents("php://input")); 
-echo("entre controller");
-print_r($datos);
+
 $usuariocontroller = new UsuarioController();
 
-$email = $datos->email;
-$password = $datos->password;
+$param = $_POST["param"];
+switch ($param) {
+  case 'login':
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-$usuario = $usuariocontroller->LogearUsuario($email,$password);
-// print_r($usuario);
-// echo($usuario[0]["IdRol"]);
-switch($usuario[0]["IdRol"]){
-  case(4):
-    if($usuario != null){
-      return require_once("../v.principal-reclutador.php");
-      
+    $usuario = $usuariocontroller->LogearUsuario($email,$password);
+    if($usuario == 1){
+      echo json_encode(array("error" => 1, "mensaje" => "No se encontro usuario"));
+    }else{
+      echo json_encode($usuario);
     }
-    else{
-      require_once("../FormularioCargaReclutdato.html");
-    }
+    break;
 
-
-
-
-
-  }
+  default:
+    # code...
+    break;
+}
 
 
 

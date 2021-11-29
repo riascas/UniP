@@ -1,6 +1,6 @@
 <?php
     
-    require_once("../dirs.php");
+  /*   require_once("../dirs.php"); */
     require_once ("ConexionDB.php");
 
     class ProfesorModel extends ConexionDB
@@ -17,11 +17,11 @@
 
         public function LitarProfesorPorId($id)
         {
-            $this->query ="SELECT IdPersona, Nombre, Apellido, DNI, Email, FechaNacimiento,FotoPerfil,Nacionalidad,Telefono,IdEstadoCivil, NombreCalle,NumeroCalle,IdProvincia,IdLocal
+            $this->query ="SELECT IdPersona, Nombre, Apellido, DNI, Email, FechaNacimiento,FotoPerfil,Nacionalidad,Telefono,IdEstadoCivil, NombreCalle,NumeroCalle,IdProvincia,IdLocalidad
             From Persona
             WHERE IdPersona = :IdPersona";
             return $this->obtenerRows(array(
-                ':IdPersona'=> $id
+                ':IdPersona'=> intval($id)
             ));
         }
 

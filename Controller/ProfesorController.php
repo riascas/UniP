@@ -1,5 +1,5 @@
 <?php
-require_once("../dirs.php");
+
 require_once (CLASES_PATH."/Persona.php");
 require_once (MODEL_PATH."/ProfesorModel.php");
 require_once (MODEL_PATH."/RolesUsuarios.php");
@@ -12,6 +12,11 @@ class ProfesorController
     function __construct(){
         $this->profModel= new ProfesorModel();
         $this->rolesUsuariosModel = new RolesUsuariosModel();
+    }
+
+    public function getDataId($id){
+        $datos = $this->profModel->LitarProfesorPorId($id);
+        return $datos;
     }
     public function Listar()
     {
