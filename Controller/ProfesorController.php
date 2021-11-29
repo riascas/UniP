@@ -1,8 +1,8 @@
 <?php
 
-require_once (CLASES_PATH."/Persona.php");
-require_once (MODEL_PATH."/ProfesorModel.php");
-require_once (MODEL_PATH."/RolesUsuarios.php");
+require_once ("C:/xampp/htdocs/Unip/Clases/Persona.php");
+require_once ("C:/xampp/htdocs/Unip/Model/ProfesorModel.php");
+require_once ("C:/xampp/htdocs/Unip/Model/RolesUsuarios.php");
 
 class ProfesorController
 {
