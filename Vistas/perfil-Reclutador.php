@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg barra rounded">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="./pantalla-principal.html">Unip</a>
+            <a class="navbar-brand text-white" href="../v.principal-reclutador.php">Unip</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -94,9 +94,7 @@
                     </p>
                     <p class="h5 mb-2">Nacionalidad:'.$row['Nacionalidad'].'</p>
                     <p class="h5 mb-2">Estado civil: '.$row['EstadoCivil'].'</p>
-                    <p class="h5 mb-2">Edad: '.$row['Edad'].'</p>
                     <p class="h5 mb-2">D.N.i: '.$row['DNI'].'</p>
-                    <p class="h5 mb-2">C.U.I.L: '.$row['CUIL'].'</p>
                 </div>
                 <div class="col-md-3 ">
                     <p class="h4 mb-2">Dirección<i class="fas fa-home ms-2 text-dark"></i></p>
@@ -104,7 +102,6 @@
                     <p class="h5 mb-2">Localidad: '.$row['Localidad'].'</p>
                     <p class="h5 mb-2">Calle : '.$row['NombreCalle'].'</p>
                     <p class="h5 mb-2">Nro: '.$row['NumeroCalle'].'</p>
-                    <p class="h5 mb-2">CP:'.$row['CP'].'</p>
                 </div>
                 <div class="col-md-3 ">
                     <p class="h4"> Datos de contacto<i class="fas fa-phone-square-alt ms-2 text-dark"></i>

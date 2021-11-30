@@ -17,7 +17,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="./css/estilo.css">
   <link rel="stylesheet" href="./fontawesome/css/all.css">
   <title>Pantalla principal </title>
 
@@ -104,6 +104,30 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
           </div>
         </div>
 
+        <!-- <div class="col-md-3 mb-1">
+          <div class="card tarjeta-inicio border border-2 border-secondary tarjetas">
+            <img src="img/Reclutadores.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <h3 class="card-title h3 text-center">Reclutadores</h5>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-12">
+                    <button id="btnReclutadores" class="btn btn-primary w-100 my-1" data-bs-toggle="modal" data-bs-target="#loginmodal2">
+                      <div class="row aling-items-center">
+                        <div class="col-1"></div>
+                        <div class="col-11">
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
         <div class="col-md-3 mb-1">
           <div class="card tarjeta-inicio border border-2 border-secondary tarjetas">
             <img src="img/Reclutadores.jpg" class="card-img-top" alt="...">
@@ -118,7 +142,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <p class=" h5 ps-5 text-center">INGRESAR</p>
                         </div>
                       </div>
                     </button>
@@ -142,7 +166,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                       </div>
                     </button>
@@ -167,7 +191,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                     </button>
                     </a>
@@ -196,7 +220,42 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
           </div>
         </div>
       </div>
-
+      <!----modal para login reclutadores ------>
+      <div class="modal fade" role="dialog" id="loginmodal2">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-secondary">
+              <h3 class="moddal-tittle text-white ">Bienvenido</h3>
+            </div>
+            <div class="modal-body">
+              <div class="row text-center">
+                <div class="col-12 h3">Iniciar Sesión</div>
+              </div>
+              <form id="miform" style="background-color: aliceblue; padding:10%;" onsubmit="login(event)">
+                <div class="mb-4 row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control-plaintext border border-secondary rounded" id="email">
+                  </div>
+                </div>
+                <div class="mb-4 row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label ">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control-plaintext border border-secondary rounded" id="password">
+                  </div>
+                </div>
+                <button class="btn btn-danger col-3" type="submit">Ingresar</button>
+                <a type="button" class="btn btn-link col-4" href="./recuperar-contraseña.html">
+                  Olvide mi contraseña
+                </a>
+                <a href="./FormularioCargaReclutador.html" class="btn btn-link col-4">
+                  No tengo cuenta
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./js/pantalla-principal.js"></script>
 </body>

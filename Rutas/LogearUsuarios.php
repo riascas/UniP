@@ -12,10 +12,10 @@ switch ($param) {
     $password = $_POST["password"];
 
     $usuario = $usuariocontroller->LogearUsuario($email,$password);
-    if($usuario == 1){
-      echo json_encode(array("error" => 1, "mensaje" => "No se encontro usuario"));
+    if($usuario == 0){
+      echo json_encode(array("error" => 1, "mensaje" => "No se encontro usuario","usuario" => null));
     }else{
-      echo json_encode($usuario);
+      echo json_encode(array("error" => 0, "mensaje" => "Usuario encontrado","usuario" => $usuario));
     }
     break;
 

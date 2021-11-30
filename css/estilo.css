@@ -28,6 +28,10 @@ body{
     margin-top: 170px;
 }
 
+.btn-login{
+    color:white;
+}
+
 .filaTarjetas{
     margin-top: 130px;
   }

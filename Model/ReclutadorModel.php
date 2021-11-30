@@ -20,7 +20,7 @@
             
             $this->query ="SELECT IdPersona, p.Nombre as Nombre, Apellido, DNI, Email, FechaNacimiento, FotoPerfil, 
             Nacionalidad, Telefono, p.IdEstadoCivil, ec.Descripcion as EstadoCivil, NombreCalle, NumeroCalle, 
-            Password, p.IdProvincia, prov.Nombre as Provincia, p.IdLocalidad, loc.Descripcion as Localidad, p.Edad,p.CP,p.CUIL 
+            Password, p.IdProvincia, prov.Nombre as Provincia, p.IdLocalidad, loc.Descripcion as Localidad
             From persona p 
             INNER JOIN provincia prov on p.IdProvincia = prov.IdProvincia 
             INNER JOIN localidad loc on p.IdLocalidad = loc.IdLocalidad 
@@ -83,6 +83,17 @@
             {
                 $this->estado = "ERROR INSERTAR RECLUTADOR: " . $e->getMessage();
             }
+        }
+
+        public Function ListarOfertas($idReclutador)
+        {
+            $this->query = "SELECT IdOferta,Titulo, o.IdTipoContrato as IdTipoContrato,o.IdTipoJornada as IdTipoJornada,
+            UbicacionOferta,tp.DetalleContrato, tj.Detalle
+            FROM oferta o
+            INNER JOIN tipocontrato tp on tp.IdTipoContrato = o.IdTipoContrato
+            INNER JOIN tipojornada tj on tj.IdTipoJornada = o.IdTipoJornada";
+            $this->obtenerRows();
+            return $this->rows;
         }
     }
 
