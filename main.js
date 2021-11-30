@@ -53,15 +53,15 @@ function login(event){
             if(data.error == 1){
                 alert(data.mensaje);
             }else{
-                if(data[0].IdRol == 1){
+                if(data.usuario.IdRol == 1){
                     location.href = "pantalla-principal-administrador.php";
-                }else if(data[0].IdRol == 2){
+                }else if(data.usuario.IdRol == 2){
                     location.href = "ABMdepartamentoalumnos.php";
-                }else if(data[0].IdRol == 3){
-                    location.href = "pantalla-principal-administrador.php";
-                }else if(data[0].IdRol == 4){
-                    location.href = "pantalla-principal-administrador.php";
-                }else if(data[0].IdRol == 5){
+                }else if(data.usuario.IdRol == 3){
+                    location.href = "V.principal-alumno.php";
+                }else if(data.usuario.IdRol == 4){
+                    location.href = "v.principal-reclutador.php";
+                }else if(data.usuario.IdRol == 5){
                     location.href = "perfil-profesor.php";
                 }
             }

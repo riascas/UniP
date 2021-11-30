@@ -17,7 +17,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="./css/estilo.css">
   <link rel="stylesheet" href="./fontawesome/css/all.css">
   <title>Pantalla principal </title>
 
@@ -118,7 +118,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                       </div>
                     </button>
@@ -142,7 +142,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                       </div>
                     </button>
@@ -167,7 +167,7 @@ require_once('C:/xampp/htdocs/Unip/Rutas/login-google.php');
                       <div class="row aling-items-center">
                         <div class="col-1"></div>
                         <div class="col-11">
-                          <a href="login.php"><p class=" h5 ps-5 text-center">INGRESAR</p></a>
+                          <a href="login.php"><p class="btn-login h5 ps-5 text-center">INGRESAR</p></a>
                         </div>
                     </button>
                     </a>

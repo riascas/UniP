@@ -39,8 +39,8 @@
                     $consulta =  $this->objPDO->prepare($this->query);
                   
                     $consulta->execute($parametros);
-                    $rts =   $consulta->fetchAll(PDO::FETCH_ASSOC);
-                    return $rts;
+                    // $rts =   $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    // return $rts;
                 } else {
                     $resultado =  $this->objPDO->prepare($this->query);
                     $resultado->execute();
@@ -56,7 +56,8 @@
                 if( is_array($parametros)){
                     $consulta =  $this->objPDO->prepare($this->query);
                     $consulta->execute($parametros);
-                    return $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    // return $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    $this->rows =  $consulta->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $consulta =  $this->objPDO->prepare($this->query);
                     $consulta->execute();

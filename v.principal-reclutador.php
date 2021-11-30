@@ -18,7 +18,7 @@
 <body>
   <nav class="navbar navbar-expand-lg barra rounded">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="./pantalla-principal.html">Unip</a>
+      <a class="navbar-brand text-white" href="./pantalla-principal.php">Unip</a>
       <img src="./img/Logo3.png" alt="5%" width="3%">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,10 @@
             <a class="nav-link text-white" href="./FormularioOfertasLaborales.html">Crear publicación</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" id="miPerfil" href="Rutas/ObtenerPerfilReclutador.php?idReclutador=1">Mi Perfil</a>
+            <a class="nav-link text-white" id="miPerfil" href="Rutas/ObtenerPerfilReclutador.php">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" id="Logout" href="logout.php">Cerrar Sesion</a>
           </li>
           <li class="nav-item dropdown">
             <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,10 +88,10 @@
         echo('
           <div class="row">
           <div class="col-md-5 mt-4  border border-2 border-dark rounded  tarjeta-laboral tarjetas">
-            <img class="rounded-circle mt-1 ms-2" src="./'.$row["FotoPerfil"].'" alt="" width="100">
+            <img class="rounded-circle mt-1 ms-2" src="./img/'.$row["FotoPerfil"].'" alt="" width="100">
             <P class="h3 ms-2">'.$row['Nombre'].' '.$row['Apellido'].'</P>
             <p class="h4 ms-2 ">Alumno cursando tercer año de la carrera tecnicatura universitaria de software</p>
-            <a href="Vistas/Consultaperfil-alumno.php?Id='.$row['IdPersona'].'" class="link-dark float-end btn btn-primary text-white mb-2 mt-4 ">Ver Perfil completo</a>
+            <a href="Consultaperfil-alumno.php?Id='.$row['IdPersona'].'" class="link-dark float-end btn btn-primary text-white mb-2 mt-4 ">Ver Perfil completo</a>
           </div>
         ');
       }

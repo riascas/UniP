@@ -27,10 +27,10 @@ class ReclutadorController
     public function ListarPerfil($idreclutador)
     {
         $datos = $this->recModel->ListarPerfil($idreclutador);
-        if($datos == null)
-        {
-            echo("no data");
-        }
+        // if($datos == null)
+        // {
+            
+        // }
         return $datos;
     }
 
@@ -76,6 +76,12 @@ class ReclutadorController
             $e->getMessage();
         }
 
+    }
+
+    public function ListarOfertas($idReclutador)
+    {
+        $datos = $this->recModel->ListarOfertas($idReclutador);
+        return $datos;
     }
 
 }

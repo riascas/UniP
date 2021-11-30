@@ -1,5 +1,5 @@
 <?php
-require_once("../dirs.php");
+require_once("./dirs.php");
 require_once(MODEL_PATH."AlumnosModel.php");
 
 class AlumnoController

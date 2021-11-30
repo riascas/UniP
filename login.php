@@ -91,6 +91,9 @@ switch ($session) {
               <button id="miboton" type="button" class="btn btn-link">
                     Olvide mi contraseña 
               </button>
+              <?php
+              
+              ?>
         </form>
       </div>
      <!--  <script src="jquery-3.1.1.min.js"></script> -->
