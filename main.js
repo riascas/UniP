@@ -62,7 +62,7 @@ function login(event){
                 }else if(data[0].IdRol == 4){
                     location.href = "pantalla-principal-administrador.php";
                 }else if(data[0].IdRol == 5){
-                    location.href = "perfil-profesor.php";
+                    location.href = "v.principal-profesor.php";
                 }
             }
         },

@@ -122,7 +122,7 @@ if($_SESSION["IdRol"] != 1){
       </div>   <!--fin del container-->
   </body>    
       
-     
+  <a href="logout.php">salir</a>
   
       <!--FIN TARJETAS-->          
 

@@ -15,7 +15,7 @@ switch ($session) {
     header("Location: v.principal-reclutador.php"); 
     break;
   case 5:
-    header("Location: v.principal-reclutador.php"); 
+    header("Location: v.principal-profesor.php"); 
     break;
   case "":
     break;

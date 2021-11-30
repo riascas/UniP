@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if($_SESSION["IdRol"] != 2 && $_SESSION["IdRol"] != 4){
+  header("Location: login.php"); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,8 +83,8 @@
       </div>
     </div>
     <?php
-      require_once("dirs.php");
-      require_once(CONTROLLER_PATH."AlumnosController.php");
+    
+      require_once("C:/xampp/htdocs/Unip/Controller/AlumnosController.php");
       $alumnosController = new AlumnoController();
       $listaAlumnos = $alumnosController->ListarAlumnosResumido();
       // print_r($listaAlumnos);
@@ -147,5 +154,5 @@
     crossorigin="anonymous"></script>
   <!-- <script src="js/reclutadorprincipal.js"></script> -->
 </body>
-
+<a href="logout.php">salir</a>
 </html>

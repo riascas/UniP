@@ -231,6 +231,7 @@ if (isset($_SESSION['user_email_address'])) {
     </div>
 
     <script src="./js//perfil-alumno.js"></script>
+    <a href="logout.php">salir</a>
 </body>
 
 </html>

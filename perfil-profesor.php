@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2 mb-2 pt-5">
-                <button type="button" class="btn btn-primary btn-lg    mb-2" onclick="location.href='./formulario-perfil-alumno.php'">Editar Perfil</button>
+                <button type="button" class="btn btn-primary btn-lg    mb-2" ><a href="FormularioCargaProfesor.html"><p class=" h5 ps-5 text-center">Editar</p></a></button>
             </div>
         </div>
         <div class="row">
@@ -105,6 +105,7 @@
         </div>
     </div>-->
     </div>
+    <a href="logout.php">salir</a>
 </body>
 
 </html>

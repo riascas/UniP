@@ -171,7 +171,7 @@
     </form>
   </div>
   <script src="./js/formulario-perfil-alumno.js"></script>
-
+  <a href="logout.php">salir</a>
 </body>
 
 </html>

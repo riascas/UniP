@@ -96,6 +96,6 @@
         </div>
       </div>
     </div>
-
+    <a href="logout.php">salir</a>
 </body>
 </html>
