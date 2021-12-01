@@ -19,8 +19,9 @@ $(document).ready(function () {
              
                 success: function(data) {
                     alert('it worked');
-                    alert(data);
-                    $('.checkProfesor').html(data);
+                    if(data=='ok'){
+                        $('.checkProfesor').html("validado");
+                    }
                 },
                 error: function() {
                     alert('it broke');

@@ -132,6 +132,7 @@
         }
     }
     ?>
+    <a href="logout.php">salir</a>
     <script src="perfil-alumno-profesor.js"></script>
 </body>
 
