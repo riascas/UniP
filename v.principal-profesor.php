@@ -84,7 +84,7 @@ if($_SESSION["IdRol"] != 5){
             <img class="rounded-circle mt-1 ms-2" src="./'.$row["FotoPerfil"].'" alt="" width="100">
             <P class="h3 ms-2">'.$row['Nombre'].' '.$row['Apellido'].'</P>
             <p class="h4 ms-2 ">Alumno cursando tercer año de la carrera tecnicatura universitaria de software</p>
-            <a href="Vistas/Consultaperfil-alumno.php?Id='.$row['IdPersona'].'" class="link-dark float-end btn btn-primary text-white mb-2 mt-4 ">Ver Perfil completo</a>
+            <a href="Consultaperfil-alumno-profesor.php?Id='.$row['IdPersona'].'" class="link-dark float-end btn btn-primary text-white mb-2 mt-4 ">Ver Perfil completo</a>
           </div>
         ');
       }

@@ -17,14 +17,14 @@
             
             $datos = $this->usuarioModel->BuscarUsuario($correo,$pass);
             
-            if(count($datos)==0){
-                return 0;
+            if(empty($datos)){
+                return 1;
             }else{
                 session_start();
                 $_SESSION["Email"] = $datos[0]["Email"];
                 $_SESSION["IdRol"] = $datos[0]["IdRol"];
                 $_SESSION["IdPersona"] = $datos[0]["IdPersona"];
-                return $datos[0];
+                return $datos;
                 
             }
         }

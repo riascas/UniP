@@ -34,13 +34,13 @@
             INNER JOIN roles r ON r.IdRol = rp.IdTipoUsuario
             WHERE Email = :correo AND Password = :pass"; 
             
-            $this->obtenerRows(array(
+            $usuarioLogeado = $this->ejecutar(array(
                 ':correo' => $correo,
-                // ':pass' => sha1($pass)
-                ':pass' => $pass
+                ':pass' => sha1($pass)
+              
             ));
 
-            return $this->rows;
+            return $usuarioLogeado;
             
         }
     }
